@@ -2,13 +2,7 @@ import Example from '@components/Example/Example';
 import Head from 'next/head';
 import * as React from 'react';
 
-interface Props {
-  props: any;
-}
-
-export default function Home({ props }: Props) {
-  const [count, setCount] = React.useState();
-
+export default function Home() {
   return (
     <div>
       <Head>
