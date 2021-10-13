@@ -25,7 +25,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "eslint-comments", "jest", "promise", "import", "prettier"],
+  "plugins": ["@typescript-eslint", "cypress", "eslint-comments", "jest", "promise", "import", "prettier"],
   "rules": {
     "jest/expect-expect": [
       "warn",
