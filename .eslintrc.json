@@ -28,6 +28,7 @@
   "plugins": ["@typescript-eslint", "eslint-comments", "jest", "promise", "import", "prettier"],
   "rules": {
     "prettier/prettier": "error",
+    "import/prefer-default-export": "off",
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-empty-interface": "warn",
     "@typescript-eslint/explicit-module-boundary-types": "off",

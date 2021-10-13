@@ -7,6 +7,9 @@ module.exports = {
   moduleNameMapper: {
     '@src/(.*)': '<rootDir>/$1',
     '@styles/(.*)': '<rootDir>/styles/$1',
+    '@styled/(.*)': '<rootDir>/styled/$1',
+    '@pages/(.*)': '<rootDir>/pages/$1',
+    '@components/(.*)': '<rootDir>/components/$1',
   },
   coverageDirectory: 'coverage',
   collectCoverageFrom: ['./**/*.{js,jsx,ts,tsx}'],

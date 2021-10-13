@@ -1,23 +1,28 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  /* Source Code Pro regular */
-  @font-face {
-    font-family: 'Source Code Pro', monospace;
-    font-weight: 400;
-    src: url("/fonts/SourceCodePro-Regular.woff") url("/fonts/SourceCodePro-Regular.woff2");
-  }
+  /* Ubuntu medium */
+ @font-face {
+   font-family: 'Ubuntu';
+   src: url("/assets/fonts/Ubuntu-Medium.woff2") format("woff2"), url("/assets/fonts/Ubuntu-Medium.woff") format("woff");
+   font-style: normal;
+ }
 
   * {
     box-sizing: border-box;
   }
 
   body {
-   font-family: ${(props) => props.theme.font.family.default};
+   font-family:"Ubuntu", sans-serif;
+   background: ${(props) => props.theme.background.darker};
+   color: white;
+   line-height: 1.75rem;
+   font-size: 1rem;
   }
 
   a {
     text-decoration: none;
+    color: white;
   }
 `;
 
