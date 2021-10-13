@@ -18,7 +18,9 @@
     "outDir": "dist",
     "paths": {
       "@styles/*": ["styles/*"],
+      "@assets/*": ["public/*"],
       "@pages/*": ["pages/*"],
+      "@styled/*": ["styled/*"],
       "@components/*": ["components/*"]
     }
   },
