@@ -9,6 +9,8 @@ jobs:
     name: Cypress run
     runs-on: ubuntu-latest
     steps:
+      - name: Lint
+        run: npm run lint
       - name: Checkout
         uses: actions/checkout@v2
       - name: Cypress run
