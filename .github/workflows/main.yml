@@ -3,14 +3,15 @@ name: CI
 on:
   pull_request:
     branches: [main]
-
 jobs:
-  cypress-run:
-    name: Cypress run
+  validate:
     runs-on: ubuntu-latest
+
     steps:
+      - uses: actions/checkout@v2
+
       - name: Install
-        run: npm install
+        run: npm Install
 
       - name: Lint
         run: npm run lint
@@ -18,10 +19,7 @@ jobs:
       - name: Integration Tests
         run: npm run test
 
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Cypress run
+      - name: E2E Tests
         uses: cypress-io/github-action@v2
         with:
           build: npm run build
