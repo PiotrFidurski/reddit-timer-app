@@ -4,7 +4,7 @@ import * as S from './styles';
 
 function NavComponent() {
   return (
-    <S.Header>
+    <div>
       <S.Nav>
         <Image width="40" height="40" src="/assets/images/reddit.png" quality={100} />
         <S.Ul>
@@ -19,7 +19,7 @@ function NavComponent() {
           </S.Li>
         </S.Ul>
       </S.Nav>
-    </S.Header>
+    </div>
   );
 }
 
