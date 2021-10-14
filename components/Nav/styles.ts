@@ -28,3 +28,8 @@ export const Header = styled.header`
   padding: 0 10px;
   margin: 0 auto;
 `;
+
+export const LogoLink = styled.div`
+  cursor: pointer;
+  display: flex;
+`;

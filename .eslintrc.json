@@ -27,6 +27,7 @@
   },
   "plugins": ["@typescript-eslint", "cypress", "eslint-comments", "jest", "promise", "import", "prettier"],
   "rules": {
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.test.ts", "**/*.spec.ts"] }],
     "jest/expect-expect": [
       "warn",
       {
