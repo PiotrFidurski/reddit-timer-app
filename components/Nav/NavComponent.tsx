@@ -6,7 +6,11 @@ function NavComponent() {
   return (
     <S.Header>
       <S.Nav>
-        <Image width="40" height="40" src="/assets/images/reddit.png" quality={100} />
+        <S.A href="/">
+          <S.LogoLink data-testid="link-logo">
+            <Image width="40" height="40" src="/assets/images/reddit.png" quality={100} alt="logo" />
+          </S.LogoLink>
+        </S.A>
         <S.Ul>
           <S.Li>
             <S.A href="/search">Search</S.A>
