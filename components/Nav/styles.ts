@@ -24,6 +24,7 @@ export const Li = styled.li`
 `;
 
 export const Header = styled.header`
+  position: relative;
   max-width: 1600px;
   padding: 0 10px;
   margin: 0 auto;
