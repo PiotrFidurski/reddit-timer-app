@@ -1,10 +1,12 @@
 import NavComponent from '@components/Nav/NavComponent';
-import { Backdrop, IntroSection, Main } from '@styled/HomePage.styled';
+import { Backdrop, Button, ImageWrapper, IntroSection, Main } from '@styled/HomePage.styled';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import * as React from 'react';
 
 export default function HomePage() {
+  const router = useRouter();
   return (
     <Main>
       <Head>
@@ -15,26 +17,22 @@ export default function HomePage() {
       <Backdrop />
       <NavComponent />
       <IntroSection>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            padding: '10px',
-            maxWidth: '350px',
-            width: '100%',
-          }}
-        >
-          <h2 style={{ color: '#bbc0db' }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cum temporibus debitis blanditiis, alias
-            dicta voluptatum inventore doloribus sit distinctio sunt quibusdam ipsum obcaecati voluptates consequatur
-            quos, consectetur tenetur accusamus.
-          </h2>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <button type="button">Hey</button>
-            <button type="button">second</button>
-          </div>
-        </div>
-        <Image src="/assets/images/robot.png" layout="fixed" width="103" height="170" />
+        <h2 style={{ color: '#bbc0db' }}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cum temporibus debitis blanditiis, alias dicta
+          voluptatum inventore doloribus sit distinctio sunt quibusdam ipsum obcaecati voluptates consequatur quos,
+          consectetur tenetur accusamus.
+        </h2>
+
+        <a href="https://github.com/chimson/reddit-timer-app" target="_blank" rel="noreferrer">
+          <Button type="button">Github</Button>
+        </a>
+        <Button type="button" onClick={() => router.push('/search')}>
+          r/javascript
+        </Button>
+
+        <ImageWrapper>
+          <Image src="/assets/images/robot.png" layout="fill" objectFit="cover" />
+        </ImageWrapper>
       </IntroSection>
       <div id="about" style={{ height: '900px' }}>
         about section
