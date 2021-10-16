@@ -56,7 +56,7 @@
   },
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+      "@typescript-eslint/parser": [".ts", ".tsx", "__tests__/*.tsx"]
     },
     "import/resolver": {
       "typescript": {
