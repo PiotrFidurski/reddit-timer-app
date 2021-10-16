@@ -12,6 +12,16 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  ul {
+    letter-spacing: 1.2px;
+    font-size: clamp(1rem, 1.4vw, 1.3rem);
+  }
+
+  h2 {
+    line-height: 1.8rem;
+    font-size: clamp(1rem, 2vw, 1.6rem);
+  }
+
   body {
    font-family:"Ubuntu", sans-serif;
    background: ${(props) => props.theme.background.darker};
