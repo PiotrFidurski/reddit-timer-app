@@ -1,5 +1,13 @@
 import NavComponent from '@components/Nav/NavComponent';
-import { Backdrop, Button, ImageWrapper, IntroSection, Main } from '@styled/HomePage.styled';
+import {
+  AboutWrapper,
+  Button,
+  ButtonsWrapper,
+  Footer,
+  HowItWorksWrapper,
+  ImageWrapper,
+  Main,
+} from '@styled/HomePage.styled';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -14,30 +22,37 @@ export default function HomePage() {
         <meta name="description" content="Find the best time to post your reddit posts!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Backdrop />
+      {/* <Backdrop /> */}
       <NavComponent />
-      <IntroSection>
-        <h2 style={{ color: '#bbc0db' }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cum temporibus debitis blanditiis, alias dicta
-          voluptatum inventore doloribus sit distinctio sunt quibusdam ipsum obcaecati voluptates consequatur quos,
-          consectetur tenetur accusamus.
-        </h2>
-
+      <ImageWrapper>
+        <Image src="/assets/images/monitor-illustration.png" layout="intrinsic" width="550" height="400" />
+      </ImageWrapper>
+      <ButtonsWrapper>
         <a href="https://github.com/chimson/reddit-timer-app" target="_blank" rel="noreferrer">
           <Button type="button">Github</Button>
         </a>
         <Button type="button" onClick={() => router.push('/search')}>
           r/javascript
         </Button>
+      </ButtonsWrapper>
+      <AboutWrapper>
+        <h2 id="about">About</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
+          voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
+          modi.`
+        </p>
+      </AboutWrapper>
+      <HowItWorksWrapper>
+        <h2 id="how-it-works">How it works</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
+          voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
+          modi.`
+        </p>
+      </HowItWorksWrapper>
 
-        <ImageWrapper>
-          <Image src="/assets/images/robot.png" layout="fill" objectFit="cover" />
-        </ImageWrapper>
-      </IntroSection>
-      <div id="about" style={{ height: '900px' }}>
-        about section
-      </div>
-      <div id="how-it-works">how it works section</div>
+      <Footer>footer here</Footer>
     </Main>
   );
 }

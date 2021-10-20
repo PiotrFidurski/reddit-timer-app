@@ -1,6 +1,15 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
+export const Header = styled.header`
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  grid-area: navbar;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+`;
+
 export const Nav = styled.nav`
   width: 100%;
   display: flex;
@@ -19,13 +28,6 @@ export const Ul = styled.ul`
 
 export const Li = styled.li`
   padding: 0 1rem;
-`;
-
-export const Header = styled.header`
-  position: relative;
-  max-width: 1200px;
-  padding: 0 10px;
-  margin: 0 auto;
 `;
 
 export const LogoLink = styled.div`

@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
 
   ul {
     letter-spacing: 1.2px;
+    white-space: pre;
     font-size: clamp(1rem, 1.4vw, 1.3rem);
   }
 
