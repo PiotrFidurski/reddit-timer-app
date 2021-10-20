@@ -6,6 +6,7 @@ import {
   Footer,
   HowItWorksWrapper,
   ImageWrapper,
+  IntroSection,
   Main,
 } from '@styled/HomePage.styled';
 import Head from 'next/head';
@@ -20,6 +21,7 @@ export default function HomePage() {
       <Head>
         <title>Find the best time to post</title>
         <meta name="description" content="Find the best time to post your reddit posts!" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <Backdrop /> */}
@@ -27,14 +29,17 @@ export default function HomePage() {
       <ImageWrapper>
         <Image src="/assets/images/monitor-illustration.png" layout="intrinsic" width="550" height="400" />
       </ImageWrapper>
-      <ButtonsWrapper>
-        <a href="https://github.com/chimson/reddit-timer-app" target="_blank" rel="noreferrer">
-          <Button type="button">Github</Button>
-        </a>
-        <Button type="button" onClick={() => router.push('/search')}>
-          r/javascript
-        </Button>
-      </ButtonsWrapper>
+      <IntroSection>
+        <h2>Find out when its the best time to post something on reddit!</h2>
+        <ButtonsWrapper>
+          <a href="https://github.com/chimson/reddit-timer-app" target="_blank" rel="noreferrer">
+            <Button type="button">Github</Button>
+          </a>
+          <Button type="button" onClick={() => router.push('/search')}>
+            r/javascript
+          </Button>
+        </ButtonsWrapper>
+      </IntroSection>
       <AboutWrapper>
         <h2 id="about">About</h2>
         <p>
@@ -52,7 +57,13 @@ export default function HomePage() {
         </p>
       </HowItWorksWrapper>
 
-      <Footer>footer here</Footer>
+      <Footer>
+        <a href="https://github.com/chimson/reddit-timer-app" target="_blank" rel="noreferrer">
+          Github
+        </a>
+        <Image width="40" height="40" src="/assets/images/reddit.png" layout="fixed" quality={100} alt="logo" />
+        <p>Copyright 2021, Piotr Fidurski</p>
+      </Footer>
     </Main>
   );
 }
