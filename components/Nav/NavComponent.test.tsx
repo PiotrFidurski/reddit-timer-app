@@ -20,8 +20,9 @@ test('clicking on "about" and "how-it-works" link scrolls to correct sections', 
   const aboutLink = screen.getByRole('link', { name: /about/i });
   const howItWorksLink = screen.getByRole('link', { name: /how it works/i });
 
-  const about = screen.getByText(/about section/i);
-  const howItWorks = screen.getByText(/How it works section/i);
+  const about = screen.getByRole('heading', { name: /about/i });
+
+  const howItWorks = screen.getByRole('heading', { name: /how it works/i });
 
   expect(aboutLink).toHaveAttribute('href', '/#about');
   expect(howItWorksLink).toHaveAttribute('href', '/#how-it-works');

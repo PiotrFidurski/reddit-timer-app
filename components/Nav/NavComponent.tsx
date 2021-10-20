@@ -8,7 +8,7 @@ function NavComponent() {
       <S.Nav>
         <S.A href="/">
           <S.LogoLink data-testid="link-logo">
-            <Image width="40" height="40" src="/assets/images/reddit.png" quality={100} alt="logo" />
+            <Image width="40" height="40" src="/assets/images/reddit.png" layout="fixed" quality={100} alt="logo" />
           </S.LogoLink>
         </S.A>
         <S.Ul>
