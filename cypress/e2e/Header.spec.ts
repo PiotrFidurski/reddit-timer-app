@@ -16,14 +16,16 @@ describe('Header tests', () => {
 
   it('has how it works link and links to "#how-it-works" section', () => {
     cy.visit('/');
-    cy.findByText(/^How it works$/).click();
+
+    cy.findByRole('link', { name: /How it works/i }).click();
 
     cy.url().should('equal', `${Cypress.config().baseUrl}/#how-it-works`);
   });
 
   it('has about link and links to "#about" section', () => {
     cy.visit('/');
-    cy.findByText(/^About$/).click();
+
+    cy.findByRole('link', { name: /about/i }).click();
 
     cy.url().should('equal', `${Cypress.config().baseUrl}/#about`);
   });
