@@ -36,35 +36,6 @@ export const Backdrop = styled.div`
   background: linear-gradient(140deg, #252e7c, #040b3e 90%);
 `;
 
-export const ButtonsWrapper = styled.section`
-  grid-area: buttons;
-  max-width: 600px;
-  padding: 1rem;
-  align-items: center;
-  display: flex;
-  justify-content: space-evenly;
-  position: relative;
-  margin: 0 auto;
-  width: 100%;
-  @media (min-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-export const Button = styled.button`
-  background: transparent;
-  color: white;
-  padding: 15px 20px;
-  border-radius: 9999px;
-  border: 2px solid #41434d;
-  min-width: 135px;
-  max-height: 50px;
-  cursor: pointer;
-  @media (min-width: 768px) {
-    min-width: 300px;
-  }
-`;
-
 export const ImageWrapper = styled.div`
   grid-area: image;
   padding: 1rem;
@@ -74,6 +45,41 @@ export const ImageWrapper = styled.div`
   width: 100%;
   @media (min-width: 768px) {
     max-width: auto;
+  }
+`;
+
+export const IntroSection = styled.section`
+  max-width: 600px;
+  padding: 1rem;
+  align-items: center;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin: 0 auto;
+  grid-area: buttons;
+  width: 100%;
+  text-align: center;
+  flex-direction: column;
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  padding-top: 1rem;
+  gap: 2rem;
+  flex-direction: column;
+`;
+
+export const Button = styled.button`
+  background: transparent;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 9999px;
+  border: 2px solid #41434d;
+  min-width: 300px;
+  max-height: 50px;
+  cursor: pointer;
+  @media (min-width: 768px) {
+    min-width: 300px;
   }
 `;
 
@@ -91,5 +97,10 @@ export const HowItWorksWrapper = styled.section`
 
 export const Footer = styled.footer`
   position: relative;
+  padding: 1rem;
   grid-area: footer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100px;
 `;
