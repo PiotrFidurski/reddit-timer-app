@@ -22,9 +22,10 @@
       "@assets/*": ["public/*"],
       "@pages/*": ["pages/*"],
       "@styled/*": ["styled/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@utils/*": ["utils/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "public/mockServiceWorker.js"],
   "exclude": ["node_modules"]
 }
