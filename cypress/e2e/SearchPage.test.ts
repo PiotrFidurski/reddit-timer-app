@@ -18,6 +18,8 @@ describe('SearchPage tests', () => {
 
     cy.findByText(/^Search$/).click();
 
+    cy.wait('@getPosts');
+
     cy.findByTestId(/heatmap/i);
 
     cy.should('exist');
@@ -34,8 +36,6 @@ describe('SearchPage tests', () => {
 
     cy.findByText(/^Search$/).click();
 
-    cy.findByText(/loading/i);
-
     cy.findByText(/Cant find data for this subreddit/i);
 
     cy.should('exist');
@@ -51,8 +51,6 @@ describe('SearchPage tests', () => {
       .type('javascript');
 
     cy.findByText(/^Search$/).click();
-
-    cy.findByText(/loading/i);
 
     cy.findByText(/^Search$/).should('have.attr', 'disabled');
   });
