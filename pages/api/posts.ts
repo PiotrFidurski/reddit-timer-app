@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getDateYearFromNowInEpoch } from 'utils/date';
+import { getDateInEpoch } from 'utils/date';
 
 export interface RedditPost {
   created_utc: number;
@@ -14,7 +14,7 @@ interface PageProps {
   before?: string;
 }
 
-export async function fetchPosts({ subreddit, after, before }: PageProps) {
+async function fetchPosts({ subreddit, after, before }: PageProps) {
   const response = await fetch(
     `${process.env.PUSHSHIFT_URL}?before=${
       before ?? ''
@@ -35,7 +35,7 @@ export default async function handler(
   res: NextApiResponse<{ data: Array<RedditPost>; error?: string }>
 ) {
   try {
-    const [sixMonthsAgo, threeMonthsAgo, yearAgo] = getDateYearFromNowInEpoch();
+    const [sixMonthsAgo, threeMonthsAgo, yearAgo] = getDateInEpoch();
 
     const { subreddit } = req.query as { subreddit: string };
 
@@ -45,7 +45,7 @@ export default async function handler(
 
     const promise = await Promise.all([yearOld, sixMonthsOld, threeMonthsOld]);
 
-    const data = promise.map((set) => set.data);
+    const data = promise.map((result) => result.data);
 
     return res.status(200).json({ data: [].concat(...data) });
   } catch (error) {

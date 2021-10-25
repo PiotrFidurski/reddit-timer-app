@@ -9,6 +9,7 @@ describe('Header tests', () => {
 
   it('has a logo that links to "/"', () => {
     cy.visit('/');
+
     cy.findByTestId('link-logo').click();
 
     cy.url().should('equal', `${Cypress.config().baseUrl}/`);
@@ -32,6 +33,7 @@ describe('Header tests', () => {
 
   it('has search link that links to "/search" page', () => {
     cy.visit('/');
+
     cy.findByText(/^Search$/).click();
 
     cy.url().should('equal', `${Cypress.config().baseUrl}/search`);

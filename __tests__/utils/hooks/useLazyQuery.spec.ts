@@ -8,6 +8,7 @@ test('toggles "isLoading" state and "isError" state if theres an error', async (
   (mockGetData as jest.MockedFunction<jest.Mock>).mockRejectedValueOnce({ result: { data: null } });
 
   const { result, waitForNextUpdate } = renderHook(() => useLazyQuery(() => mockGetData('asdasdasd')));
+
   const triggerQuery = result.current[0];
 
   act(() => {
