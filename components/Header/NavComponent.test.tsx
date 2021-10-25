@@ -18,6 +18,7 @@ test('clicking on "about" and "how-it-works" link scrolls to correct sections', 
   render(<Home />);
 
   const aboutLink = screen.getByRole('link', { name: /about/i });
+
   const howItWorksLink = screen.getByRole('link', { name: /how it works/i });
 
   const about = screen.getByRole('heading', { name: /about/i });

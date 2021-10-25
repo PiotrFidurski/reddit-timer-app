@@ -2,14 +2,14 @@ import { render, screen } from '@testing-library/react';
 import { initialState } from 'utils/heatmap';
 import Heatmap from './Heatmap';
 
-const stubData = initialState();
+const heatmapData = initialState();
 
-stubData[0][0].push(1, 2);
+heatmapData[0][0].push(1, 2);
 
-stubData[6][23].push(1, 2, 3);
+heatmapData[6][23].push(1, 2, 3);
 
 test('it renders correct numbers for squares', () => {
-  render(<Heatmap data={stubData} />);
+  render(<Heatmap data={heatmapData} />);
 
   const firstSquare = screen.getByTestId(/^0_day-Sunday$/);
   const secondSquare = screen.getByTestId(/^23_day-Saturday$/);
