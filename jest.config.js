@@ -16,9 +16,10 @@ module.exports = {
     '@styled/(.*)': '<rootDir>/styled/$1',
     '@pages/(.*)': '<rootDir>/pages/$1',
     '@components/(.*)': '<rootDir>/components/$1',
+    '@utils/(.*)': '<rootDir>/utils/$1',
   },
   coverageDirectory: 'coverage',
-  collectCoverageFrom: ['./**/*.{js,jsx,ts,tsx}'],
+  collectCoverageFrom: ['./**/*.{js,jsx,ts,tsx}', './**/*/*.{js,jsx,ts,tsx}'],
   coverageThreshold: {
     global: {
       branches: 0,
