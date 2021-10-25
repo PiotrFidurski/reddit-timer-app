@@ -18,6 +18,8 @@ describe('SearchPage tests', () => {
 
     cy.findByText(/^Search$/).click();
 
+    cy.wait('@getPosts');
+
     cy.findByTestId(/heatmap/i);
 
     cy.should('exist');
