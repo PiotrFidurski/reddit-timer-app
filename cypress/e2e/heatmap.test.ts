@@ -2,10 +2,7 @@ import response from '../fixtures/pushshiftapi-response.json';
 
 describe('Heatmap tests', () => {
   it('returns a 400 status code on bad request', () => {
-    cy.intercept(
-      'http://localhost:3000/api/posts?subreddit=asdasdasd',
-      (req) => delete req.headers['if-none-match']
-    ).as('getPosts');
+    cy.intercept('http://localhost:3000/api/posts?subreddit=asdasdasd').as('getPosts');
     cy.visit('/search');
     cy.findByRole('textbox', { name: /subreddit/i })
       .clear()
