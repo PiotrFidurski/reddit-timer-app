@@ -18,8 +18,6 @@ describe('SearchPage tests', () => {
 
     cy.findByText(/^Search$/).click();
 
-    cy.wait('@getPosts');
-
     cy.findByTestId(/heatmap/i);
 
     cy.should('exist');
@@ -42,7 +40,7 @@ describe('SearchPage tests', () => {
   });
 
   it('search button cannot be clicked while request is in flight', () => {
-    cy.intercept('http://localhost:3000/api/posts?subreddit=javascript', { delay: 3000 }).as('getPosts');
+    cy.intercept('http://localhost:3000/api/posts?subreddit=javascript').as('getPosts');
 
     cy.visit('/');
 
