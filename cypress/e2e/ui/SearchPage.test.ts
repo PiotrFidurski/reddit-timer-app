@@ -7,14 +7,10 @@ describe('SearchPage tests', () => {
       .type('javascript');
   });
 
-  it('displays heatmap of subreddit posts when api call is successful', () => {
+  it('displays data in a form of heatmap when', () => {
     cy.intercept('http://localhost:3000/api/posts?subreddit=javascript', { fixture: 'pushshiftapi-response.json' }).as(
       'getPosts'
     );
-
-    cy.visit('/');
-
-    cy.findByText(/^Search$/).click();
 
     cy.findByRole('textbox', { name: /subreddit/i })
       .clear()
@@ -29,7 +25,7 @@ describe('SearchPage tests', () => {
     cy.should('exist');
   });
 
-  it('displays error message when api call fails', () => {
+  it('displays error message when theres an error making a request', () => {
     cy.intercept('http://localhost:3000/api/posts?subreddit=asdasdasd').as('getPosts');
 
     cy.visit('/search');
@@ -45,12 +41,10 @@ describe('SearchPage tests', () => {
     cy.should('exist');
   });
 
-  it('search button cannot be clicked while request is in flight', () => {
+  it('search button cannot be spam-clicked while request is in flight', () => {
     cy.intercept('http://localhost:3000/api/posts?subreddit=javascript').as('getPosts');
 
-    cy.visit('/');
-
-    cy.findByText(/^Search$/).click();
+    cy.visit('/search');
 
     cy.findByRole('textbox', { name: /subreddit/i })
       .clear()

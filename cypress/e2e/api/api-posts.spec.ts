@@ -1,7 +1,7 @@
-import response from '../fixtures/pushshiftapi-response.json';
+import response from '../../fixtures/pushshiftapi-response.json';
 
-describe('Heatmap tests', () => {
-  it('returns a 200 status code on success', () => {
+describe('/api/posts tests', () => {
+  it('returns 200 status code on when requested subreddit exists', () => {
     cy.intercept('http://localhost:3000/api/posts?subreddit=webdev', { fixture: 'pushshiftapi-response.json' }).as(
       'getPosts'
     );
@@ -17,18 +17,21 @@ describe('Heatmap tests', () => {
     cy.wait('@getPosts').its('response.statusCode').should('equal', 200);
   });
 
-  it('returns a 400 status code on bad request', () => {
+  it('returns 400 status code on when requested subreddit doesnt exist', () => {
     cy.intercept('http://localhost:3000/api/posts?subreddit=asdasdasd').as('getPosts');
+
     cy.visit('/search');
+
     cy.findByRole('textbox', { name: /subreddit/i })
       .clear()
       .type('asdasdasd');
+
     cy.findByText(/^Search$/).click();
 
     cy.wait('@getPosts').its('response.statusCode').should('equal', 400);
   });
 
-  it('returns heatmap data in correct shape', () => {
+  it('returns data that deep-equals pushshift-response.json fixture', () => {
     cy.intercept('http://localhost:3000/api/posts?subreddit=reactjs', { fixture: 'pushshiftapi-response.json' }).as(
       'getPosts'
     );
@@ -44,7 +47,7 @@ describe('Heatmap tests', () => {
     cy.wait('@getPosts').its('response.body').should('deep.equal', response);
   });
 
-  it('redditpost has all the properties required', () => {
+  it('single post deep-equals redditpost-response.json', () => {
     const post = {
       data: [
         {
@@ -58,6 +61,7 @@ describe('Heatmap tests', () => {
         },
       ],
     };
+
     cy.intercept('http://localhost:3000/api/posts?subreddit=reactjs', { fixture: 'redditpost-response.json' }).as(
       'getPosts'
     );
