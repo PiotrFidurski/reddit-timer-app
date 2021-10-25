@@ -42,7 +42,10 @@ describe('SearchPage tests', () => {
   });
 
   it('search button cannot be spam-clicked while request is in flight', () => {
-    cy.intercept('http://localhost:3000/api/posts?subreddit=javascript').as('getPosts');
+    cy.intercept('http://localhost:3000/api/posts?subreddit=javascript', {
+      delay: 3000,
+      fixture: 'pushshiftapi-response.json',
+    }).as('getPosts');
 
     cy.visit('/search');
 
