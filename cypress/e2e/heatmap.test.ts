@@ -2,7 +2,7 @@ import response from '../fixtures/pushshiftapi-response.json';
 
 describe('Heatmap tests', () => {
   it('returns a 200 status code on success', () => {
-    cy.intercept('http://localhost:3000/api/posts?subreddit=webdev', (req) => delete req.headers['if-none-match']).as(
+    cy.intercept('http://localhost:3000/api/posts?subreddit=webdev', { fixture: 'pushshiftapi-response.json' }).as(
       'getPosts'
     );
 
