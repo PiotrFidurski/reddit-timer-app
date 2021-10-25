@@ -1,4 +1,4 @@
-import NavComponent from '@components/Nav/NavComponent';
+import NavComponent from '@components/Header/NavComponent';
 import {
   AboutWrapper,
   Button,
@@ -21,8 +21,6 @@ export default function HomePage() {
       <Head>
         <title>Find the best time to post</title>
         <meta name="description" content="Find the best time to post your reddit posts!" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <Backdrop /> */}
       <NavComponent />

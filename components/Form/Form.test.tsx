@@ -1,17 +1,6 @@
 import SearchPage from '@pages/search';
 import { fireEvent, render, screen } from '@testing-library/react';
 
-test('it renders an input and a label', () => {
-  render(<SearchPage />);
-
-  const label = screen.getByLabelText(/subreddit/i);
-
-  const input = screen.getByRole('textbox', { name: /subreddit/i });
-
-  expect(input).toBeInTheDocument();
-  expect(label).toBeInTheDocument();
-});
-
 test('an input has a default value of "javascript"', () => {
   render(<SearchPage />);
 
@@ -34,5 +23,20 @@ test('an input can be typed into', () => {
   expect(input).toHaveAttribute('value', '');
 });
 
-// eslint-disable-next-line jest/no-export
-export {};
+test('when input value is "" submit button is disabled', () => {
+  render(<SearchPage />);
+
+  const input = screen.getByRole('textbox', { name: /subreddit/i });
+
+  const submitButton = screen.getByRole('button', { name: /search/i });
+
+  fireEvent.change(input, { target: { value: '' } });
+
+  expect(input).toHaveAttribute('value', '');
+
+  expect(submitButton).toHaveAttribute('disabled');
+
+  fireEvent.change(input, { target: { value: 'somesubreddit' } });
+
+  expect(submitButton).not.toHaveAttribute('disabled');
+});

@@ -23,7 +23,7 @@ test('r/javascript Button links to "/search"', () => {
   expect(push).toHaveBeenCalledWith('/search');
 });
 
-test('Github Button links to repository and has target blank', () => {
+test('Github button links to repository and has target attribute set to blank', () => {
   const href = 'https://github.com/chimson/reddit-timer-app';
 
   render(<HomePage />);
