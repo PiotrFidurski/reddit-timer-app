@@ -44,7 +44,7 @@ describe('SearchPage tests', () => {
   it('search button cannot be clicked while request is in flight', () => {
     cy.intercept('http://localhost:3000/api/posts?subreddit=javascript', { delay: 3000 }).as('getPosts');
 
-    cy.visit('/search');
+    cy.visit('/');
 
     cy.findByRole('textbox', { name: /subreddit/i })
       .clear()

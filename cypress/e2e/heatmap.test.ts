@@ -1,17 +1,6 @@
 import response from '../fixtures/pushshiftapi-response.json';
 
 describe('Heatmap tests', () => {
-  it('returns a 400 status code on bad request', () => {
-    cy.intercept('http://localhost:3000/api/posts?subreddit=asdasdasd').as('getPosts');
-    cy.visit('/search');
-    cy.findByRole('textbox', { name: /subreddit/i })
-      .clear()
-      .type('asdasdasd');
-    cy.findByText(/^Search$/).click();
-
-    cy.wait('@getPosts').its('response.statusCode').should('equal', 400);
-  });
-
   it('returns a 200 status code on success', () => {
     cy.intercept('http://localhost:3000/api/posts?subreddit=webdev', (req) => delete req.headers['if-none-match']).as(
       'getPosts'
@@ -23,9 +12,20 @@ describe('Heatmap tests', () => {
       .clear()
       .type('webdev');
 
-    cy.findByText(/^Search$/).click();
+    cy.findByRole('button', { name: /^Search$/ }).click();
 
     cy.wait('@getPosts').its('response.statusCode').should('equal', 200);
+  });
+
+  it('returns a 400 status code on bad request', () => {
+    cy.intercept('http://localhost:3000/api/posts?subreddit=asdasdasd').as('getPosts');
+    cy.visit('/search');
+    cy.findByRole('textbox', { name: /subreddit/i })
+      .clear()
+      .type('asdasdasd');
+    cy.findByText(/^Search$/).click();
+
+    cy.wait('@getPosts').its('response.statusCode').should('equal', 400);
   });
 
   it('returns heatmap data in correct shape', () => {
