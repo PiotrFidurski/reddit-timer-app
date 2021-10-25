@@ -8,10 +8,14 @@ describe('SearchPage tests', () => {
   });
 
   it('displays heatmap of subreddit posts when api call is successful', () => {
-    cy.intercept('http://localhost:3000/api/posts?subreddit=javascript').as('getPosts');
+    cy.intercept('http://localhost:3000/api/posts?subreddit=javascript', { fixture: 'pushshiftapi-response.json' }).as(
+      'getPosts'
+    );
+
     cy.visit('/');
 
     cy.findByText(/^Search$/).click();
+
     cy.findByRole('textbox', { name: /subreddit/i })
       .clear()
       .type('javascript');
