@@ -23,17 +23,10 @@ async function fetchPosts({ subreddit, after, before }: PageProps) {
 
   const result: { data: Array<RedditPost> } = await response.json();
 
-  if (result.data.length === 0) {
-    throw new Error('error');
-  }
-
   return result;
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<{ data: Array<RedditPost>; error?: string }>
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<{ data: Array<RedditPost> | null }>) {
   try {
     const [sixMonthsAgo, threeMonthsAgo, yearAgo] = getDateInEpoch();
 
@@ -49,6 +42,6 @@ export default async function handler(
 
     return res.status(200).json({ data: [].concat(...data) });
   } catch (error) {
-    return res.status(400).json({ data: null, error: error.message });
+    return res.status(400).json({ data: null });
   }
 }
