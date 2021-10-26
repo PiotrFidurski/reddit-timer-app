@@ -1,7 +1,36 @@
 import styled, { css } from 'styled-components';
 
+const ArticleStyles = css`
+  max-width: 500px;
+  position: relative;
+  @media (min-width: 768px) {
+    padding: 0 1rem;
+  }
+`;
+
+const ImageWrapperStyles = css`
+  width: 100%;
+  img {
+    filter: brightness(0.825) drop-shadow(0px 0px 0.4px ${(props) => props.theme.color.highlight});
+  }
+`;
+
+const SectionStyles = css`
+  display: flex;
+  border-radius: 15px;
+  background: #201d32;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 2rem;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+`;
+
 export const Main = styled.main`
   position: relative;
+  padding: 1rem;
   display: grid;
   grid-gap: 1rem;
   margin: 0 auto;
@@ -18,32 +47,13 @@ export const Main = styled.main`
 
   /* mobile breakpoint for reference later, 480px */
   @media (min-width: 768px) {
+    /* padding: 0; */
     grid-template-areas:
       'navbar navbar navbar navbar'
       'buttons buttons image image'
       'about-section about-section about-section about-section'
       'how-it-works-section how-it-works-section how-it-works-section how-it-works-section'
       'footer footer footer footer';
-  }
-`;
-
-export const Backdrop = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: skewY(-10deg);
-  transform-origin: 0 50%;
-  right: 0;
-  padding: clamp(220px, 15vw, 400px);
-  background: linear-gradient(140deg, #252e7c, #040b3e 90%);
-`;
-
-const ImageWrapperStyles = css`
-  position: relative;
-  margin: 0 auto;
-  width: 100%;
-  @media (min-width: 768px) {
-    max-width: 100%;
   }
 `;
 
@@ -94,29 +104,23 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  &:hover {
+    border-color: ${(props) => props.theme.color.highlight};
+  }
   @media (min-width: 768px) {
     min-width: 300px;
   }
 `;
 
 export const AboutSection = styled.section`
+  ${SectionStyles};
   grid-area: about-section;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  @media (min-width: 768px) {
-    padding: 0 1rem 13rem 1rem;
-    flex-direction: row;
-  }
 `;
 
 export const HowItWorksSection = styled.section`
+  ${SectionStyles};
   grid-area: how-it-works-section;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
   @media (min-width: 768px) {
-    padding: 0 1rem 13rem 1rem;
     flex-direction: row-reverse;
   }
 `;
@@ -126,33 +130,22 @@ export const FilledVariantButton = styled(Button)`
   border: 2px solid transparent;
 `;
 
-export const AboutIllustrationWrapper = styled.section`
+export const AboutIllustrationWrapper = styled.div`
   ${ImageWrapperStyles};
-  max-width: 745px;
+  max-width: 600px;
 `;
 
-export const HowItWorksIllustrationWrapper = styled.section`
+export const HowItWorksIllustrationWrapper = styled.div`
   ${ImageWrapperStyles};
-  max-width: 660px;
-  grid-area: how-it-works-image;
+  max-width: 600px;
 `;
 
-const WrapperStyles = css`
-  max-width: 650px;
-  margin: 0 auto;
-  position: relative;
-  @media (min-width: 768px) {
-    padding: 0 1rem;
-  }
+export const AboutArticle = styled.article`
+  ${ArticleStyles};
 `;
 
-export const AboutWrapper = styled.section`
-  ${WrapperStyles};
-`;
-
-export const HowItWorksWrapper = styled.section`
-  ${WrapperStyles};
-  grid-area: how-it-works-section;
+export const HowItWorksArticle = styled.article`
+  ${ArticleStyles};
 `;
 
 export const Paragraph = styled.p`

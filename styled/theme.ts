@@ -2,7 +2,7 @@ import { DefaultTheme } from 'styled-components';
 
 const theme: DefaultTheme = {
   background: { primary: '#001780', secondary: '#4749BF', darker: '#161423' },
-  color: { secondary: '#bbc0db', default: 'white' },
+  color: { secondary: '#bbc0db', default: 'white', highlight: '#8f7ffb' },
 };
 // greyslight
 // #484554

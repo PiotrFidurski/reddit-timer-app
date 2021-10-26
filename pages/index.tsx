@@ -1,15 +1,15 @@
 import NavComponent from '@components/Header/NavComponent';
 import {
+  AboutArticle,
   AboutIllustrationWrapper,
   AboutSection,
-  AboutWrapper,
   Button,
   ButtonsWrapper,
   FilledVariantButton,
   Footer,
+  HowItWorksArticle,
   HowItWorksIllustrationWrapper,
   HowItWorksSection,
-  HowItWorksWrapper,
   ImageWrapper,
   IntroSection,
   Main,
@@ -28,7 +28,6 @@ export default function HomePage() {
         <title>Find the best time to post</title>
         <meta name="description" content="Find the best time to post your reddit posts!" />
       </Head>
-      {/* <Backdrop /> */}
       <NavComponent />
       <ImageWrapper>
         <Image
@@ -53,42 +52,43 @@ export default function HomePage() {
       </IntroSection>
 
       <AboutSection>
-        <AboutWrapper>
+        <AboutArticle>
           <h2 id="about">About</h2>
           <Paragraph>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
             voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
             modi.`
           </Paragraph>
-        </AboutWrapper>
+        </AboutArticle>
         <AboutIllustrationWrapper>
           <Image
             src="/assets/images/test_tubes.png"
             alt="tubes_illustration"
             layout="responsive"
-            width="745"
-            height="400"
+            width="746"
+            height="495"
             quality={100}
           />
         </AboutIllustrationWrapper>
       </AboutSection>
 
       <HowItWorksSection>
-        <HowItWorksWrapper>
+        <HowItWorksArticle>
           <h2 id="how-it-works">How it works</h2>
           <Paragraph>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
             voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
             modi.`
           </Paragraph>
-        </HowItWorksWrapper>
+        </HowItWorksArticle>
+
         <HowItWorksIllustrationWrapper>
           <Image
             src="/assets/images/tools_illustration.png"
             alt="wrench_tool"
             layout="responsive"
-            width="660"
-            height="400"
+            width="662"
+            height="387"
             quality={100}
           />
         </HowItWorksIllustrationWrapper>
