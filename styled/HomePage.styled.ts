@@ -20,7 +20,8 @@ export const Main = styled.main`
     grid-template-areas:
       'navbar navbar navbar navbar'
       'buttons buttons image image'
-      'about-section about-section how-it-works-section how-it-works-section'
+      '. . about-section about-section'
+      'how-it-works-section how-it-works-section . .'
       'footer footer footer footer';
   }
 `;
@@ -93,6 +94,11 @@ export const HowItWorksWrapper = styled.section`
   padding: 1rem;
   position: relative;
   grid-area: how-it-works-section;
+`;
+
+export const Paragraph = styled.p`
+  font-size: clamp(1rem, 2vw, 2rem);
+  line-height: clamp(2rem, 3vw, 3rem);
 `;
 
 export const Footer = styled.footer`

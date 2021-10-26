@@ -8,6 +8,7 @@ import {
   ImageWrapper,
   IntroSection,
   Main,
+  Paragraph,
 } from '@styled/HomePage.styled';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -39,20 +40,20 @@ export default function HomePage() {
         </ButtonsWrapper>
       </IntroSection>
       <AboutWrapper>
-        <h2 id="about">About</h2>
-        <p>
+        <h1 id="about">About</h1>
+        <Paragraph>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
           voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
           modi.`
-        </p>
+        </Paragraph>
       </AboutWrapper>
       <HowItWorksWrapper>
-        <h2 id="how-it-works">How it works</h2>
-        <p>
+        <h1 id="how-it-works">How it works</h1>
+        <Paragraph>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
           voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
           modi.`
-        </p>
+        </Paragraph>
       </HowItWorksWrapper>
 
       <Footer>
