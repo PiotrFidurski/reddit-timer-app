@@ -72,7 +72,7 @@ export const ButtonsWrapper = styled.div`
 
 export const Button = styled.button`
   background: transparent;
-  color: white;
+  color: ${(props) => props.theme.color.default};
   padding: 15px 20px;
   border-radius: 9999px;
   border: 2px solid #41434d;

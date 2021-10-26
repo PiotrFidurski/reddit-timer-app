@@ -7,5 +7,9 @@ declare module 'styled-components' {
       secondary: string;
       darker: string;
     };
+    color: {
+      link: string;
+      default: string;
+    };
   }
 }

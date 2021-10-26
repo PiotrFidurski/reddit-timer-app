@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
   body {
    font-family:"Ubuntu", sans-serif;
    background: ${(props) => props.theme.background.darker};
-   color: white;
+   color:  ${(props) => props.theme.color.default};
    line-height: 1.75rem;
    letter-spacing: 0.125rem;
    margin: 0 auto;
@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: #bbc0db;
+    color: ${(props) => props.theme.color.link};
   }
 `;
 
