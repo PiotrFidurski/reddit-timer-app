@@ -24,7 +24,9 @@ describe('SearchPage tests', () => {
   });
 
   it('displays error message when theres an error making a request', () => {
-    cy.intercept('http://localhost:3000/api/posts?subreddit=asdasdasd').as('getPosts');
+    cy.intercept('http://localhost:3000/api/posts?subreddit=asdasdasd', {
+      fixture: 'pushshiftapi-error-response.json',
+    }).as('getPosts');
 
     cy.visit('/search');
 
