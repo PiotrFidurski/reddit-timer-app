@@ -19,6 +19,6 @@ export const Input = styled.input`
   padding: 0.7rem;
   border-radius: 9999px;
   background: transparent;
-  color: white;
+  color: ${(props) => props.theme.color.default};
   border: 2px solid #41434d;
 `;

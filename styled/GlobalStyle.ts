@@ -13,28 +13,29 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ul {
-    letter-spacing: 1.2px;
     white-space: pre;
     font-size: clamp(1rem, 1.4vw, 1.3rem);
   }
 
   h2 {
-    line-height: 1.8rem;
-    font-size: clamp(1rem, 2vw, 1.6rem);
+    line-height: clamp(2.6rem, 2vw, 2.5rem);
+    font-size: clamp(1.4rem, 2vw, 2.5rem);
+    font-weight: 500;
   }
 
   body {
    font-family:"Ubuntu", sans-serif;
    background: ${(props) => props.theme.background.darker};
-   color: white;
+   color:  ${(props) => props.theme.color.default};
    line-height: 1.75rem;
-   margin:0 auto;
+   letter-spacing: 0.125rem;
+   margin: 0 auto;
    font-size: 1rem;
   }
 
   a {
     text-decoration: none;
-    color: #bbc0db;
+    color: ${(props) => props.theme.color.secondary};
   }
 `;
 

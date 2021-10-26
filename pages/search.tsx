@@ -11,21 +11,20 @@ import { RedditPost } from './api/posts';
 function SearchPage() {
   const [subreddit, setSubreddit] = React.useState('javascript');
 
-  const [triggerQuery, { data: posts, isLoading, isSuccess, isError, inFlight }] = useLazyQuery(() =>
+  const [triggerQuery, { data: posts, isLoading, isSuccess, isError, errorMessage, inFlight }] = useLazyQuery(() =>
     getData(subreddit)
   );
 
-  const [multiDimensionalHeatmap, setMultiDimensionalHeatmap] =
-    React.useState<Array<Array<RedditPost[]>>>(initialState);
+  const [multiDimensionalArray, setMultiDimensionalArray] = React.useState<Array<Array<RedditPost[]>>>(initialState);
 
   const heatmapData = React.useRef(null);
 
-  heatmapData.current = multiDimensionalHeatmap;
+  heatmapData.current = multiDimensionalArray;
 
   const handleSubmit = (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
 
-    setMultiDimensionalHeatmap(initialState());
+    setMultiDimensionalArray(initialState());
 
     return triggerQuery();
   };
@@ -43,7 +42,7 @@ function SearchPage() {
         heatmapCopy[day][hour] = [...heatmapCopy[day][hour], post];
       });
 
-      setMultiDimensionalHeatmap(heatmapCopy);
+      setMultiDimensionalArray(heatmapCopy);
     }
   }, [posts]);
 
@@ -57,7 +56,7 @@ function SearchPage() {
       {isLoading ? <span>loading...</span> : null}
       {isError ? (
         <Heading>
-          <H2>Cant find data for this subreddit</H2>
+          <H2>{errorMessage}</H2>
         </Heading>
       ) : null}
       {isSuccess ? (
@@ -65,7 +64,7 @@ function SearchPage() {
           <H2>r/{subreddit}</H2>
         </Heading>
       ) : null}
-      {isSuccess ? <Heatmap data={multiDimensionalHeatmap} /> : null}
+      {isSuccess ? <Heatmap data={multiDimensionalArray} /> : null}
     </Section>
   );
 }

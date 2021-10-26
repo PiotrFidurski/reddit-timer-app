@@ -1,13 +1,19 @@
 import NavComponent from '@components/Header/NavComponent';
 import {
-  AboutWrapper,
+  AboutArticle,
+  AboutIllustrationWrapper,
+  AboutSection,
   Button,
   ButtonsWrapper,
+  FilledVariantButton,
   Footer,
-  HowItWorksWrapper,
+  HowItWorksArticle,
+  HowItWorksIllustrationWrapper,
+  HowItWorksSection,
   ImageWrapper,
   IntroSection,
   Main,
+  Paragraph,
 } from '@styled/HomePage.styled';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -22,10 +28,16 @@ export default function HomePage() {
         <title>Find the best time to post</title>
         <meta name="description" content="Find the best time to post your reddit posts!" />
       </Head>
-      {/* <Backdrop /> */}
       <NavComponent />
       <ImageWrapper>
-        <Image src="/assets/images/monitor-illustration.png" layout="intrinsic" width="550" height="400" />
+        <Image
+          src="/assets/images/monitor-illustration.png"
+          layout="intrinsic"
+          alt="computer_notes"
+          width="550"
+          height="400"
+          quality={100}
+        />
       </ImageWrapper>
       <IntroSection>
         <h2>Find out when its the best time to post something on reddit!</h2>
@@ -33,27 +45,54 @@ export default function HomePage() {
           <a href="https://github.com/chimson/reddit-timer-app" target="_blank" rel="noreferrer">
             <Button type="button">Github</Button>
           </a>
-          <Button type="button" onClick={() => router.push('/search')}>
+          <FilledVariantButton type="button" onClick={() => router.push('/search')}>
             r/javascript
-          </Button>
+          </FilledVariantButton>
         </ButtonsWrapper>
       </IntroSection>
-      <AboutWrapper>
-        <h2 id="about">About</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
-          voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
-          modi.`
-        </p>
-      </AboutWrapper>
-      <HowItWorksWrapper>
-        <h2 id="how-it-works">How it works</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
-          voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
-          modi.`
-        </p>
-      </HowItWorksWrapper>
+
+      <AboutSection>
+        <AboutArticle>
+          <h2 id="about">About</h2>
+          <Paragraph>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
+            voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
+            modi.`
+          </Paragraph>
+        </AboutArticle>
+        <AboutIllustrationWrapper>
+          <Image
+            src="/assets/images/test_tubes.png"
+            alt="tubes_illustration"
+            layout="responsive"
+            width="746"
+            height="495"
+            quality={100}
+          />
+        </AboutIllustrationWrapper>
+      </AboutSection>
+
+      <HowItWorksSection>
+        <HowItWorksArticle>
+          <h2 id="how-it-works">How it works</h2>
+          <Paragraph>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
+            voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
+            modi.`
+          </Paragraph>
+        </HowItWorksArticle>
+
+        <HowItWorksIllustrationWrapper>
+          <Image
+            src="/assets/images/tools_illustration.png"
+            alt="wrench_tool"
+            layout="responsive"
+            width="662"
+            height="387"
+            quality={100}
+          />
+        </HowItWorksIllustrationWrapper>
+      </HowItWorksSection>
 
       <Footer>
         <a href="https://github.com/chimson/reddit-timer-app" target="_blank" rel="noreferrer">

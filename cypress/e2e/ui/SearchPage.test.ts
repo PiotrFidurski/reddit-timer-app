@@ -21,12 +21,12 @@ describe('SearchPage tests', () => {
     cy.wait('@getPosts');
 
     cy.findByTestId(/heatmap/i);
-
-    cy.should('exist');
   });
 
   it('displays error message when theres an error making a request', () => {
-    cy.intercept('http://localhost:3000/api/posts?subreddit=asdasdasd').as('getPosts');
+    cy.intercept('http://localhost:3000/api/posts?subreddit=asdasdasd', {
+      fixture: 'pushshiftapi-error-response.json',
+    }).as('getPosts');
 
     cy.visit('/search');
 
@@ -37,13 +37,11 @@ describe('SearchPage tests', () => {
     cy.findByText(/^Search$/).click();
 
     cy.findByText(/Cant find data for this subreddit/i);
-
-    cy.should('exist');
   });
 
   it('search button cannot be spam-clicked while request is in flight', () => {
     cy.intercept('http://localhost:3000/api/posts?subreddit=javascript', {
-      delay: 3000,
+      delay: 1000,
       fixture: 'pushshiftapi-response.json',
     }).as('getPosts');
 
@@ -55,7 +53,9 @@ describe('SearchPage tests', () => {
 
     cy.findByText(/^Search$/).click();
 
-    cy.findByText(/^Search$/).should('have.attr', 'disabled');
+    cy.should('be.disabled');
+
+    cy.wait('@getPosts');
   });
 });
 
