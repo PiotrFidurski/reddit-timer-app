@@ -1,5 +1,6 @@
 import SearchPage from '@pages/search';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
+import { render } from '@utils/test-utils';
 
 test('an input has a default value of "javascript"', () => {
   render(<SearchPage />);

@@ -1,5 +1,6 @@
 import Home from '@pages/index';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import { render } from '@utils/test-utils';
 import NavComponent from './NavComponent';
 
 test('it has "About", "How it works", "Search" links', () => {
