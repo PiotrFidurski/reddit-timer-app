@@ -1,9 +1,14 @@
 import NavComponent from '@components/Header/NavComponent';
 import {
+  AboutIllustrationWrapper,
+  AboutSection,
   AboutWrapper,
   Button,
   ButtonsWrapper,
+  FilledVariantButton,
   Footer,
+  HowItWorksIllustrationWrapper,
+  HowItWorksSection,
   HowItWorksWrapper,
   ImageWrapper,
   IntroSection,
@@ -26,7 +31,14 @@ export default function HomePage() {
       {/* <Backdrop /> */}
       <NavComponent />
       <ImageWrapper>
-        <Image src="/assets/images/monitor-illustration.png" layout="intrinsic" width="550" height="400" />
+        <Image
+          src="/assets/images/monitor-illustration.png"
+          layout="intrinsic"
+          alt="computer_notes"
+          width="550"
+          height="400"
+          quality={100}
+        />
       </ImageWrapper>
       <IntroSection>
         <h2>Find out when its the best time to post something on reddit!</h2>
@@ -34,27 +46,53 @@ export default function HomePage() {
           <a href="https://github.com/chimson/reddit-timer-app" target="_blank" rel="noreferrer">
             <Button type="button">Github</Button>
           </a>
-          <Button type="button" onClick={() => router.push('/search')}>
+          <FilledVariantButton type="button" onClick={() => router.push('/search')}>
             r/javascript
-          </Button>
+          </FilledVariantButton>
         </ButtonsWrapper>
       </IntroSection>
-      <AboutWrapper>
-        <h1 id="about">About</h1>
-        <Paragraph>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
-          voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
-          modi.`
-        </Paragraph>
-      </AboutWrapper>
-      <HowItWorksWrapper>
-        <h1 id="how-it-works">How it works</h1>
-        <Paragraph>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
-          voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
-          modi.`
-        </Paragraph>
-      </HowItWorksWrapper>
+
+      <AboutSection>
+        <AboutWrapper>
+          <h2 id="about">About</h2>
+          <Paragraph>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
+            voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
+            modi.`
+          </Paragraph>
+        </AboutWrapper>
+        <AboutIllustrationWrapper>
+          <Image
+            src="/assets/images/test_tubes.png"
+            alt="tubes_illustration"
+            layout="responsive"
+            width="745"
+            height="400"
+            quality={100}
+          />
+        </AboutIllustrationWrapper>
+      </AboutSection>
+
+      <HowItWorksSection>
+        <HowItWorksWrapper>
+          <h2 id="how-it-works">How it works</h2>
+          <Paragraph>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
+            voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
+            modi.`
+          </Paragraph>
+        </HowItWorksWrapper>
+        <HowItWorksIllustrationWrapper>
+          <Image
+            src="/assets/images/tools_illustration.png"
+            alt="wrench_tool"
+            layout="responsive"
+            width="660"
+            height="400"
+            quality={100}
+          />
+        </HowItWorksIllustrationWrapper>
+      </HowItWorksSection>
 
       <Footer>
         <a href="https://github.com/chimson/reddit-timer-app" target="_blank" rel="noreferrer">

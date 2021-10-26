@@ -8,7 +8,7 @@ declare module 'styled-components' {
       darker: string;
     };
     color: {
-      link: string;
+      secondary: string;
       default: string;
     };
   }

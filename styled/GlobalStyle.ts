@@ -18,8 +18,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    line-height: clamp(1.8rem, 2vw, 2.5rem);
-    font-size: clamp(1rem, 2vw, 1.6rem);
+    line-height: clamp(2.6rem, 2vw, 2.5rem);
+    font-size: clamp(1.4rem, 2vw, 2.5rem);
+    font-weight: 500;
   }
 
   body {
@@ -34,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.color.link};
+    color: ${(props) => props.theme.color.secondary};
   }
 `;
 
