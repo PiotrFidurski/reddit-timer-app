@@ -17,20 +17,6 @@ describe('/api/posts tests', () => {
     cy.wait('@getPosts').its('response.statusCode').should('equal', 200);
   });
 
-  it('returns 400 status code on when requested subreddit doesnt exist', () => {
-    cy.intercept('http://localhost:3000/api/posts?subreddit=asdasdasd').as('getPosts');
-
-    cy.visit('/search');
-
-    cy.findByRole('textbox', { name: /subreddit/i })
-      .clear()
-      .type('asdasdasd');
-
-    cy.findByText(/^Search$/).click();
-
-    cy.wait('@getPosts').its('response.statusCode').should('equal', 400);
-  });
-
   it('returns data that deep-equals pushshift-response.json fixture', () => {
     cy.intercept('http://localhost:3000/api/posts?subreddit=reactjs', { fixture: 'pushshiftapi-response.json' }).as(
       'getPosts'
