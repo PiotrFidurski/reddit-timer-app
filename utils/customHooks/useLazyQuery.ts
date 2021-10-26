@@ -4,7 +4,7 @@ interface InitialState<T> {
   shouldRun: boolean;
   status: 'idle' | 'error' | 'success' | 'loading';
   data: T;
-  error: string;
+  errorMessage: string;
   inFlight: boolean;
 }
 
@@ -12,7 +12,7 @@ const initialState = {
   data: undefined,
   status: 'idle',
   shouldRun: false,
-  error: undefined,
+  errorMessage: '',
   inFlight: false,
 };
 
@@ -26,9 +26,10 @@ function useLazyQuery<T>(callback: () => Promise<T>): [
     status: 'idle' | 'error' | 'success' | 'loading';
     data: T;
     inFlight: boolean;
+    errorMessage: string;
   }
 ] {
-  const [{ status, data, shouldRun, inFlight }, setQueryState] = React.useState<InitialState<T>>(
+  const [{ status, data, shouldRun, inFlight, errorMessage }, setQueryState] = React.useState<InitialState<T>>(
     initialState as InitialState<T>
   );
 
@@ -48,9 +49,8 @@ function useLazyQuery<T>(callback: () => Promise<T>): [
       .then((result) =>
         setQueryState((state) => ({ ...state, shouldRun: false, data: result, status: 'success', inFlight: false }))
       )
-      .catch((e) => {
-        setQueryState((state) => ({ ...state, status: 'error', inFlight: false }));
-        return e;
+      .catch((error: { message: string }) => {
+        setQueryState((state) => ({ ...state, status: 'error', inFlight: false, errorMessage: error.message }));
       });
   };
 
@@ -60,14 +60,14 @@ function useLazyQuery<T>(callback: () => Promise<T>): [
       runQuery();
     }
 
-    return () => setQueryState((state) => ({ ...state, shouldRun: false }));
+    // return () => setQueryState((state) => ({ ...state, shouldRun: false }));
   }, [shouldRun]);
 
   function triggerQuery() {
     setQueryState((state) => ({ ...state, shouldRun: true }));
   }
 
-  return [triggerQuery, { isLoading, isError, isSuccess, isIdle, status, data, inFlight }];
+  return [triggerQuery, { isLoading, isError, isSuccess, isIdle, status, data, errorMessage, inFlight }];
 }
 
 export { useLazyQuery };
