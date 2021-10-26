@@ -5,7 +5,7 @@ import { getData as mockGetData } from '../../../utils/getData';
 jest.mock('@utils/getData');
 
 test('toggles "isLoading" state and "isError" state if theres an error', async () => {
-  (mockGetData as jest.MockedFunction<jest.Mock>).mockRejectedValueOnce({ result: { data: null } });
+  (mockGetData as jest.MockedFunction<jest.Mock>).mockRejectedValueOnce({ result: { data: [] } });
 
   const { result, waitForNextUpdate } = renderHook(() => useLazyQuery(() => mockGetData('asdasdasd')));
 
