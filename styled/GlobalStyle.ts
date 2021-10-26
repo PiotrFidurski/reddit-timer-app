@@ -13,7 +13,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ul {
-    letter-spacing: 1.2px;
     white-space: pre;
     font-size: clamp(1rem, 1.4vw, 1.3rem);
   }
@@ -28,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
    background: ${(props) => props.theme.background.darker};
    color: white;
    line-height: 1.75rem;
+   letter-spacing: 0.125rem;
    margin: 0 auto;
    font-size: 1rem;
   }
