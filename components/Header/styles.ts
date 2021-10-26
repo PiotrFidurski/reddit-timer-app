@@ -28,6 +28,12 @@ export const Ul = styled.ul`
 
 export const Li = styled.li`
   padding: 0 1rem;
+  &:hover {
+    text-decoration: underline;
+    a {
+      text-decoration-color: ${(props) => props.theme.color.highlight};
+    }
+  }
 `;
 
 export const LogoLink = styled.div`
