@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    line-height: 1.8rem;
+    line-height: clamp(1.8rem, 2vw, 2.5rem);
     font-size: clamp(1rem, 2vw, 1.6rem);
   }
 
@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
    background: ${(props) => props.theme.background.darker};
    color: white;
    line-height: 1.75rem;
-   margin:0 auto;
+   margin: 0 auto;
    font-size: 1rem;
   }
 
