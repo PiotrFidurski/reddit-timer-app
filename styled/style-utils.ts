@@ -19,6 +19,7 @@ export const ImageWrapperStyles = css`
 export const SectionStyles = css`
   display: flex;
   border-radius: 15px;
+  box-shadow: 0px 0px 4px 0px ${(props) => props.theme.shadow.primary};
   background: ${(props) => props.theme.background.secondary};
   align-items: center;
   flex-direction: column;

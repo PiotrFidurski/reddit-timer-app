@@ -12,5 +12,8 @@ declare module 'styled-components' {
       default: string;
       highlight: string;
     };
+    shadow: {
+      primary: string;
+    };
   }
 }
