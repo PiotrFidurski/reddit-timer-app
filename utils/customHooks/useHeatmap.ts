@@ -4,9 +4,11 @@ import { getDayAndHour, initialState } from '@utils/heatmap';
 import * as React from 'react';
 import { useLazyQuery } from './useLazyQuery';
 
-export function useHeatmap() {
-  const [subreddit, setSubreddit] = React.useState('javascript');
+interface Props {
+  subreddit: string;
+}
 
+export function useHeatmap({ subreddit }: Props) {
   const [triggerQuery, props] = useLazyQuery(() => getData(subreddit));
 
   const [multiDimensionalArray, setMultiDimensionalArray] = React.useState<Array<Array<RedditPost[]>>>(initialState);
@@ -14,18 +16,6 @@ export function useHeatmap() {
   const heatmapData = React.useRef(null);
 
   heatmapData.current = multiDimensionalArray;
-
-  const handleSubmit = (e: React.BaseSyntheticEvent) => {
-    e.preventDefault();
-
-    setMultiDimensionalArray(initialState());
-
-    return triggerQuery();
-  };
-
-  const handleChange = (e: React.BaseSyntheticEvent) => {
-    setSubreddit(e.target.value);
-  };
 
   React.useEffect(() => {
     const heatmapCopy = [...heatmapData.current];
@@ -40,5 +30,5 @@ export function useHeatmap() {
     }
   }, [props.data]);
 
-  return {};
+  return { queryProps: { ...props }, triggerQuery, multiDimensionalArray, setMultiDimensionalArray };
 }
