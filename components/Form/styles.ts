@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Form = styled.form`
   max-width: 450px;
+  grid-area: form;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -21,4 +22,8 @@ export const Input = styled.input`
   background: transparent;
   color: ${(props) => props.theme.color.default};
   border: 2px solid #41434d;
+  &:focus {
+    transition: border-color 0.25s ease;
+    border-color: ${(props) => props.theme.color.highlight};
+  }
 `;
