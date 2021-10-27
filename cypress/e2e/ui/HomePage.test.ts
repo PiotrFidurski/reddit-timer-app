@@ -18,6 +18,18 @@ describe('HomePage tests', () => {
 
     cy.should('have.attr', 'rel', 'noreferrer');
   });
+
+  it('about section article has a link to "profy.dev"', () => {
+    cy.visit('/');
+
+    cy.findAllByRole('link', { name: /article-link/i });
+
+    cy.should('have.attr', 'href', 'https://profy.dev/project/reddit-timer');
+
+    cy.should('have.attr', 'target', '_blank');
+
+    cy.should('have.attr', 'rel', 'noreferrer');
+  });
 });
 
 // eslint-disable-next-line jest/no-export
