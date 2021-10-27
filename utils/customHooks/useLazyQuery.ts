@@ -59,8 +59,6 @@ function useLazyQuery<T>(callback: () => Promise<T>): [
       setQueryState((state) => ({ ...state, status: 'loading' }));
       runQuery();
     }
-
-    // return () => setQueryState((state) => ({ ...state, shouldRun: false }));
   }, [shouldRun]);
 
   function triggerQuery() {
