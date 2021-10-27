@@ -8,13 +8,19 @@ const GlobalStyle = createGlobalStyle`
    font-style: normal;
  }
  
-  *{
+  * {
     box-sizing: border-box;
   }
 
   ul {
     white-space: pre;
     font-size: clamp(1rem, 1.4vw, 1.3rem);
+  }
+
+  h1 {
+    font-size: clamp(1.5rem, 2vw, 3rem);
+    line-height: clamp(1.75rem, 3vw, 4rem);
+    font-weight: 500;
   }
 
   h2 {
@@ -24,12 +30,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-   font-family:"Ubuntu", sans-serif;
+   font-family: "Ubuntu", sans-serif;
    background: ${(props) => props.theme.background.darker};
    color:  ${(props) => props.theme.color.default};
    line-height: 1.75rem;
    letter-spacing: 0.125rem;
    margin: 0 auto;
+   min-height: 100vh;
    font-size: 1rem;
   }
 
