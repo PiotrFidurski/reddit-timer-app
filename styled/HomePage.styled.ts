@@ -1,36 +1,5 @@
-import styled, { css } from 'styled-components';
-
-const ArticleStyles = css`
-  max-width: 500px;
-  position: relative;
-
-  @media (min-width: 768px) {
-    padding: 0 1rem;
-  }
-`;
-
-const ImageWrapperStyles = css`
-  width: 100%;
-  img {
-    filter: brightness(0.825) drop-shadow(0px 0px 0.4px ${(props) => props.theme.color.highlight});
-  }
-`;
-
-const SectionStyles = css`
-  display: flex;
-  border-radius: 15px;
-  background: ${(props) => props.theme.background.secondary};
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 1rem;
-  justify-content: space-around;
-  padding: 2rem;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    margin-bottom: 10rem;
-  }
-`;
+import styled from 'styled-components';
+import { ArticleStyles, ImageWrapperStyles, SectionStyles } from './style-utils';
 
 export const Main = styled.main`
   position: relative;
