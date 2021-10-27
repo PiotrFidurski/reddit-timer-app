@@ -1,7 +1,7 @@
 import { RedditPost } from '@pages/api/posts';
 import * as React from 'react';
-import { colorPallette, days } from 'utils/heatmap';
-import { Day, DayWrapper, Section, Square } from './styles';
+import { colorPallette, days, hours } from 'utils/heatmap';
+import { Day, DayWrapper, HeatmapWrapper, Section, Square, Time, TimeWrapper } from './styles';
 
 interface Props {
   data: RedditPost[][][];
@@ -13,18 +13,27 @@ function HeatmapComponent({ data }: Props) {
       {data.map((day, dayIndex) => {
         const dayName = days[dayIndex];
         return (
-          <DayWrapper key={dayName}>
-            <Day>{dayName}</Day>
-            {day.map((square, squareIndex) => {
-              const squareKey = `${squareIndex}_day-${days[dayIndex]}`;
-              const bg = colorPallette[square.length] ?? '#001056';
-              return (
-                <Square data-testid={squareKey} bg={bg} key={squareKey}>
-                  {square.length}
-                </Square>
-              );
-            })}
-          </DayWrapper>
+          <HeatmapWrapper key={dayName}>
+            {dayIndex === 0 ? (
+              <TimeWrapper>
+                {hours.map((hour) => (
+                  <Time key={hour}>{hour}</Time>
+                ))}
+              </TimeWrapper>
+            ) : null}
+            <DayWrapper>
+              <Day>{dayName.slice(0, 2)}</Day>
+              {day.map((square, squareIndex) => {
+                const squareKey = `${squareIndex}_day-${days[dayIndex]}`;
+                const bg = colorPallette[square.length] ?? '#001056';
+                return (
+                  <Square data-testid={squareKey} bg={bg} key={squareKey}>
+                    {square.length}
+                  </Square>
+                );
+              })}
+            </DayWrapper>
+          </HeatmapWrapper>
         );
       })}
     </Section>

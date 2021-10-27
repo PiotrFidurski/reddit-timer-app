@@ -37,5 +37,14 @@ test('Github button link to repository and has target attribute set to blank', (
   expect(btnLink.parentElement).toHaveAttribute('href', href);
 });
 
+test('About section has links to "profy.dev"', () => {
+  const profyHref = 'https://profy.dev/project/reddit-timer';
+  render(<HomePage />);
+
+  expect(screen.getByRole('link', { name: /^article-link$/i })).toHaveAttribute('target', '_blank');
+  expect(screen.getByRole('link', { name: /^article-link$/i })).toHaveAttribute('rel', 'noreferrer');
+  expect(screen.getByRole('link', { name: /^article-link$/i })).toHaveAttribute('href', profyHref);
+});
+
 // eslint-disable-next-line jest/no-export
 export {};

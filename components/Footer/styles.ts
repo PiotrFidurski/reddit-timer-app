@@ -9,6 +9,7 @@ export const StyledFooter = styled.footer`
   border-top-right-radius: 1rem;
   grid-area: footer;
   display: grid;
+  margin-top: 2rem;
   grid-template-columns: repeat(3, minmax(auto, 1fr));
   grid-template-areas:
     'logo logo logo'
@@ -19,7 +20,6 @@ export const StyledFooter = styled.footer`
   min-height: 100px;
   @media (min-width: 768px) {
     grid-template-areas: 'logo links credits';
-    border-radius: 0;
   }
 `;
 

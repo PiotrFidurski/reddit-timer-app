@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Button } from './HomePage.styled';
 
 export const Main = styled.main`
@@ -23,7 +23,9 @@ export const Header = styled.header`
   grid-area: header;
 `;
 
-export const Nav = styled.nav``;
+export const Nav = styled.nav`
+  position: relative;
+`;
 
 export const GoBackButton = styled(Button)`
   min-width: 80px;
@@ -45,4 +47,45 @@ export const Heading = styled.header`
   margin: 0 auto;
 `;
 
-export const H2 = styled.h2``;
+export const H2 = styled.h2`
+  color: ${(props) => props.theme.color.highlight};
+`;
+
+export const Hr = styled.hr`
+  border: none;
+  background-color: ${(props) => props.theme.color.highlight};
+  height: 1px;
+  width: 100%;
+  margin: 0.5rem 0;
+`;
+
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const SpinnerWrapper = styled.div`
+  max-width: 300px;
+  min-height: 300px;
+  grid-area: heatmap;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Spinner = styled.div`
+  min-height: 60px;
+  max-width: 60px;
+  width: 100%;
+  border: 5px solid ${(props) => props.theme.color.secondary};
+  border-left-color: ${(props) => props.theme.color.highlight};
+  border-radius: 999px;
+  animation: ${spin} 0.75s infinite linear;
+`;
