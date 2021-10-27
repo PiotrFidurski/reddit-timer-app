@@ -1,7 +1,7 @@
 import Footer from '@components/Footer/Footer';
 import Form from '@components/Form/Form';
 import Heatmap from '@components/Heatmap/Heatmap';
-import { GoBackButton, H2, Header, Heading, Main, Nav } from '@styled/SearchPage.styled';
+import { GoBackButton, H2, Header, Heading, Main, Nav, Spinner, SpinnerWrapper } from '@styled/SearchPage.styled';
 import { useHeatmap } from '@utils/customHooks/useHeatmap';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -47,7 +47,11 @@ function SearchPage() {
         </Nav>
       </Header>
       <Form isSubmitting={inFlight} subreddit={subreddit} onChange={handleChange} onSubmit={handleSubmit} />
-      {isLoading ? <span>loading...</span> : null}
+      {isLoading ? (
+        <SpinnerWrapper>
+          <Spinner />
+        </SpinnerWrapper>
+      ) : null}
       {isError ? (
         <Heading>
           <H2>{errorMessage}</H2>

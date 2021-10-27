@@ -71,10 +71,12 @@ export const Square = styled.div<{ bg: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease-in;
+  will-change: contents;
+  transition: transform 0.25s ease;
   :hover {
     cursor: pointer;
-    border: 2px solid #293035;
-    transform: scale(1.2, 1.2);
+    background: ${(props) => props.theme.background.secondary};
+    /* border: 2px solid ${(props) => props.theme.color.highlight}; */
+    transform: scale(1.4, 1.4);
   }
 `;
