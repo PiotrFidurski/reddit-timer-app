@@ -1,6 +1,7 @@
 import Footer from '@components/Footer/Footer';
 import NavComponent from '@components/Header/NavComponent';
 import {
+  A,
   AboutArticle,
   AboutIllustrationWrapper,
   AboutSection,
@@ -15,6 +16,7 @@ import {
   Main,
   Paragraph,
 } from '@styled/HomePage.styled';
+import { Hr } from '@styled/SearchPage.styled';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -59,9 +61,10 @@ export default function HomePage() {
         <AboutArticle>
           <h2 id="about">About</h2>
           <Paragraph>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
-            voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
-            modi.`
+            This app was created for learning purposes, it was inspired by{' '}
+            <A aria-label="article-link" href="https://profy.dev/project/reddit-timer" target="_blank" rel="noreferrer">
+              profy.dev
+            </A>
           </Paragraph>
         </AboutArticle>
         <AboutIllustrationWrapper>
@@ -78,11 +81,11 @@ export default function HomePage() {
       <HowItWorksSection>
         <HowItWorksArticle>
           <h2 id="how-it-works">How it works</h2>
-          <Paragraph>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Paragraph>
-          <Paragraph>
-            Excepturi sint delectus dolor nesciunt, inventore voluptas ea eveniet est praesentium obcaecati laudantium
-            ad quos sequi odio officiis minima, sapiente in modi.`
-          </Paragraph>
+          <Paragraph>We get 300 most upvoted reddit posts from last year.</Paragraph>
+          <Hr />
+          <Paragraph>We transform the data into a heatmap that has days and hours.</Paragraph>
+          <Hr />
+          <Paragraph>Each square represents the amount of posts posted for that day and hour.</Paragraph>
         </HowItWorksArticle>
         <HowItWorksIllustrationWrapper>
           <Image

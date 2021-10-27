@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ArticleStyles, ImageWrapperStyles, SectionStyles } from './style-utils';
+import { ArticleStyles, ImageWrapperStyles, LineOnHover, SectionStyles } from './style-utils';
 
 export const Main = styled.main`
   position: relative;
@@ -141,4 +141,10 @@ export const Paragraph = styled.p`
   font-size: clamp(1.2rem, 2vw, 1.8rem);
   line-height: clamp(1.8rem, 3vw, 2.4rem);
   color: ${(props) => props.theme.color.secondary};
+`;
+
+export const A = styled.a`
+  ${LineOnHover}
+  display: inline;
+  position: relative;
 `;

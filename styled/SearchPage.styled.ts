@@ -23,7 +23,9 @@ export const Header = styled.header`
   grid-area: header;
 `;
 
-export const Nav = styled.nav``;
+export const Nav = styled.nav`
+  position: relative;
+`;
 
 export const GoBackButton = styled(Button)`
   min-width: 80px;
@@ -45,4 +47,14 @@ export const Heading = styled.header`
   margin: 0 auto;
 `;
 
-export const H2 = styled.h2``;
+export const H2 = styled.h2`
+  color: ${(props) => props.theme.color.highlight};
+`;
+
+export const Hr = styled.hr`
+  border: none;
+  background-color: ${(props) => props.theme.color.highlight};
+  height: 1px;
+  width: 100%;
+  margin: 0.5rem 0;
+`;

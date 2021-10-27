@@ -19,7 +19,6 @@ export const StyledFooter = styled.footer`
   min-height: 100px;
   @media (min-width: 768px) {
     grid-template-areas: 'logo links credits';
-    border-radius: 0;
   }
 `;
 
