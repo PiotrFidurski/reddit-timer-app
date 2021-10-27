@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    line-height: clamp(2.6rem, 2vw, 2.5rem);
+    line-height: clamp(1.8rem, 2vw, 2.5rem);
     font-size: clamp(1.4rem, 2vw, 2.5rem);
     font-weight: 500;
   }

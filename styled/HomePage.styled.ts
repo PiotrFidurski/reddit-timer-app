@@ -21,10 +21,12 @@ const SectionStyles = css`
   background: #201d32;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 1rem;
   justify-content: space-around;
   padding: 2rem;
   @media (min-width: 768px) {
     flex-direction: row;
+    margin-bottom: 10rem;
   }
 `;
 
@@ -104,6 +106,7 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: border-color 0.25s ease;
   &:hover {
     border-color: ${(props) => props.theme.color.highlight};
   }
@@ -149,17 +152,7 @@ export const HowItWorksArticle = styled.article`
 `;
 
 export const Paragraph = styled.p`
-  font-size: clamp(1.4rem, 2vw, 1.8rem);
-  line-height: clamp(2rem, 3vw, 2.4rem);
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  line-height: clamp(1.8rem, 3vw, 2.4rem);
   color: ${(props) => props.theme.color.secondary};
-`;
-
-export const Footer = styled.footer`
-  position: relative;
-  padding: 0 1rem;
-  grid-area: footer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 100px;
 `;
