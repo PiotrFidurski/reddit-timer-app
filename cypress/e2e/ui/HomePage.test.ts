@@ -10,7 +10,7 @@ describe('HomePage tests', () => {
   it('links to github page', () => {
     cy.visit('/');
 
-    cy.findAllByRole('link', { name: /Github/i });
+    cy.findAllByRole('link', { name: /button-link/i });
 
     cy.should('have.attr', 'href', 'https://github.com/chimson/reddit-timer-app');
 

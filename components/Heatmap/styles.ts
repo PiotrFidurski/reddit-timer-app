@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   max-width: 1000px;
+  grid-area: heatmap;
   margin: 0 auto;
 `;
 

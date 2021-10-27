@@ -1,3 +1,4 @@
+import Footer from '@components/Footer/Footer';
 import NavComponent from '@components/Header/NavComponent';
 import {
   AboutArticle,
@@ -6,7 +7,6 @@ import {
   Button,
   ButtonsWrapper,
   FilledVariantButton,
-  Footer,
   HowItWorksArticle,
   HowItWorksIllustrationWrapper,
   HowItWorksSection,
@@ -40,9 +40,14 @@ export default function HomePage() {
         />
       </ImageWrapper>
       <IntroSection>
-        <h2>Find out when its the best time to post something on reddit!</h2>
+        <h1>Find out when it&apos;s the best time to post something on reddit!</h1>
         <ButtonsWrapper>
-          <a href="https://github.com/chimson/reddit-timer-app" target="_blank" rel="noreferrer">
+          <a
+            href="https://github.com/chimson/reddit-timer-app"
+            aria-label="button-link"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Button type="button">Github</Button>
           </a>
           <FilledVariantButton type="button" onClick={() => router.push('/search')}>
@@ -50,7 +55,6 @@ export default function HomePage() {
           </FilledVariantButton>
         </ButtonsWrapper>
       </IntroSection>
-
       <AboutSection>
         <AboutArticle>
           <h2 id="about">About</h2>
@@ -71,17 +75,15 @@ export default function HomePage() {
           />
         </AboutIllustrationWrapper>
       </AboutSection>
-
       <HowItWorksSection>
         <HowItWorksArticle>
           <h2 id="how-it-works">How it works</h2>
+          <Paragraph>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Paragraph>
           <Paragraph>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sint delectus dolor nesciunt, inventore
-            voluptas ea eveniet est praesentium obcaecati laudantium ad quos sequi odio officiis minima, sapiente in
-            modi.`
+            Excepturi sint delectus dolor nesciunt, inventore voluptas ea eveniet est praesentium obcaecati laudantium
+            ad quos sequi odio officiis minima, sapiente in modi.`
           </Paragraph>
         </HowItWorksArticle>
-
         <HowItWorksIllustrationWrapper>
           <Image
             src="/assets/images/tools_illustration.png"
@@ -93,14 +95,7 @@ export default function HomePage() {
           />
         </HowItWorksIllustrationWrapper>
       </HowItWorksSection>
-
-      <Footer>
-        <a href="https://github.com/chimson/reddit-timer-app" target="_blank" rel="noreferrer">
-          Github
-        </a>
-        <Image width="40" height="40" src="/assets/images/reddit.png" layout="fixed" quality={100} alt="logo" />
-        <p>Copyright 2021, Piotr Fidurski</p>
-      </Footer>
+      <Footer />
     </Main>
   );
 }

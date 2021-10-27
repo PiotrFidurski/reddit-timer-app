@@ -1,14 +1,19 @@
+import Footer from '@components/Footer/Footer';
 import Form from '@components/Form/Form';
 import Heatmap from '@components/Heatmap/Heatmap';
-import { H2, Heading, Section } from '@styled/SearchPage.styled';
+import { GoBackButton, H2, Header, Heading, Main, Nav } from '@styled/SearchPage.styled';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import * as React from 'react';
 import { useLazyQuery } from 'utils/customHooks/useLazyQuery';
 import { getData } from 'utils/getData';
 import { getDayAndHour, initialState } from 'utils/heatmap';
+import Arrow from '../public/assets/svg/arrow.svg';
 import { RedditPost } from './api/posts';
 
 function SearchPage() {
+  const router = useRouter();
+
   const [subreddit, setSubreddit] = React.useState('javascript');
 
   const [triggerQuery, { data: posts, isLoading, isSuccess, isError, errorMessage, inFlight }] = useLazyQuery(() =>
@@ -47,11 +52,18 @@ function SearchPage() {
   }, [posts]);
 
   return (
-    <Section>
+    <Main>
       <Head>
         <title>Search for any subreddit!</title>
         <meta name="description" content="Search for desired subreddit and see what's the best time to post" />
       </Head>
+      <Header>
+        <Nav>
+          <GoBackButton aria-label="back" type="button" onClick={() => router.back()}>
+            <Arrow />
+          </GoBackButton>
+        </Nav>
+      </Header>
       <Form isSubmitting={inFlight} subreddit={subreddit} onChange={handleChange} onSubmit={handleSubmit} />
       {isLoading ? <span>loading...</span> : null}
       {isError ? (
@@ -65,7 +77,8 @@ function SearchPage() {
         </Heading>
       ) : null}
       {isSuccess ? <Heatmap data={multiDimensionalArray} /> : null}
-    </Section>
+      <Footer />
+    </Main>
   );
 }
 

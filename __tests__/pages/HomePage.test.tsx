@@ -24,20 +24,17 @@ test('r/javascript Button links to "/search"', () => {
   expect(push).toHaveBeenCalledWith('/search');
 });
 
-test('Github button links to repository and has target attribute set to blank', () => {
+test('Github button link to repository and has target attribute set to blank', () => {
   const href = 'https://github.com/chimson/reddit-timer-app';
 
   render(<HomePage />);
 
-  const [btnLink, link] = screen.getAllByRole('link', { name: /Github/i }).map((el) => el);
+  const btnLink = screen.getByRole('button', { name: /Github/i });
 
-  expect(btnLink).toHaveAttribute('target', '_blank');
-  expect(btnLink).toHaveAttribute('rel', 'noreferrer');
-  expect(btnLink).toHaveAttribute('href', href);
-
-  expect(link).toHaveAttribute('target', '_blank');
-  expect(link).toHaveAttribute('rel', 'noreferrer');
-  expect(link).toHaveAttribute('href', href);
+  expect(btnLink).toBeInTheDocument();
+  expect(btnLink.parentElement).toHaveAttribute('target', '_blank');
+  expect(btnLink.parentElement).toHaveAttribute('rel', 'noreferrer');
+  expect(btnLink.parentElement).toHaveAttribute('href', href);
 });
 
 // eslint-disable-next-line jest/no-export

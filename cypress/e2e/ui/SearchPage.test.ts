@@ -1,4 +1,14 @@
 describe('SearchPage tests', () => {
+  it('has a back button that goes back to "/"', () => {
+    cy.visit('/');
+
+    cy.findByText(/Search/i).click();
+
+    cy.findByRole('button', { name: /back/i }).click();
+
+    cy.url().should('equal', `${Cypress.config().baseUrl}/`);
+  });
+
   it('has a search input that can be typed into', () => {
     cy.visit('/search');
 
