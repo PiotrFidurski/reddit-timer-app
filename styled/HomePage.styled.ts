@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 const ArticleStyles = css`
   max-width: 500px;
   position: relative;
+
   @media (min-width: 768px) {
     padding: 0 1rem;
   }
@@ -18,12 +19,13 @@ const ImageWrapperStyles = css`
 const SectionStyles = css`
   display: flex;
   border-radius: 15px;
-  background: #201d32;
+  background: ${(props) => props.theme.background.secondary};
   align-items: center;
   flex-direction: column;
   margin-bottom: 1rem;
   justify-content: space-around;
   padding: 2rem;
+
   @media (min-width: 768px) {
     flex-direction: row;
     margin-bottom: 10rem;
@@ -32,7 +34,7 @@ const SectionStyles = css`
 
 export const Main = styled.main`
   position: relative;
-  padding: 1rem;
+  padding: 0 1rem;
   display: grid;
   grid-gap: 1rem;
   margin: 0 auto;
@@ -47,9 +49,7 @@ export const Main = styled.main`
     'how-it-works-image how-it-works-image how-it-works-image how-it-works-image'
     'footer footer footer footer';
 
-  /* mobile breakpoint for reference later, 480px */
   @media (min-width: 768px) {
-    /* padding: 0; */
     grid-template-areas:
       'navbar navbar navbar navbar'
       'buttons buttons image image'
@@ -64,6 +64,7 @@ export const ImageWrapper = styled.div`
   max-width: 550px;
   grid-area: image;
   padding: 2rem;
+
   @media (min-width: 768px) {
     padding: 0 1rem 13rem 1rem;
   }
@@ -81,6 +82,7 @@ export const IntroSection = styled.section`
   width: 100%;
   text-align: center;
   flex-direction: column;
+
   @media (min-width: 768px) {
     padding: 0 1rem 13rem 1rem;
   }
@@ -107,9 +109,23 @@ export const Button = styled.button`
   justify-content: center;
   cursor: pointer;
   transition: border-color 0.25s ease;
+
+  &:disabled {
+    cursor: no-drop;
+    opacity: 0.5;
+  }
+
+  svg {
+    fill: ${(props) => props.theme.color.default};
+  }
+
   &:hover {
     border-color: ${(props) => props.theme.color.highlight};
+    svg {
+      fill: ${(props) => props.theme.color.highlight} !important;
+    }
   }
+
   @media (min-width: 768px) {
     min-width: 300px;
   }
@@ -123,13 +139,14 @@ export const AboutSection = styled.section`
 export const HowItWorksSection = styled.section`
   ${SectionStyles};
   grid-area: how-it-works-section;
+
   @media (min-width: 768px) {
     flex-direction: row-reverse;
   }
 `;
 
 export const FilledVariantButton = styled(Button)`
-  background: ${(props) => props.theme.background.secondary};
+  background: ${(props) => props.theme.background.button};
   border: 2px solid transparent;
 `;
 

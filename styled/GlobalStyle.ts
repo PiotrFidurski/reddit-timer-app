@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  /* Ubuntu medium */
  @font-face {
    font-family: 'Ubuntu';
    src: url("/assets/fonts/Ubuntu-Medium.woff2") format("woff2"), url("/assets/fonts/Ubuntu-Medium.woff") format("woff");
@@ -31,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
    font-family: "Ubuntu", sans-serif;
-   background: ${(props) => props.theme.background.darker};
+   background: ${(props) => props.theme.background.primary};
    color:  ${(props) => props.theme.color.default};
    line-height: 1.75rem;
    letter-spacing: 0.125rem;
