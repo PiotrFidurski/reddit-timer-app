@@ -103,7 +103,9 @@ export const Button = styled.button`
   justify-content: center;
   cursor: pointer;
   transition: border-color 0.25s ease;
-
+  svg {
+    transition: fill 0.25s ease;
+  }
   &:disabled {
     cursor: no-drop;
     opacity: 0.5;
