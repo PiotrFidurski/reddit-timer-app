@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
    margin: 0 auto;
    min-height: 100vh;
    font-size: 1rem;
-   min-width: 390px;
+   min-width: 500px;
    width: 100%;
    max-width: 100%;
   }
