@@ -34,6 +34,18 @@ describe('Footer tests', () => {
 
     cy.should('have.attr', 'href', 'https://profy.dev');
   });
+
+  it('links to "https://pushshift.io" when clicking "pushshift api" link', () => {
+    cy.visit('/');
+
+    cy.findByRole('link', { name: /pushshift api/i });
+
+    cy.should('have.attr', 'target', '_blank');
+
+    cy.should('have.attr', 'rel', 'noreferrer');
+
+    cy.should('have.attr', 'href', 'https://pushshift.io');
+  });
 });
 
 // eslint-disable-next-line jest/no-export

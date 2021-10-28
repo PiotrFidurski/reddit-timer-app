@@ -12,8 +12,11 @@ export const Header = styled.header`
 
 export const Nav = styled.nav`
   width: 100%;
-  display: flex;
   align-items: center;
+  display: none;
+  @media (min-width: 768px) {
+    display: flex;
+  }
 `;
 
 export const A = styled.a`
@@ -29,10 +32,6 @@ export const Ul = styled.ul`
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-  flex-direction: column;
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
 `;
 
 export const Li = styled.li`

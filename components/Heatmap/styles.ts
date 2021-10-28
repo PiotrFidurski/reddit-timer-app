@@ -40,7 +40,7 @@ export const Time = styled.div`
   min-height: 70px;
   overflow: hidden;
   min-width: 0px;
-  font-size: 0.8rem;
+  font-size: clamp(0.6rem, 2vw, 0.8rem);
   white-space: pre-line;
   display: flex;
   justify-content: center;

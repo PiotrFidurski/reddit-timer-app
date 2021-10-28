@@ -1,3 +1,4 @@
+import CollapsedMenu from '@components/CollapsedMenu/CollapsedMenu';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
@@ -15,7 +16,7 @@ function NavComponent() {
         <S.Ul>
           <S.Li>
             <Link href="/search" passHref>
-              <S.A>Search</S.A>
+              <S.A aria-label="header-link">Search</S.A>
             </Link>
           </S.Li>
           <S.Li>
@@ -26,6 +27,7 @@ function NavComponent() {
           </S.Li>
         </S.Ul>
       </S.Nav>
+      <CollapsedMenu />
     </S.Header>
   );
 }

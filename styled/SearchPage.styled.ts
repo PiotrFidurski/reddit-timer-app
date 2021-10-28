@@ -32,10 +32,7 @@ export const GoBackButton = styled(Button)`
   max-height: 80px;
   min-height: 80px;
   padding: 0;
-  svg {
-    transition: fill 0.25s ease;
-    transform: rotate(180deg);
-  }
+  transform: rotate(180deg);
 `;
 
 export const Heading = styled.header`
