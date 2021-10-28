@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { ArticleStyles, ImageWrapperStyles, LineOnHover, SectionStyles } from './style-utils';
 
 export const Main = styled.main`
@@ -28,12 +28,36 @@ export const Main = styled.main`
   }
 `;
 
+const flyFromBottomAndFadeIn = keyframes`
+  from {
+    opacity:0;
+    transform: translateY(150px);
+  }
+
+  to {
+    opacity:1;
+    transform: translateY(0);
+  }
+`;
+
+const scaleAndFadeIn = keyframes`
+  from {
+    opacity:0;
+    transform: scale(1.7, 1.7);
+  }
+
+  to {
+    opacity:1;
+    transform: scale(1);
+  }
+`;
+
 export const ImageWrapper = styled.div`
   ${ImageWrapperStyles};
   max-width: 550px;
   grid-area: image;
   padding: 2rem;
-
+  animation: ${scaleAndFadeIn} 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
   @media (min-width: 768px) {
     padding: 0 1rem 13rem 1rem;
   }
@@ -51,7 +75,7 @@ export const IntroSection = styled.section`
   width: 100%;
   text-align: center;
   flex-direction: column;
-
+  animation: ${flyFromBottomAndFadeIn} 0.7s ease;
   @media (min-width: 768px) {
     padding: 0 1rem 13rem 1rem;
   }
