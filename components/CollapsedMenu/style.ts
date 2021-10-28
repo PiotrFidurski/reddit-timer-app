@@ -24,7 +24,7 @@ export const Menu = styled.nav<{ open: boolean }>`
   position: absolute;
   top: 0;
   display: flex;
-  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100vw)')};
+  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-120%)')};
   left: 0;
   width: 100%;
   transition: transform 0.5s ease-in-out;
