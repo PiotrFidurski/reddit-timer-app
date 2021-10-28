@@ -18,11 +18,11 @@ function CollapsedMenu() {
   return (
     <Nav>
       {!open ? (
-        <ToggleMenuButton onClick={handleOpen}>
+        <ToggleMenuButton onClick={handleOpen} aria-label="menu-toggle">
           <Hamburger />
         </ToggleMenuButton>
       ) : null}
-      <Menu open={open}>
+      <Menu open={open} aria-label="collapsable-menu" aria-hidden={open}>
         <ToggleMenuButton onClick={handleClose}>
           <Close />
         </ToggleMenuButton>

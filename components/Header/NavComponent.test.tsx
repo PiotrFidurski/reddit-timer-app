@@ -5,14 +5,13 @@ import NavComponent from './NavComponent';
 
 test('it has "About", "How it works", "Search" links', () => {
   render(<NavComponent />);
+  const about = screen.getAllByText(/about/i);
+  const howItWorks = screen.getAllByText(/how it works/i);
+  const search = screen.getAllByText(/search/i);
 
-  const about = screen.getByText(/about/i);
-  const howItWorks = screen.getByText(/how it works/i);
-  const search = screen.getByText(/search/i);
-
-  expect(about).toBeInTheDocument();
-  expect(howItWorks).toBeInTheDocument();
-  expect(search).toBeInTheDocument();
+  about.map((el) => expect(el).toBeInTheDocument());
+  howItWorks.map((el) => expect(el).toBeInTheDocument());
+  search.map((el) => expect(el).toBeInTheDocument());
 });
 
 test('clicking on "about" and "how-it-works" link scrolls to correct sections', () => {
