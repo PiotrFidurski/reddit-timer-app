@@ -13,18 +13,18 @@ function getDayAndHour(post: RedditPost) {
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 const hours = [
-  '12:00pm',
-  '2:00am',
-  '4:00am',
-  '6:00am',
-  '8:00am',
-  '10:00am',
-  '12:00am',
-  '14:00pm',
-  '16:00pm',
-  '18:00pm',
-  '20:00pm',
-  '22:00pm',
+  '12:00 pm',
+  '2:00 am',
+  '4:00 am',
+  '6:00 am',
+  '8:00 am',
+  '10:00 am',
+  '12:00 am',
+  '2:00 pm',
+  '4:00 pm',
+  '6:00 pm',
+  '8:00 pm',
+  '10:00 pm',
 ];
 
 const colorPallette = [

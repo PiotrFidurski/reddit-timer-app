@@ -29,6 +29,10 @@ export const Ul = styled.ul`
   align-items: center;
   justify-content: flex-end;
   width: 100%;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const Li = styled.li`
