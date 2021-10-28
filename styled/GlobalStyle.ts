@@ -35,11 +35,9 @@ const GlobalStyle = createGlobalStyle`
    line-height: 1.75rem;
    letter-spacing: 0.125rem;
    margin: 0 auto;
-   min-height: 100vh;
+   height: 100vh;
    font-size: 1rem;
    overflow-x: hidden;
-   /* things preventing grid from being 100%
-   large buttons, nav links and illustration link in footer */
   }
 
   a {
