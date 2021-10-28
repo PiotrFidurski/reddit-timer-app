@@ -37,6 +37,9 @@ const GlobalStyle = createGlobalStyle`
    margin: 0 auto;
    min-height: 100vh;
    font-size: 1rem;
+   min-width: 390px;
+   width: 100%;
+   max-width: 100%;
   }
 
   a {
