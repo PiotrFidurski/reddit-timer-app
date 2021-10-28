@@ -37,9 +37,10 @@ export const Time = styled.div`
   max-width: 40px;
   width: 100%;
   font-size: 0.7rem;
-  min-height: 80px;
+  min-height: 70px;
   overflow: hidden;
   min-width: 0px;
+  font-size: 0.8rem;
   white-space: pre-line;
   display: flex;
   justify-content: center;
@@ -64,15 +65,19 @@ export const Day = styled.div`
   max-width: 70px;
   width: 100%;
   display: flex;
+  width: 35px;
   justify-content: center;
   align-items: center;
   min-height: 40px;
   background: ${(props) => props.theme.background.secondary};
+  @media (min-width: 768px) {
+    max-width: 40px;
+  }
 `;
 
 export const Square = styled.div<{ bg: string }>`
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   background: ${(props) => props.bg};
   display: flex;
   align-items: center;
@@ -83,5 +88,9 @@ export const Square = styled.div<{ bg: string }>`
     cursor: pointer;
     background: ${(props) => props.theme.background.secondary};
     transform: scale(1.4, 1.4);
+  }
+  @media (min-width: 768px) {
+    height: 40px;
+    width: 40px;
   }
 `;

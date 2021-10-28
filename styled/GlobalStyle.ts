@@ -37,9 +37,9 @@ const GlobalStyle = createGlobalStyle`
    margin: 0 auto;
    min-height: 100vh;
    font-size: 1rem;
-   min-width: 500px;
-   width: 100%;
-   max-width: 100%;
+   overflow-x: hidden;
+   /* things preventing grid from being 100%
+   large buttons, nav links and illustration link in footer */
   }
 
   a {

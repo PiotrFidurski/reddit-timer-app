@@ -71,7 +71,8 @@ export const Button = styled.button`
   border-radius: 9999px;
   border: 2px solid #41434d;
   font-size: clamp(1.4rem, 2vw, 1.8rem);
-  min-width: 300px;
+  max-width: 300px;
+  min-width: 200px;
   max-height: 50px;
   display: flex;
   align-items: center;
