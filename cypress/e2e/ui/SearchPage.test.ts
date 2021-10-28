@@ -2,7 +2,7 @@ describe('SearchPage tests', () => {
   it('has a back button that goes back to "/"', () => {
     cy.visit('/');
 
-    cy.findByText(/Search/i).click();
+    cy.findByRole('link', { name: /^header-link$/ }).click();
 
     cy.findByRole('button', { name: /back/i }).click();
 

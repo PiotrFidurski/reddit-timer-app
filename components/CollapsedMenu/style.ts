@@ -20,13 +20,13 @@ export const ToggleMenuButton = styled(Button)`
 `;
 
 export const Menu = styled.nav<{ open: boolean }>`
-  display: flex;
   background: ${({ theme }) => theme.background.secondary};
   position: absolute;
   top: 0;
+  display: flex;
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100vw)')};
   left: 0;
-  width: 90vw;
+  width: 100%;
   transition: transform 0.5s ease-in-out;
   transform-origin: left;
   min-height: 300px;

@@ -26,6 +26,11 @@ function Footer() {
               Inspired by
             </A>
           </Li>
+          <Li>
+            <A href="https://pushshift.io" target="_blank" rel="noreferrer">
+              pushshift api
+            </A>
+          </Li>
         </Ul>
         <Hr />
       </Links>

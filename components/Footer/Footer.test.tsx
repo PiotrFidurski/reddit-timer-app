@@ -43,3 +43,17 @@ test('it has a "inspired by" link that links to "https://profy.dev"', () => {
 
   expect(profyDevCreditLink).toHaveAttribute('href', 'https://profy.dev');
 });
+
+test('it has a "pushshift api" link that links to "https://pushshift.io"', () => {
+  render(<Footer />);
+
+  const pushshiftApiLink = screen.getByRole('link', { name: /pushshift/i });
+
+  expect(pushshiftApiLink).toBeInTheDocument();
+
+  expect(pushshiftApiLink).toHaveAttribute('target', '_blank');
+
+  expect(pushshiftApiLink).toHaveAttribute('rel', 'noreferrer');
+
+  expect(pushshiftApiLink).toHaveAttribute('href', 'https://pushshift.io');
+});

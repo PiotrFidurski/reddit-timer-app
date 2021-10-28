@@ -34,7 +34,7 @@ describe('Header tests', () => {
   it('has search link that links to "/search" page', () => {
     cy.visit('/');
 
-    cy.findByText(/^Search$/).click();
+    cy.findByRole('link', { name: /^header-link$/ }).click();
 
     cy.url().should('equal', `${Cypress.config().baseUrl}/search`);
   });
