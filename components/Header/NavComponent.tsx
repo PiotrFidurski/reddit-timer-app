@@ -1,3 +1,4 @@
+import CollapsedMenu from '@components/CollapsedMenu/CollapsedMenu';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
@@ -26,6 +27,7 @@ function NavComponent() {
           </S.Li>
         </S.Ul>
       </S.Nav>
+      <CollapsedMenu />
     </S.Header>
   );
 }
