@@ -20,6 +20,8 @@ export const HeatmapWrapper = styled.div`
 export const TimeWrapper = styled.section`
   display: flex;
   flex-direction: column;
+  word-break: break-word;
+  text-align: center;
   margin-top: 40px;
   justify-content: space-between;
   @media (min-width: 768px) {
@@ -32,15 +34,19 @@ export const TimeWrapper = styled.section`
 
 export const Time = styled.div`
   background: ${(props) => props.theme.background.button};
-  max-width: 80px;
+  max-width: 40px;
   width: 100%;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   min-height: 80px;
+  overflow: hidden;
+  min-width: 0px;
+  white-space: pre-line;
   display: flex;
   justify-content: center;
   align-items: center;
   @media (min-width: 768px) {
     min-height: 40px;
+    max-width: 80px;
   }
 `;
 
@@ -76,7 +82,6 @@ export const Square = styled.div<{ bg: string }>`
   :hover {
     cursor: pointer;
     background: ${(props) => props.theme.background.secondary};
-    /* border: 2px solid ${(props) => props.theme.color.highlight}; */
     transform: scale(1.4, 1.4);
   }
 `;

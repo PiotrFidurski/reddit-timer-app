@@ -57,9 +57,9 @@ export default function HomePage() {
           </FilledVariantButton>
         </ButtonsWrapper>
       </IntroSection>
-      <AboutSection>
+      <AboutSection aria-label="about-section" id="about">
         <AboutArticle>
-          <h2 id="about">About</h2>
+          <h2>About</h2>
           <Paragraph>
             This app was created for learning purposes, it was inspired by{' '}
             <A aria-label="article-link" href="https://profy.dev/project/reddit-timer" target="_blank" rel="noreferrer">
@@ -78,9 +78,9 @@ export default function HomePage() {
           />
         </AboutIllustrationWrapper>
       </AboutSection>
-      <HowItWorksSection>
+      <HowItWorksSection aria-label="how-it-works-section" id="how-it-works">
         <HowItWorksArticle>
-          <h2 id="how-it-works">How it works</h2>
+          <h2>How it works</h2>
           <Paragraph>We get 300 most upvoted reddit posts from last year.</Paragraph>
           <Hr />
           <Paragraph>We transform the data into a heatmap that has days and hours.</Paragraph>
