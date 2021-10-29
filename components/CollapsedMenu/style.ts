@@ -2,7 +2,7 @@ import { Button } from '@styled/HomePage.styled';
 import { LineOnHover } from '@styled/style-utils';
 import styled from 'styled-components';
 
-export const Nav = styled.nav`
+export const Section = styled.section`
   display: flex;
   min-height: 80px;
   position: relative;
