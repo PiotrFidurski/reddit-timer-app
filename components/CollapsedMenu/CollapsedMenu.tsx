@@ -2,7 +2,7 @@ import Link from 'next/link';
 import * as React from 'react';
 import Close from '../../public/assets/svg/close.svg';
 import Hamburger from '../../public/assets/svg/hamburger.svg';
-import { A, Li, Menu, Nav, ToggleMenuButton, Ul } from './style';
+import * as S from './style';
 
 function CollapsedMenu() {
   const [open, setOpen] = React.useState(false);
@@ -16,31 +16,31 @@ function CollapsedMenu() {
   };
 
   return (
-    <Nav>
+    <S.Section>
       {!open ? (
-        <ToggleMenuButton onClick={handleOpen} aria-label="menu-open">
+        <S.ToggleMenuButton onClick={handleOpen} aria-label="menu-open">
           <Hamburger />
-        </ToggleMenuButton>
+        </S.ToggleMenuButton>
       ) : null}
-      <Menu open={open} aria-label="collapsable-menu" aria-hidden={open}>
-        <ToggleMenuButton onClick={handleClose} aria-label="menu-close">
+      <S.Menu open={open} aria-label="collapsable-menu" aria-hidden={!open}>
+        <S.ToggleMenuButton onClick={handleClose} aria-label="menu-close">
           <Close />
-        </ToggleMenuButton>
-        <Ul>
-          <Li>
+        </S.ToggleMenuButton>
+        <S.Ul>
+          <S.Li>
             <Link href="/search" passHref>
-              <A>Search</A>
+              <S.A>Search</S.A>
             </Link>
-          </Li>
-          <Li>
-            <A href="/#about">About</A>
-          </Li>
-          <Li>
-            <A href="/#how-it-works">How it works</A>
-          </Li>
-        </Ul>
-      </Menu>
-    </Nav>
+          </S.Li>
+          <S.Li>
+            <S.A href="/#about">About</S.A>
+          </S.Li>
+          <S.Li>
+            <S.A href="/#how-it-works">How it works</S.A>
+          </S.Li>
+        </S.Ul>
+      </S.Menu>
+    </S.Section>
   );
 }
 

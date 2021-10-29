@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const StyledFooter = styled.footer`
   position: relative;
   padding: 1rem 1rem 0 1rem;
-  background: ${(props) => props.theme.background.secondary};
+  background: ${({ theme: { background } }) => background.secondary};
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   grid-area: footer;
@@ -35,7 +35,7 @@ export const LogoWrapper = styled.section`
 
 export const Credits = styled.section`
   grid-area: credits;
-  color: ${(props) => props.theme.color.secondary};
+  color: ${({ theme: { color } }) => color.secondary};
   @media (min-width: 768px) {
     display: flex;
     justify-content: flex-end;
@@ -44,7 +44,7 @@ export const Credits = styled.section`
 
 export const Hr = styled.hr`
   border: none;
-  background-color: ${(props) => props.theme.color.highlight};
+  background: ${({ theme: { color } }) => color.highlight};
   height: 1px;
   width: 100%;
   margin: 0.7rem 0;

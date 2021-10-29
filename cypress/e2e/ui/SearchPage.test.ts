@@ -2,7 +2,7 @@ describe('SearchPage tests', () => {
   it('has a back button that goes back to "/"', () => {
     cy.visit('/');
 
-    cy.findByRole('link', { name: /^header-link$/ }).click();
+    cy.findByRole('link', { name: /^Search$/ }).click();
 
     cy.findByRole('button', { name: /back/i }).click();
 
@@ -17,7 +17,7 @@ describe('SearchPage tests', () => {
       .type('javascript');
   });
 
-  it('displays data in a form of heatmap when', () => {
+  it('displays data in a form of heatmap', () => {
     cy.intercept('http://localhost:3000/api/posts?subreddit=javascript', { fixture: 'pushshiftapi-response.json' }).as(
       'getPosts'
     );

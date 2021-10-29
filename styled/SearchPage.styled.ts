@@ -45,12 +45,12 @@ export const Heading = styled.header`
 `;
 
 export const H2 = styled.h2`
-  color: ${(props) => props.theme.color.highlight};
+  color: ${({ theme: { color } }) => color.highlight};
 `;
 
 export const Hr = styled.hr`
   border: none;
-  background-color: ${(props) => props.theme.color.highlight};
+  background-color: ${({ theme: { color } }) => color.highlight};
   height: 1px;
   width: 100%;
   margin: 0.5rem 0;
@@ -81,8 +81,8 @@ export const Spinner = styled.div`
   min-height: 60px;
   max-width: 60px;
   width: 100%;
-  border: 5px solid ${(props) => props.theme.color.secondary};
-  border-left-color: ${(props) => props.theme.color.highlight};
+  border: 5px solid ${({ theme: { color } }) => color.secondary};
+  border-left-color: ${({ theme: { color } }) => color.highlight};
   border-radius: 999px;
   animation: ${spin} 0.75s infinite linear;
 `;

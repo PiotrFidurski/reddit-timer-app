@@ -1,21 +1,6 @@
 import Footer from '@components/Footer/Footer';
 import NavComponent from '@components/Header/NavComponent';
-import {
-  A,
-  AboutArticle,
-  AboutIllustrationWrapper,
-  AboutSection,
-  Button,
-  ButtonsWrapper,
-  FilledVariantButton,
-  HowItWorksArticle,
-  HowItWorksIllustrationWrapper,
-  HowItWorksSection,
-  ImageWrapper,
-  IntroSection,
-  Main,
-  Paragraph,
-} from '@styled/HomePage.styled';
+import * as S from '@styled/HomePage.styled';
 import { Hr } from '@styled/SearchPage.styled';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -25,13 +10,13 @@ import * as React from 'react';
 export default function HomePage() {
   const router = useRouter();
   return (
-    <Main>
+    <S.Main>
       <Head>
         <title>Find the best time to post</title>
         <meta name="description" content="Find the best time to post your reddit posts!" />
       </Head>
       <NavComponent />
-      <ImageWrapper>
+      <S.ImageWrapper>
         <Image
           src="/assets/images/monitor-illustration.png"
           layout="intrinsic"
@@ -40,34 +25,39 @@ export default function HomePage() {
           height="400"
           quality={100}
         />
-      </ImageWrapper>
-      <IntroSection>
+      </S.ImageWrapper>
+      <S.IntroSection>
         <h1>Find out when it&apos;s the best time to post something on reddit!</h1>
-        <ButtonsWrapper>
+        <S.ButtonsWrapper>
           <a
             href="https://github.com/chimson/reddit-timer-app"
             aria-label="button-link"
             target="_blank"
             rel="noreferrer"
           >
-            <Button type="button">Github</Button>
+            <S.Button type="button">Github</S.Button>
           </a>
-          <FilledVariantButton type="button" onClick={() => router.push('/search')}>
+          <S.FilledVariantButton type="button" onClick={() => router.push('/search')}>
             r/javascript
-          </FilledVariantButton>
-        </ButtonsWrapper>
-      </IntroSection>
-      <AboutSection aria-label="about-section" id="about">
-        <AboutArticle>
+          </S.FilledVariantButton>
+        </S.ButtonsWrapper>
+      </S.IntroSection>
+      <S.AboutSection aria-label="about-section" id="about">
+        <S.AboutArticle>
           <h2>About</h2>
-          <Paragraph>
+          <S.Paragraph>
             This app was created for learning purposes, it was inspired by{' '}
-            <A aria-label="article-link" href="https://profy.dev/project/reddit-timer" target="_blank" rel="noreferrer">
+            <S.A
+              aria-label="article-link"
+              href="https://profy.dev/project/reddit-timer"
+              target="_blank"
+              rel="noreferrer"
+            >
               profy.dev
-            </A>
-          </Paragraph>
-        </AboutArticle>
-        <AboutIllustrationWrapper>
+            </S.A>
+          </S.Paragraph>
+        </S.AboutArticle>
+        <S.AboutIllustrationWrapper>
           <Image
             src="/assets/images/test_tubes.png"
             alt="tubes_illustration"
@@ -76,18 +66,18 @@ export default function HomePage() {
             height="495"
             quality={100}
           />
-        </AboutIllustrationWrapper>
-      </AboutSection>
-      <HowItWorksSection aria-label="how-it-works-section" id="how-it-works">
-        <HowItWorksArticle>
+        </S.AboutIllustrationWrapper>
+      </S.AboutSection>
+      <S.HowItWorksSection aria-label="how-it-works-section" id="how-it-works">
+        <S.HowItWorksArticle>
           <h2>How it works</h2>
-          <Paragraph>We get 300 most upvoted reddit posts from last year.</Paragraph>
+          <S.Paragraph>We get 300 most upvoted reddit posts from last year.</S.Paragraph>
           <Hr />
-          <Paragraph>We transform the data into a heatmap that has days and hours.</Paragraph>
+          <S.Paragraph>We transform the data into a heatmap that has days and hours.</S.Paragraph>
           <Hr />
-          <Paragraph>Each square represents the amount of posts posted for that day and hour.</Paragraph>
-        </HowItWorksArticle>
-        <HowItWorksIllustrationWrapper>
+          <S.Paragraph>Each square represents the amount of posts posted for that day and hour.</S.Paragraph>
+        </S.HowItWorksArticle>
+        <S.HowItWorksIllustrationWrapper>
           <Image
             src="/assets/images/tools_illustration.png"
             alt="wrench_tool"
@@ -96,9 +86,9 @@ export default function HomePage() {
             height="387"
             quality={100}
           />
-        </HowItWorksIllustrationWrapper>
-      </HowItWorksSection>
+        </S.HowItWorksIllustrationWrapper>
+      </S.HowItWorksSection>
       <Footer />
-    </Main>
+    </S.Main>
   );
 }

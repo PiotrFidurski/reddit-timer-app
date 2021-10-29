@@ -30,8 +30,8 @@ const GlobalStyle = createGlobalStyle`
 
   body {
    font-family: "Ubuntu", sans-serif;
-   background: ${(props) => props.theme.background.primary};
-   color:  ${(props) => props.theme.color.default};
+   background: ${({ theme: { background } }) => background.primary};
+   color:  ${({ theme: { color } }) => color.default};
    line-height: 1.75rem;
    letter-spacing: 0.125rem;
    margin: 0 auto;
@@ -42,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.color.secondary};
+    color: ${({ theme: { color } }) => color.secondary};
   }
 `;
 

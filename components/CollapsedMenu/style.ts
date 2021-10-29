@@ -2,7 +2,7 @@ import { Button } from '@styled/HomePage.styled';
 import { LineOnHover } from '@styled/style-utils';
 import styled from 'styled-components';
 
-export const Nav = styled.nav`
+export const Section = styled.section`
   display: flex;
   min-height: 80px;
   position: relative;
@@ -20,7 +20,7 @@ export const ToggleMenuButton = styled(Button)`
 `;
 
 export const Menu = styled.nav<{ open: boolean }>`
-  background: ${({ theme }) => theme.background.secondary};
+  background: ${({ theme: { background } }) => background.secondary};
   position: absolute;
   top: 0;
   display: flex;

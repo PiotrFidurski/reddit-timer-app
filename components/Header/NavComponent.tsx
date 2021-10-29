@@ -16,7 +16,7 @@ function NavComponent() {
         <S.Ul>
           <S.Li>
             <Link href="/search" passHref>
-              <S.A aria-label="header-link">Search</S.A>
+              <S.A>Search</S.A>
             </Link>
           </S.Li>
           <S.Li>
