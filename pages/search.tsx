@@ -1,7 +1,7 @@
 import Footer from '@components/Footer/Footer';
 import Form from '@components/Form/Form';
 import Heatmap from '@components/Heatmap/Heatmap';
-import { GoBackButton, H2, Header, Heading, Main, Nav, Spinner, SpinnerWrapper } from '@styled/SearchPage.styled';
+import * as S from '@styled/SearchPage.styled';
 import { useHeatmap } from '@utils/customHooks/useHeatmap';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -34,37 +34,37 @@ function SearchPage() {
   };
 
   return (
-    <Main>
+    <S.Main>
       <Head>
         <title>Search for any subreddit!</title>
         <meta name="description" content="Search for desired subreddit and see what's the best time to post" />
       </Head>
-      <Header>
-        <Nav>
-          <GoBackButton aria-label="back" type="button" onClick={() => router.back()}>
+      <S.Header>
+        <S.Nav>
+          <S.GoBackButton aria-label="back" type="button" onClick={() => router.back()}>
             <Arrow />
-          </GoBackButton>
-        </Nav>
-      </Header>
+          </S.GoBackButton>
+        </S.Nav>
+      </S.Header>
       <Form isSubmitting={inFlight} subreddit={subreddit} onChange={handleChange} onSubmit={handleSubmit} />
       {isLoading ? (
-        <SpinnerWrapper>
-          <Spinner />
-        </SpinnerWrapper>
+        <S.SpinnerWrapper>
+          <S.Spinner />
+        </S.SpinnerWrapper>
       ) : null}
       {isError ? (
-        <Heading>
-          <H2>{errorMessage}</H2>
-        </Heading>
+        <S.Heading>
+          <S.H2>{errorMessage}</S.H2>
+        </S.Heading>
       ) : null}
       {isSuccess ? (
-        <Heading>
-          <H2>r/{subreddit}</H2>
-        </Heading>
+        <S.Heading>
+          <S.H2>r/{subreddit}</S.H2>
+        </S.Heading>
       ) : null}
       {isSuccess ? <Heatmap data={multiDimensionalArray} /> : null}
       <Footer />
-    </Main>
+    </S.Main>
   );
 }
 
