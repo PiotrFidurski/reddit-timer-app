@@ -90,7 +90,7 @@ export const ButtonsWrapper = styled.div`
 
 export const Button = styled.button`
   background: transparent;
-  color: ${(props) => props.theme.color.default};
+  color: ${({ theme: { color } }) => color.default};
   padding: 35px 20px;
   border-radius: 9999px;
   border: 2px solid #41434d;
@@ -112,13 +112,13 @@ export const Button = styled.button`
   }
 
   svg {
-    fill: ${(props) => props.theme.color.default};
+    fill: ${({ theme: { color } }) => color.default};
   }
 
   &:hover {
-    border-color: ${(props) => props.theme.color.highlight};
+    border-color: ${({ theme: { color } }) => color.highlight};
     svg {
-      fill: ${(props) => props.theme.color.highlight} !important;
+      fill: ${({ theme: { color } }) => color.highlight};
     }
   }
 
@@ -142,7 +142,7 @@ export const HowItWorksSection = styled.section`
 `;
 
 export const FilledVariantButton = styled(Button)`
-  background: ${(props) => props.theme.background.button};
+  background: ${({ theme: { background } }) => background.button};
   border: 2px solid transparent;
 `;
 
@@ -167,7 +167,7 @@ export const HowItWorksArticle = styled.article`
 export const Paragraph = styled.p`
   font-size: clamp(1.2rem, 2vw, 1.8rem);
   line-height: clamp(1.8rem, 3vw, 2.4rem);
-  color: ${(props) => props.theme.color.secondary};
+  color: ${({ theme: { color } }) => color.secondary};
 `;
 
 export const A = styled.a`
