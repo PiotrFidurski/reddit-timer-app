@@ -33,7 +33,7 @@ export const TimeWrapper = styled.section`
 `;
 
 export const Time = styled.div`
-  background: ${(props) => props.theme.background.button};
+  background: ${({ theme: { background } }) => background.button};
   max-width: 40px;
   width: 100%;
   font-size: 0.7rem;
@@ -69,7 +69,7 @@ export const Day = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 40px;
-  background: ${(props) => props.theme.background.secondary};
+  background: ${({ theme: { background } }) => background.secondary};
   @media (min-width: 768px) {
     max-width: 40px;
   }
@@ -78,7 +78,7 @@ export const Day = styled.div`
 export const Square = styled.div<{ bg: string }>`
   height: 35px;
   width: 35px;
-  background: ${(props) => props.bg};
+  background: ${({ bg }) => bg};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,7 +86,7 @@ export const Square = styled.div<{ bg: string }>`
   transition: transform 0.25s ease;
   :hover {
     cursor: pointer;
-    background: ${(props) => props.theme.background.secondary};
+    background: ${({ theme: { background } }) => background.secondary};
     transform: scale(1.4, 1.4);
   }
   @media (min-width: 768px) {

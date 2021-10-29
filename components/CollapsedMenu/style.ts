@@ -20,7 +20,7 @@ export const ToggleMenuButton = styled(Button)`
 `;
 
 export const Menu = styled.nav<{ open: boolean }>`
-  background: ${({ theme }) => theme.background.secondary};
+  background: ${({ theme: { background } }) => background.secondary};
   position: absolute;
   top: 0;
   display: flex;

@@ -20,10 +20,10 @@ export const Input = styled.input`
   padding: 0.7rem;
   border-radius: 9999px;
   background: transparent;
-  color: ${(props) => props.theme.color.default};
+  color: ${({ theme: { color } }) => color.default};
   border: 2px solid #41434d;
   &:focus {
     transition: border-color 0.25s ease;
-    border-color: ${(props) => props.theme.color.highlight};
+    border-color: ${({ theme: { color } }) => color.highlight};
   }
 `;

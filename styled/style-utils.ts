@@ -12,15 +12,15 @@ export const ArticleStyles = css`
 export const ImageWrapperStyles = css`
   width: 100%;
   img {
-    filter: brightness(0.825) drop-shadow(0px 0px 0.4px ${(props) => props.theme.color.highlight});
+    filter: brightness(0.825) drop-shadow(0px 0px 0.4px ${({ theme: { color } }) => color.highlight});
   }
 `;
 
 export const SectionStyles = css`
   display: flex;
   border-radius: 15px;
-  box-shadow: 0px 0px 4px 0px ${(props) => props.theme.shadow.primary};
-  background: ${(props) => props.theme.background.secondary};
+  box-shadow: 0px 0px 4px 0px ${({ theme: { shadow } }) => shadow.primary};
+  background: ${({ theme: { background } }) => background.secondary};
   align-items: center;
   flex-direction: column;
   margin-bottom: 1rem;
@@ -51,6 +51,6 @@ export const LineOnHover = css`
     transform: scaleX(1);
   }
   &:hover {
-    color: ${(props) => props.theme.color.highlight};
+    color: ${({ theme: { color } }) => color.highlight};
   }
 `;
