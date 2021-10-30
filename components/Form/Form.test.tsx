@@ -1,17 +1,21 @@
 import SearchPage from '@pages/search';
-import { fireEvent, screen } from '@testing-library/react';
+import { fireEvent, screen, waitFor } from '@testing-library/react';
 import { render } from '@utils/test-utils';
 
-test('an input has a default value of "javascript"', () => {
+test('an input has a default value of "javascript"', async () => {
   render(<SearchPage />);
+
+  await screen.findByTestId(/heatmap/i);
 
   const input = screen.getByRole('textbox', { name: /subreddit/i });
 
-  expect(input).toHaveAttribute('value', 'javascript');
+  await waitFor(() => expect(input).toHaveAttribute('value', 'javascript'));
 });
 
-test('an input can be typed into', () => {
+test('an input can be typed into', async () => {
   render(<SearchPage />);
+
+  await screen.findByTestId(/heatmap/i);
 
   const input = screen.getByRole('textbox', { name: /subreddit/i });
 
@@ -24,8 +28,10 @@ test('an input can be typed into', () => {
   expect(input).toHaveAttribute('value', '');
 });
 
-test('when input value is "" submit button is disabled', () => {
+test('when input value is "" submit button is disabled', async () => {
   render(<SearchPage />);
+
+  await screen.findByTestId(/heatmap/i);
 
   const input = screen.getByRole('textbox', { name: /subreddit/i });
 

@@ -1,7 +1,7 @@
 import { RedditPost } from '@pages/api/posts';
 
 export async function getData(subreddit: string): Promise<{ data: Array<RedditPost> }> {
-  const response = await fetch(`/api/posts?subreddit=${subreddit}`);
+  const response = await fetch(`http://localhost:3000/api/posts?subreddit=${subreddit}`);
 
   const result: { data: Array<RedditPost> } = await response.json();
 

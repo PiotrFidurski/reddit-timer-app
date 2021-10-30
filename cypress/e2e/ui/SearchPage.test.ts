@@ -9,6 +9,17 @@ describe('SearchPage tests', () => {
     cy.url().should('equal', `${Cypress.config().baseUrl}/`);
   });
 
+  it('fetches data for "r/javascript" when visited', () => {
+    cy.intercept('http://localhost:3000/api/posts?subreddit=javascript', { fixture: 'pushshiftapi-response.json' }).as(
+      'getPosts'
+    );
+    cy.visit('/search');
+
+    cy.wait('@getPosts');
+
+    cy.findByTestId(/heatmap/);
+  });
+
   it('has a search input that can be typed into', () => {
     cy.visit('/search');
 

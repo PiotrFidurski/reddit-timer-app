@@ -61,9 +61,9 @@ function useLazyQuery<T>(callback: () => Promise<T>): [
     }
   }, [shouldRun]);
 
-  function triggerQuery() {
+  const triggerQuery = React.useCallback(() => {
     setQueryState((state) => ({ ...state, shouldRun: true }));
-  }
+  }, []);
 
   return [triggerQuery, { isLoading, isError, isSuccess, isIdle, status, data, errorMessage, inFlight }];
 }

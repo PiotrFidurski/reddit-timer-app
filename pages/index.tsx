@@ -46,7 +46,7 @@ export default function HomePage() {
         <S.AboutArticle>
           <h2>About</h2>
           <S.Paragraph>
-            This app was created for learning purposes, it was inspired by{' '}
+            This app was created for learning purposes, it was inspired by free plan of{' '}
             <S.A
               aria-label="article-link"
               href="https://profy.dev/project/reddit-timer"
