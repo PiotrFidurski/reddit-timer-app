@@ -2,9 +2,7 @@ import response from '../../fixtures/pushshiftapi-response.json';
 
 describe('/api/posts tests', () => {
   it('returns 200 status code on when requested subreddit exists', () => {
-    cy.intercept('http://localhost:3000/api/posts?subreddit=webdev', { fixture: 'pushshiftapi-response.json' }).as(
-      'getPosts'
-    );
+    cy.intercept('/api/posts?subreddit=webdev', { fixture: 'pushshiftapi-response.json' }).as('getPosts');
 
     cy.visit('/search');
 
@@ -18,9 +16,7 @@ describe('/api/posts tests', () => {
   });
 
   it('returns data that deep-equals pushshift-response.json fixture', () => {
-    cy.intercept('http://localhost:3000/api/posts?subreddit=reactjs', { fixture: 'pushshiftapi-response.json' }).as(
-      'getPosts'
-    );
+    cy.intercept('/api/posts?subreddit=reactjs', { fixture: 'pushshiftapi-response.json' }).as('getPosts');
 
     cy.visit('/search');
 
@@ -48,9 +44,7 @@ describe('/api/posts tests', () => {
       ],
     };
 
-    cy.intercept('http://localhost:3000/api/posts?subreddit=reactjs', { fixture: 'redditpost-response.json' }).as(
-      'getPosts'
-    );
+    cy.intercept('/api/posts?subreddit=reactjs', { fixture: 'redditpost-response.json' }).as('getPosts');
 
     cy.visit('/search');
 

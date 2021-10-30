@@ -10,9 +10,8 @@ describe('SearchPage tests', () => {
   });
 
   it('fetches data for "r/javascript" when visited', () => {
-    cy.intercept('http://localhost:3000/api/posts?subreddit=javascript', { fixture: 'pushshiftapi-response.json' }).as(
-      'getPosts'
-    );
+    cy.intercept('/api/posts?subreddit=javascript', { fixture: 'pushshiftapi-response.json' }).as('getPosts');
+
     cy.visit('/search');
 
     cy.wait('@getPosts');
@@ -29,9 +28,7 @@ describe('SearchPage tests', () => {
   });
 
   it('displays data in a form of heatmap', () => {
-    cy.intercept('http://localhost:3000/api/posts?subreddit=javascript', { fixture: 'pushshiftapi-response.json' }).as(
-      'getPosts'
-    );
+    cy.intercept('/api/posts?subreddit=javascript', { fixture: 'pushshiftapi-response.json' }).as('getPosts');
 
     cy.findByRole('textbox', { name: /subreddit/i })
       .clear()
@@ -45,7 +42,7 @@ describe('SearchPage tests', () => {
   });
 
   it('displays error message when theres an error making a request', () => {
-    cy.intercept('http://localhost:3000/api/posts?subreddit=asdasdasd', {
+    cy.intercept('/api/posts?subreddit=asdasdasd', {
       fixture: 'pushshiftapi-error-response.json',
     }).as('getPosts');
 
@@ -61,7 +58,7 @@ describe('SearchPage tests', () => {
   });
 
   it('search button cannot be spam-clicked while request is in flight', () => {
-    cy.intercept('http://localhost:3000/api/posts?subreddit=javascript', {
+    cy.intercept('/api/posts?subreddit=javascript', {
       delay: 1000,
       fixture: 'pushshiftapi-response.json',
     }).as('getPosts');
