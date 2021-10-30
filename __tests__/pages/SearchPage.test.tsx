@@ -3,8 +3,14 @@ import { fireEvent, screen } from '@testing-library/react';
 import { render } from '@utils/test-utils';
 import { useRouter } from 'next/router';
 
-test('it renders an input and a label with name subreddit', () => {
+jest.mock('next/router', () => ({
+  useRouter: jest.fn(),
+}));
+
+test('it renders an input and a label with name subreddit', async () => {
   render(<SearchPage />);
+
+  await screen.findByTestId(/heatmap/i);
 
   const label = screen.getByLabelText(/subreddit/i);
 
@@ -15,25 +21,31 @@ test('it renders an input and a label with name subreddit', () => {
   expect(label).toBeInTheDocument();
 });
 
-jest.mock('next/router', () => ({
-  useRouter: jest.fn(),
-}));
-
-test('it has a go back button that links back to "/"', () => {
+test('it has a go back button that links back to "/"', async () => {
   const back = jest.fn();
 
-  (useRouter as jest.MockedFunction<jest.Mock>).mockImplementationOnce(() => ({
+  (useRouter as jest.MockedFunction<jest.Mock>).mockImplementation(() => ({
     asPath: '/search',
     back,
   }));
 
   render(<SearchPage />);
 
+  await screen.findByTestId(/heatmap/i);
+
   const goBackButton = screen.getByRole('button', { name: /back/i });
 
   fireEvent.click(goBackButton);
 
   expect(back).toHaveBeenCalledTimes(1);
+
+  (useRouter as jest.MockedFunction<jest.Mock>).mockRestore();
+});
+
+test('it fetches data for "r/javascript" subreddit when visited', async () => {
+  render(<SearchPage />);
+
+  expect(await screen.findByTestId(/heatmap/i)).toBeInTheDocument();
 });
 
 // eslint-disable-next-line jest/no-export
