@@ -17,17 +17,21 @@ function SearchPage() {
   const {
     queryProps: { isError, inFlight, isSuccess, errorMessage, isLoading },
     triggerQuery,
-    setMultiDimensionalArray,
-    multiDimensionalArray,
+    setheatMap,
+    heatMap,
   } = useHeatmap({ subreddit });
 
   const handleSubmit = (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
 
-    setMultiDimensionalArray(initialState());
+    setheatMap(initialState());
 
     return triggerQuery();
   };
+
+  React.useEffect(() => {
+    triggerQuery();
+  }, [triggerQuery]);
 
   const handleChange = (e: React.BaseSyntheticEvent) => {
     setSubreddit(e.target.value);
@@ -62,7 +66,7 @@ function SearchPage() {
           <S.H2>r/{subreddit}</S.H2>
         </S.Heading>
       ) : null}
-      {isSuccess ? <Heatmap data={multiDimensionalArray} /> : null}
+      {isSuccess ? <Heatmap data={heatMap} /> : null}
       <Footer />
     </S.Main>
   );
