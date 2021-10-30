@@ -10,7 +10,12 @@ describe('SearchPage tests', () => {
   });
 
   it('fetches data for "r/javascript" when visited', () => {
+    cy.intercept('http://localhost:3000/api/posts?subreddit=javascript', { fixture: 'pushshiftapi-response.json' }).as(
+      'getPosts'
+    );
     cy.visit('/search');
+
+    cy.wait('getPosts');
 
     cy.findByTestId(/heatmap/);
   });
