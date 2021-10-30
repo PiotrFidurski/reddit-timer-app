@@ -9,6 +9,12 @@ describe('SearchPage tests', () => {
     cy.url().should('equal', `${Cypress.config().baseUrl}/`);
   });
 
+  it('fetches data for "r/javascript" when visited', () => {
+    cy.visit('/search');
+
+    cy.findByTestId(/heatmap/);
+  });
+
   it('has a search input that can be typed into', () => {
     cy.visit('/search');
 
