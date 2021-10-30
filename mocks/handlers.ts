@@ -1,10 +1,7 @@
 import { rest } from 'msw';
 
-const url =
-  process.env.NODE_ENV === 'production' ? 'https://reddit-timer-app.vercel.app/api' : 'http://localhost:3000/api';
-
 export const handlers = [
-  rest.get(`${url}/posts`, (req, res, ctx) => {
+  rest.get(`http://localhost:3000/api/posts`, (req, res, ctx) => {
     const subreddit = req.url.searchParams.get('subreddit');
 
     return res(
