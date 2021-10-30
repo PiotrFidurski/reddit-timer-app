@@ -15,7 +15,7 @@ describe('SearchPage tests', () => {
     );
     cy.visit('/search');
 
-    cy.wait('getPosts');
+    cy.wait('@getPosts');
 
     cy.findByTestId(/heatmap/);
   });
