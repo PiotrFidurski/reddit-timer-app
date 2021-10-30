@@ -3,3 +3,4 @@ coverage
 .next
 next.config.js
 jest.config.js
+public/mockServiceWorker.js
