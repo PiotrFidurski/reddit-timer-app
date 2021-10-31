@@ -11,6 +11,8 @@ declare module 'styled-components' {
       secondary: string;
       default: string;
       highlight: string;
+      accent: string;
+      border: string;
     };
     shadow: {
       primary: string;

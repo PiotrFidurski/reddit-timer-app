@@ -13,7 +13,7 @@ export const Main = styled.main`
     'heading heading heading heading'
     'heatmap heatmap heatmap heatmap'
     'footer footer footer footer';
-  max-width: 1440px;
+  max-width: 1260px;
   padding: 0 1rem;
   min-height: 100vh;
 `;

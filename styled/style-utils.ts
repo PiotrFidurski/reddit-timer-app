@@ -34,23 +34,31 @@ export const SectionStyles = css`
 `;
 
 export const LineOnHover = css`
+  padding: 0.5rem 1rem;
   &:after {
-    transition: transform 0.25s ease;
+    transition: transform background-color 0.25s ease;
     position: absolute;
     height: 2px;
-    bottom: -3px;
-    left: 0;
+    bottom: 5px;
+    left: 1rem;
     content: '';
     transform: scaleX(0);
     display: block;
     transform-origin: left;
-    width: 99%;
+    width: calc(100% - 2.1rem);
   }
   &:hover:after {
     background-color: currentColor;
     transform: scaleX(1);
   }
   &:hover {
+    color: ${({ theme: { color } }) => color.highlight};
+  }
+
+  &:focus {
+    outline: none;
+    background-color: ${({ theme: { color } }) => color.accent};
+    border-radius: 999px;
     color: ${({ theme: { color } }) => color.highlight};
   }
 `;
