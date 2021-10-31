@@ -30,6 +30,7 @@ export default function HomePage() {
         <h1>Find out when it&apos;s the best time to post something on reddit!</h1>
         <S.ButtonsWrapper>
           <a
+            tabIndex={-1}
             href="https://github.com/chimson/reddit-timer-app"
             aria-label="button-link"
             target="_blank"

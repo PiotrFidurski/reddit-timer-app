@@ -19,11 +19,12 @@ export const ToggleMenuButton = styled(Button)`
   padding: 0;
 `;
 
-export const Menu = styled.nav<{ open: boolean }>`
+export const Menu = styled.nav<{ open: boolean; visibility: string }>`
   background: ${({ theme: { background } }) => background.secondary};
   position: absolute;
   top: 0;
   display: flex;
+  visibility: ${({ visibility }) => visibility};
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-120%)')};
   left: 0;
   width: 100%;

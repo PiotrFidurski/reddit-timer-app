@@ -35,7 +35,7 @@ export const Ul = styled.ul`
 `;
 
 export const Li = styled.li`
-  padding: 0 1rem;
+  position: relative;
 `;
 
 export const LogoLink = styled.div`

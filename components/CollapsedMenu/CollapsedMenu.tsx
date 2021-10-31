@@ -7,12 +7,20 @@ import * as S from './style';
 function CollapsedMenu() {
   const [open, setOpen] = React.useState(false);
 
+  const [visible, setVisible] = React.useState('hidden');
+
   const handleOpen = () => {
     setOpen(true);
+
+    setVisible('visible');
   };
 
   const handleClose = () => {
     setOpen(false);
+
+    setTimeout(() => {
+      setVisible('hidden');
+    }, 400);
   };
 
   return (
@@ -22,7 +30,7 @@ function CollapsedMenu() {
           <Hamburger />
         </S.ToggleMenuButton>
       ) : null}
-      <S.Menu open={open} aria-label="collapsable-menu" aria-hidden={!open}>
+      <S.Menu open={open} visibility={visible} aria-label="collapsable-menu" aria-hidden={!open}>
         <S.ToggleMenuButton onClick={handleClose} aria-label="menu-close">
           <Close />
         </S.ToggleMenuButton>

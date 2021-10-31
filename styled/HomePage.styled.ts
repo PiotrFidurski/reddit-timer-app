@@ -7,7 +7,7 @@ export const Main = styled.main`
   display: grid;
   grid-gap: 1rem;
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 1260px;
   grid-template-columns: repeat(4, minmax(auto, 1fr));
   grid-template-areas:
     'navbar navbar navbar navbar'
@@ -93,7 +93,7 @@ export const Button = styled.button`
   color: ${({ theme: { color } }) => color.default};
   padding: 35px 20px;
   border-radius: 9999px;
-  border: 2px solid #41434d;
+  border: 2px solid ${({ theme: { color } }) => color.border};
   font-size: clamp(1.4rem, 2vw, 1.8rem);
   max-width: 300px;
   min-width: 200px;
@@ -109,6 +109,15 @@ export const Button = styled.button`
   &:disabled {
     cursor: no-drop;
     opacity: 0.5;
+  }
+
+  &:focus {
+    border-color: ${({ theme: { color } }) => color.highlight};
+    box-shadow: 0px 0px 8px ${({ theme: { color } }) => color.accent};
+    outline: none;
+    svg {
+      fill: ${({ theme: { color } }) => color.highlight};
+    }
   }
 
   svg {

@@ -23,4 +23,42 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import '@testing-library/cypress/add-commands';
+
+export interface InterceptAndSearchProps {
+  subreddit: string;
+  fixture?: string;
+  delay?: number;
+}
+
+Cypress.Commands.add(
+  'interceptAndSearch',
+  ({ subreddit, fixture = 'pushshiftapi-response.json', delay = 1000 }: InterceptAndSearchProps) => {
+    cy.intercept(`/api/posts?subreddit=${subreddit}`, { fixture, delay }).as('getPosts');
+
+    cy.visit('/search');
+
+    cy.findByRole('textbox', { name: /subreddit/i })
+      .clear()
+      .type(subreddit);
+
+    cy.findByRole('button', { name: /^Search$/ }).click();
+  }
+);
+
+interface LinkOpensInNewTabProps {
+  name: string | RegExp;
+  href: string;
+}
+
+Cypress.Commands.add('linkOpensInNewTab', ({ name, href }: LinkOpensInNewTabProps) => {
+  cy.findByRole('link', { name });
+
+  cy.should('have.attr', 'target', '_blank');
+
+  cy.should('have.attr', 'rel', 'noreferrer');
+
+  cy.should('have.attr', 'href', href);
+});
+
 export {};
