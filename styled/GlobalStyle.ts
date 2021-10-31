@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-
+  
   ul {
     white-space: pre;
     font-size: clamp(1rem, 1.4vw, 1.3rem);
