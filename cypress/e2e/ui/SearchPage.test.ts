@@ -28,13 +28,7 @@ describe('SearchPage tests', () => {
   });
 
   it('displays data in a form of heatmap', () => {
-    cy.intercept('/api/posts?subreddit=javascript', { fixture: 'pushshiftapi-response.json' }).as('getPosts');
-
-    cy.findByRole('textbox', { name: /subreddit/i })
-      .clear()
-      .type('javascript');
-
-    cy.findByText(/^Search$/).click();
+    cy.interceptAndSearch({ subreddit: 'javascript' });
 
     cy.wait('@getPosts');
 
@@ -42,34 +36,13 @@ describe('SearchPage tests', () => {
   });
 
   it('displays error message when theres an error making a request', () => {
-    cy.intercept('/api/posts?subreddit=asdasdasd', {
-      fixture: 'pushshiftapi-error-response.json',
-    }).as('getPosts');
-
-    cy.visit('/search');
-
-    cy.findByRole('textbox', { name: /subreddit/i })
-      .clear()
-      .type('asdasdasd');
-
-    cy.findByText(/^Search$/).click();
+    cy.interceptAndSearch({ subreddit: 'asdasdasd', fixture: 'pushshiftapi-error-response.json' });
 
     cy.findByText(/Cant find data for this subreddit/i);
   });
 
   it('search button cannot be spam-clicked while request is in flight', () => {
-    cy.intercept('/api/posts?subreddit=javascript', {
-      delay: 1000,
-      fixture: 'pushshiftapi-response.json',
-    }).as('getPosts');
-
-    cy.visit('/search');
-
-    cy.findByRole('textbox', { name: /subreddit/i })
-      .clear()
-      .type('javascript');
-
-    cy.findByText(/^Search$/).click();
+    cy.interceptAndSearch({ subreddit: 'javascript', delay: 2000 });
 
     cy.should('be.disabled');
 

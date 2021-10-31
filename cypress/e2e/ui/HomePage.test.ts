@@ -10,25 +10,13 @@ describe('HomePage tests', () => {
   it('links to github page', () => {
     cy.visit('/');
 
-    cy.findAllByRole('link', { name: /button-link/i });
-
-    cy.should('have.attr', 'href', 'https://github.com/chimson/reddit-timer-app');
-
-    cy.should('have.attr', 'target', '_blank');
-
-    cy.should('have.attr', 'rel', 'noreferrer');
+    cy.linkOpensInNewTab({ name: /button-link/i, href: 'https://github.com/chimson/reddit-timer-app' });
   });
 
   it('about section article has a link to "profy.dev"', () => {
     cy.visit('/');
 
-    cy.findAllByRole('link', { name: /article-link/i });
-
-    cy.should('have.attr', 'href', 'https://profy.dev/project/reddit-timer');
-
-    cy.should('have.attr', 'target', '_blank');
-
-    cy.should('have.attr', 'rel', 'noreferrer');
+    cy.linkOpensInNewTab({ name: /article-link/i, href: 'https://profy.dev/project/reddit-timer' });
   });
 });
 
