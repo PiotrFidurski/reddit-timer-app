@@ -1,7 +1,18 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const fade = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
 
 export const Section = styled.section`
   max-width: 1000px;
+  animation: ${fade} 0.7s ease;
   grid-area: heatmap;
   display: flex;
   margin: 0 auto;
