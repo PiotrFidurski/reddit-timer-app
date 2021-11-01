@@ -39,6 +39,7 @@ test('Github button link to repository and has target attribute set to blank', (
 
 test('About section has links to "profy.dev"', () => {
   const profyHref = 'https://profy.dev/project/reddit-timer';
+
   render(<HomePage />);
 
   expect(screen.getByRole('link', { name: /^article-link$/i })).toHaveAttribute('target', '_blank');
