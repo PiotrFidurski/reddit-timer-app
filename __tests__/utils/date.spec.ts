@@ -16,10 +16,9 @@ jest.mock('@utils/date', () => ({
 }));
 
 test('it returns array of dates in epoch time', () => {
-  console.log(date.getTimezoneOffset());
-  const sixMonthsAgo = (new Date(date).setMonth(new Date().getMonth() - 6) / 1000).toFixed();
-  const threeMonthsAgo = (new Date(date).setMonth(new Date().getMonth() - 3) / 1000).toFixed();
-  const yearAgo = (new Date(date).setFullYear(new Date().getFullYear() - 1) / 1000).toFixed();
+  const sixMonthsAgo = (new Date(date).setMonth(new Date(date).getMonth() - 6) / 1000).toFixed();
+  const threeMonthsAgo = (new Date(date).setMonth(new Date(date).getMonth() - 3) / 1000).toFixed();
+  const yearAgo = (new Date(date).setFullYear(new Date(date).getFullYear() - 1) / 1000).toFixed();
   const result = mockGetDateInEpoch();
   expect(result).toEqual([sixMonthsAgo, threeMonthsAgo, yearAgo]);
 });
