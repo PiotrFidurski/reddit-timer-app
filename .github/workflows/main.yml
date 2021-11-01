@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: szenius/set-timezone@v1.0
+
       - uses: actions/checkout@v2
 
       - name: Install
@@ -22,6 +24,7 @@ jobs:
       - name: E2E Tests
         uses: cypress-io/github-action@v2
         with:
+          timezoneLinux: 'Europe/Poland'
           build: npm run build
           start: npm run start
           wait-on: http://localhost:3000
