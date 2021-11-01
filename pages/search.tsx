@@ -65,7 +65,11 @@ function SearchPage() {
         <S.Heading>
           <S.H2>r/{subreddit}</S.H2>
         </S.Heading>
-      ) : null}
+      ) : (
+        <S.Heading>
+          <S.H2>r/</S.H2>
+        </S.Heading>
+      )}
       {isSuccess ? <Heatmap data={heatMap} /> : null}
       <Footer />
     </S.Main>

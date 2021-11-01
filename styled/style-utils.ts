@@ -36,7 +36,7 @@ export const SectionStyles = css`
 export const LineOnHover = css`
   padding: 0.5rem 1rem;
   &:after {
-    transition: transform background-color 0.25s ease;
+    transition: transform 0.25s ease;
     position: absolute;
     height: 2px;
     bottom: 5px;
