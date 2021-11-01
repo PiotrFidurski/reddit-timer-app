@@ -1,6 +1,6 @@
 import { getDateInEpoch as mockGetDateInEpoch } from '@utils/date';
 
-const FIXED_SYSTEM_TIME = 1635783147202;
+const FIXED_SYSTEM_TIME = 1635790347000;
 
 beforeEach(() => {
   jest.useFakeTimers('modern');
@@ -12,7 +12,7 @@ afterEach(() => {
 });
 
 jest.mock('@utils/date', () => ({
-  getDateInEpoch: jest.fn(() => ['1619881947', '1627830747', '1604247147']),
+  getDateInEpoch: jest.fn(() => ['1619889147', '1627837947', '1604254347']),
 }));
 
 test('it returns array of dates in epoch time', () => {
