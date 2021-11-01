@@ -5,6 +5,7 @@ export const Section = styled.section`
   grid-area: heatmap;
   display: flex;
   margin: 0 auto;
+
   @media (min-width: 768px) {
     display: block;
   }
@@ -12,6 +13,7 @@ export const Section = styled.section`
 
 export const HeatmapWrapper = styled.div`
   display: flex;
+
   @media (min-width: 768px) {
     display: block;
   }
@@ -24,6 +26,7 @@ export const TimeWrapper = styled.section`
   text-align: center;
   margin-top: 40px;
   justify-content: space-between;
+
   @media (min-width: 768px) {
     max-width: 890px;
     flex-direction: row;
@@ -45,6 +48,7 @@ export const Time = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
   @media (min-width: 768px) {
     min-height: 40px;
     max-width: 80px;
@@ -56,6 +60,7 @@ export const DayWrapper = styled.div`
   flex-direction: column;
   max-width: 960px;
   align-items: center;
+
   @media (min-width: 768px) {
     flex-direction: row;
   }
@@ -70,6 +75,7 @@ export const Day = styled.div`
   align-items: center;
   min-height: 40px;
   background: ${({ theme: { background } }) => background.secondary};
+
   @media (min-width: 768px) {
     max-width: 40px;
   }
@@ -84,11 +90,13 @@ export const Square = styled.div<{ bg: string }>`
   justify-content: center;
   will-change: contents;
   transition: transform 0.25s ease;
-  :hover {
+
+  &:hover {
     cursor: pointer;
     background: ${({ theme: { background } }) => background.secondary};
     transform: scale(1.4, 1.4);
   }
+
   @media (min-width: 768px) {
     height: 40px;
     width: 40px;

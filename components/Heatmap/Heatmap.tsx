@@ -21,7 +21,7 @@ function HeatmapComponent({ data }: Props) {
                 ))}
               </S.TimeWrapper>
             ) : null}
-            <S.DayWrapper>
+            <S.DayWrapper tabIndex={0}>
               <S.Day>{dayName.slice(0, 2)}</S.Day>
               {day.map((square, squareIndex) => {
                 const squareKey = `${squareIndex}_day-${days[dayIndex]}`;
