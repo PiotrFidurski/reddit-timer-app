@@ -1,15 +1,19 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  max-width: 450px;
   grid-area: form;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 450px;
+    width: 100%;
+  }
 `;
 
 export const Label = styled.label``;
@@ -22,6 +26,7 @@ export const Input = styled.input`
   background: transparent;
   color: ${({ theme: { color } }) => color.default};
   border: 2px solid #41434d;
+
   &:focus {
     transition: border-color 0.25s ease;
     border-color: ${({ theme: { color } }) => color.highlight};

@@ -1,12 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
- @font-face {
-   font-family: 'Ubuntu';
-   src: url("/assets/fonts/Ubuntu-Medium.woff2") format("woff2"), url("/assets/fonts/Ubuntu-Medium.woff") format("woff");
-   font-style: normal;
- }
- 
   * {
     box-sizing: border-box;
   }

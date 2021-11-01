@@ -36,7 +36,7 @@ export const SectionStyles = css`
 export const LineOnHover = css`
   padding: 0.5rem 1rem;
   &:after {
-    transition: transform background-color 0.25s ease;
+    transition: transform 0.25s ease;
     position: absolute;
     height: 2px;
     bottom: 5px;
@@ -47,10 +47,12 @@ export const LineOnHover = css`
     transform-origin: left;
     width: calc(100% - 2.1rem);
   }
+
   &:hover:after {
     background-color: currentColor;
     transform: scaleX(1);
   }
+
   &:hover {
     color: ${({ theme: { color } }) => color.highlight};
   }

@@ -40,7 +40,6 @@ test('when input value is "" submit button is disabled', async () => {
   fireEvent.change(input, { target: { value: '' } });
 
   expect(input).toHaveAttribute('value', '');
-
   expect(submitButton).toHaveAttribute('disabled');
 
   fireEvent.change(input, { target: { value: 'somesubreddit' } });

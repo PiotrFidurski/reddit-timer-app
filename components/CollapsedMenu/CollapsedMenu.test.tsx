@@ -12,7 +12,6 @@ test('it opens when clicking ToggleMenuButton', () => {
   fireEvent.click(openBtn);
 
   expect(menu).toHaveAttribute('aria-hidden', 'false');
-
   expect(screen.getByRole('link', { name: /^Search$/ })).toBeInTheDocument();
 
   const closeBtn = screen.getByRole('button', { name: /menu-close/i });

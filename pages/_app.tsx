@@ -1,5 +1,6 @@
 import GlobalStyle from '@styled/GlobalStyle';
 import theme from '@styled/theme';
+import 'index.css';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import { Normalize } from 'styled-normalize';

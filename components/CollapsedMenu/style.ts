@@ -7,6 +7,7 @@ export const Section = styled.section`
   min-height: 80px;
   position: relative;
   justify-content: flex-end;
+
   @media (min-width: 768px) {
     display: none;
   }
@@ -19,16 +20,16 @@ export const ToggleMenuButton = styled(Button)`
   padding: 0;
 `;
 
-export const Menu = styled.nav<{ open: boolean; visibility: string }>`
+export const Menu = styled.nav<{ open: boolean }>`
   background: ${({ theme: { background } }) => background.secondary};
   position: absolute;
   top: 0;
   display: flex;
-  visibility: ${({ visibility }) => visibility};
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-120%)')};
+  visibility: ${({ open }) => (open ? 'visible' : 'hidden')};
   left: 0;
   width: 100%;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, visibility 0.5s ease-in-out;
   transform-origin: left;
   min-height: 300px;
   z-index: 9999;

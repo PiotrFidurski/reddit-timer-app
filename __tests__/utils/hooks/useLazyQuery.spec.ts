@@ -16,12 +16,10 @@ test('toggles "isLoading" state and "isError" state if theres an error', async (
   });
 
   expect(result.current[1].isLoading).toEqual(true);
-
   expect(result.current[1].inFlight).toEqual(true);
 
   return waitForNextUpdate().then(() => {
     expect(result.current[1].isLoading).toBe(false);
-
     return expect(result.current[1].isError).toBe(true);
   });
 });
@@ -40,7 +38,6 @@ test('toggles "isLoading" state and "isSuccess" on successful query', async () =
 
   return waitForNextUpdate().then(() => {
     expect(result.current[1].isLoading).toBe(false);
-
     return expect(result.current[1].isSuccess).toBe(true);
   });
 });

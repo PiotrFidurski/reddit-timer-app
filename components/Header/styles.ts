@@ -14,6 +14,7 @@ export const Nav = styled.nav`
   width: 100%;
   align-items: center;
   display: none;
+
   @media (min-width: 768px) {
     display: flex;
   }

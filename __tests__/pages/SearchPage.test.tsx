@@ -17,7 +17,6 @@ test('it renders an input and a label with name subreddit', async () => {
   const input = screen.getByRole('textbox', { name: /subreddit/i });
 
   expect(input).toBeInTheDocument();
-
   expect(label).toBeInTheDocument();
 });
 

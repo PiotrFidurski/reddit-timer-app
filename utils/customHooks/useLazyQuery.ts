@@ -33,7 +33,7 @@ function useLazyQuery<T>(callback: () => Promise<T>): [
     initialState as InitialState<T>
   );
 
-  const callbackRef = React.useRef<() => Promise<T>>(null);
+  const callbackRef = React.useRef<() => Promise<T> | null>(null);
 
   const isIdle = status === 'idle';
   const isLoading = status === 'loading';
@@ -46,7 +46,7 @@ function useLazyQuery<T>(callback: () => Promise<T>): [
     setQueryState((state) => ({ ...state, shouldRun: false, inFlight: true }));
     callbackRef
       .current()
-      .then((result) =>
+      ?.then((result) =>
         setQueryState((state) => ({ ...state, shouldRun: false, data: result, status: 'success', inFlight: false }))
       )
       .catch((error: { message: string }) => {
