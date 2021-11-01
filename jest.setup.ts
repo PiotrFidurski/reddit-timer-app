@@ -9,7 +9,3 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 // clean up once the tests are done
 afterAll(() => server.close());
-
-export default () => {
-  process.env.TZ = 'CST';
-};
