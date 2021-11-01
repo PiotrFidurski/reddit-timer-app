@@ -26,6 +26,7 @@ export const Input = styled.input`
   background: transparent;
   color: ${({ theme: { color } }) => color.default};
   border: 2px solid #41434d;
+
   &:focus {
     transition: border-color 0.25s ease;
     border-color: ${({ theme: { color } }) => color.highlight};

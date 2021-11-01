@@ -58,6 +58,7 @@ export const ImageWrapper = styled.div`
   grid-area: image;
   padding: 2rem;
   animation: ${scaleAndFadeIn} 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+
   @media (min-width: 768px) {
     padding: 0 1rem 13rem 1rem;
   }
@@ -76,6 +77,7 @@ export const IntroSection = styled.section`
   text-align: center;
   flex-direction: column;
   animation: ${flyFromBottomAndFadeIn} 0.7s ease;
+
   @media (min-width: 768px) {
     padding: 0 1rem 13rem 1rem;
   }
@@ -103,9 +105,11 @@ export const Button = styled.button`
   justify-content: center;
   cursor: pointer;
   transition: border-color 0.25s ease;
+
   svg {
     transition: fill 0.25s ease;
   }
+
   &:disabled {
     cursor: no-drop;
     opacity: 0.5;

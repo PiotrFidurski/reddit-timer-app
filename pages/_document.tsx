@@ -32,7 +32,8 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link href="/assets/fonts/Ubuntu-Medium.woff2" />
+          <link href="/assets/fonts/Ubuntu-Medium.woff" rel="preload" as="font" crossOrigin="" />
+          <link href="/assets/fonts/Ubuntu-Medium.woff2" rel="preload" as="font" crossOrigin="" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <body>

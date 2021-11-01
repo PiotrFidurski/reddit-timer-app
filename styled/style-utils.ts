@@ -47,10 +47,12 @@ export const LineOnHover = css`
     transform-origin: left;
     width: calc(100% - 2.1rem);
   }
+
   &:hover:after {
     background-color: currentColor;
     transform: scaleX(1);
   }
+
   &:hover {
     color: ${({ theme: { color } }) => color.highlight};
   }

@@ -7,6 +7,7 @@ export const Section = styled.section`
   min-height: 80px;
   position: relative;
   justify-content: flex-end;
+
   @media (min-width: 768px) {
     display: none;
   }

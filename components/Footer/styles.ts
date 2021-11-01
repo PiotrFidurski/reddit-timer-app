@@ -18,6 +18,7 @@ export const StyledFooter = styled.footer`
   justify-content: space-between;
   align-items: center;
   min-height: 100px;
+
   @media (min-width: 768px) {
     grid-template-areas: 'logo links credits';
   }
@@ -36,6 +37,7 @@ export const LogoWrapper = styled.section`
 export const Credits = styled.section`
   grid-area: credits;
   color: ${({ theme: { color } }) => color.secondary};
+
   @media (min-width: 768px) {
     display: flex;
     justify-content: flex-end;
@@ -48,6 +50,7 @@ export const Hr = styled.hr`
   height: 1px;
   width: 100%;
   margin: 0.7rem 0;
+
   @media (min-width: 768px) {
     display: none;
   }
