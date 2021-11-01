@@ -182,5 +182,6 @@ export const Paragraph = styled.p`
 export const A = styled.a`
   ${LineOnHover}
   display: inline;
+  margin-left: -1rem;
   position: relative;
 `;
