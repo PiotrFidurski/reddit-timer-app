@@ -32,7 +32,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link href="/assets/fonts/Ubuntu-Medium.woff2" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <body>
