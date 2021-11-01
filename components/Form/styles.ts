@@ -8,6 +8,12 @@ export const Form = styled.form`
   padding: 1rem;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    max-width: 450px;
+    width: 100%;
+  }
 `;
 
 export const Label = styled.label``;
