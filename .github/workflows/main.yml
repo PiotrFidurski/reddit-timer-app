@@ -8,9 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: szenius/set-timezone@v1.0
-        with:
-          timezoneLinux: CST
       - uses: actions/checkout@v2
 
       - name: Install
