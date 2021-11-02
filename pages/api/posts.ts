@@ -28,7 +28,7 @@ async function fetchPosts({ subreddit, after, before }: PageProps) {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<{ data: Array<RedditPost> | null }>) {
   try {
-    const [sixMonthsAgo, threeMonthsAgo, yearAgo] = getDateInEpoch();
+    const [threeMonthsAgo, sixMonthsAgo, yearAgo] = getDateInEpoch();
 
     const { subreddit } = req.query as { subreddit: string };
 
