@@ -12,7 +12,7 @@ afterEach(() => {
 });
 
 jest.mock('@utils/date', () => ({
-  getDateInEpoch: jest.fn(() => ['1619914100', '1627862900', '1604279300']),
+  getDateInEpoch: jest.fn(() => ['1619917200', '1627866000', '1604278800']),
 }));
 
 test('it returns array of dates in epoch time', () => {
