@@ -48,6 +48,31 @@ describe('SearchPage tests', () => {
 
     cy.wait('@getPosts');
   });
+
+  it('displays reddit submissions when heatmap square is clicked', () => {
+    cy.interceptAndSearch({ subreddit: 'javascript', delay: 2000 });
+
+    cy.wait('@getPosts');
+
+    cy.findByTestId(/^1_day-Sunday$/).click();
+
+    cy.findByText(/How do I connect my React project to a backend?/i);
+  });
+
+  it('each reddit submission has a reddit full_link', () => {
+    cy.interceptAndSearch({ subreddit: 'javascript', delay: 2000 });
+
+    cy.wait('@getPosts');
+
+    cy.findByTestId(/^5_day-Sunday$/).click();
+
+    cy.findByRole('link', { name: /submission-link/i });
+
+    cy.linkOpensInNewTab({
+      name: /submission-link/i,
+      href: 'https://www.reddit.com/r/reactjs/comments/o3wfax/i_curated_1024_remote_job_openings_from_hacker/',
+    });
+  });
 });
 
 // eslint-disable-next-line jest/no-export

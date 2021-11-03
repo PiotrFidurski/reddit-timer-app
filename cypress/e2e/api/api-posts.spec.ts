@@ -19,7 +19,9 @@ describe('/api/posts tests', () => {
         {
           author: 'dulajkavinda',
           created_utc: 1614335585,
+          full_link: 'https://www.reddit.com/r/reactjs/comments/lsv023/built_an_app_to_solve_the_media_bias_in_our/',
           id: 'lsv023',
+          num_comments: 175,
           score: 820,
           subreddit: 'reactjs',
           title:

@@ -1,5 +1,4 @@
-import { RedditPost } from '@pages/api/posts';
-import { Time } from '@types';
+import { RedditPost, Time } from '@types';
 import * as React from 'react';
 import { colorPallette, days, hours } from 'utils/heatmap';
 import * as S from './styles';

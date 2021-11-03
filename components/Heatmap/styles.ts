@@ -1,15 +1,6 @@
 import { Button } from '@styled/HomePage.styled';
-import styled, { keyframes } from 'styled-components';
-
-const fade = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-`;
+import { fade } from '@styled/style-utils';
+import styled from 'styled-components';
 
 export const Section = styled.section`
   max-width: 1000px;
@@ -40,10 +31,10 @@ export const TimeWrapper = styled.section`
   justify-content: space-between;
 
   @media (min-width: 768px) {
-    max-width: 890px;
+    max-width: 960px;
     flex-direction: row;
     justify-content: flex-start;
-    margin-left: 70px;
+    margin-left: 33px;
   }
 `;
 
@@ -62,7 +53,7 @@ export const Time = styled.div`
   align-items: center;
 
   @media (min-width: 768px) {
-    min-height: 40px;
+    min-height: 35px;
     max-width: 80px;
   }
 `;

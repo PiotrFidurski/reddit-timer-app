@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 
 export const ArticleStyles = css`
   max-width: 500px;
@@ -62,5 +62,15 @@ export const LineOnHover = css`
     background-color: ${({ theme: { color } }) => color.accent};
     border-radius: 999px;
     color: ${({ theme: { color } }) => color.highlight};
+  }
+`;
+
+export const fade = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 `;

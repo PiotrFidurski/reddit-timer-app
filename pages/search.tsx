@@ -1,7 +1,7 @@
 import Footer from '@components/Footer/Footer';
 import Form from '@components/Form/Form';
 import Heatmap from '@components/Heatmap/Heatmap';
-import Posts from '@components/Posts/Posts';
+import Submissions from '@components/Submissions/Submissions';
 import * as S from '@styled/SearchPage.styled';
 import { Time } from '@types';
 import { useHeatmap } from '@utils/customHooks/useHeatmap';
@@ -71,7 +71,7 @@ function SearchPage() {
         </S.Heading>
       ) : null}
       {isSuccess ? <Heatmap data={heatMap} onClick={setTime} /> : null}
-      {isSuccess ? <Posts data={heatMap} time={time} /> : null}
+      {isSuccess ? <Submissions data={heatMap} time={time} /> : null}
       <Footer />
     </S.Main>
   );
