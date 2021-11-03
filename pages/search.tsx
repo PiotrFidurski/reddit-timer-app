@@ -1,7 +1,9 @@
 import Footer from '@components/Footer/Footer';
 import Form from '@components/Form/Form';
 import Heatmap from '@components/Heatmap/Heatmap';
+import Posts from '@components/Posts/Posts';
 import * as S from '@styled/SearchPage.styled';
+import { Time } from '@types';
 import { useHeatmap } from '@utils/customHooks/useHeatmap';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -10,6 +12,8 @@ import { initialState } from 'utils/heatmap';
 import Arrow from '../public/assets/svg/arrow.svg';
 
 function SearchPage() {
+  const [time, setTime] = React.useState<Time>({ day: 0, hour: 0 });
+
   const router = useRouter();
 
   const [subreddit, setSubreddit] = React.useState('javascript');
@@ -66,7 +70,8 @@ function SearchPage() {
           <S.H2>r/{subreddit}</S.H2>
         </S.Heading>
       ) : null}
-      {isSuccess ? <Heatmap data={heatMap} /> : null}
+      {isSuccess ? <Heatmap data={heatMap} onClick={setTime} /> : null}
+      {isSuccess ? <Posts data={heatMap} time={time} /> : null}
       <Footer />
     </S.Main>
   );
