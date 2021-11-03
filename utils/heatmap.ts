@@ -4,8 +4,8 @@ const initialState = () => new Array(7).fill([]).map(() => new Array(24).fill([]
 
 function getDayAndHour(post: RedditPost) {
   const date = new Date(post.created_utc * 1000);
-  const day = date.getDay();
-  const hour = date.getHours();
+  const day = date.getUTCDay();
+  const hour = date.getUTCHours();
 
   return [day, hour];
 }
@@ -13,7 +13,6 @@ function getDayAndHour(post: RedditPost) {
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 const hours = [
-  '12:00 pm',
   '2:00 am',
   '4:00 am',
   '6:00 am',
@@ -25,6 +24,7 @@ const hours = [
   '6:00 pm',
   '8:00 pm',
   '10:00 pm',
+  '12:00 pm',
 ];
 
 const colorPallette = [

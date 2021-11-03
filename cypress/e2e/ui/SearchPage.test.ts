@@ -50,27 +50,27 @@ describe('SearchPage tests', () => {
   });
 
   it('displays reddit submissions when heatmap square is clicked', () => {
-    cy.interceptAndSearch({ subreddit: 'javascript', delay: 2000 });
+    cy.interceptAndSearch({ subreddit: 'reactjs', delay: 2000 });
 
     cy.wait('@getPosts');
 
-    cy.findByTestId(/^1_day-Sunday$/).click();
+    cy.findByTestId(/^0_day-Tuesday$/).click();
 
-    cy.findByText(/How do I connect my React project to a backend?/i);
+    cy.findByText(/Trying to access text of a div/i);
   });
 
   it('each reddit submission has a reddit full_link', () => {
-    cy.interceptAndSearch({ subreddit: 'javascript', delay: 2000 });
+    cy.interceptAndSearch({ subreddit: 'reactjs', delay: 2000 });
 
     cy.wait('@getPosts');
 
-    cy.findByTestId(/^5_day-Sunday$/).click();
+    cy.findByTestId(/^0_day-Tuesday$/).click();
 
     cy.findByRole('link', { name: /submission-link/i });
 
     cy.linkOpensInNewTab({
       name: /submission-link/i,
-      href: 'https://www.reddit.com/r/reactjs/comments/o3wfax/i_curated_1024_remote_job_openings_from_hacker/',
+      href: 'https://www.reddit.com/r/reactjs/comments/o01jqv/trying_to_access_text_of_a_div/',
     });
   });
 });
