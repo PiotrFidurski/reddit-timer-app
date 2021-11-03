@@ -1,4 +1,4 @@
-import { RedditPost } from '@pages/api/posts';
+import { RedditPost } from '@types';
 import { getData } from '@utils/getData';
 import { getDayAndHour, initialState } from '@utils/heatmap';
 import * as React from 'react';

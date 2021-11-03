@@ -1,4 +1,4 @@
-import { RedditPost } from '@pages/api/posts';
+import { RedditPost } from '@types';
 
 const initialState = () => new Array(7).fill([]).map(() => new Array(24).fill([]));
 
