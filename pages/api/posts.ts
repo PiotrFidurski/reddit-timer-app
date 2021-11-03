@@ -1,24 +1,12 @@
+import { PageProps, RedditPost } from '@types';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getDateInEpoch } from 'utils/date';
-
-export interface RedditPost {
-  created_utc: number;
-  id: string;
-  author: string;
-  title: string;
-}
-
-interface PageProps {
-  subreddit: string;
-  after: string;
-  before?: string;
-}
 
 async function fetchPosts({ subreddit, after, before }: PageProps) {
   const response = await fetch(
     `${process.env.PUSHSHIFT_URL}?before=${
       before ?? ''
-    }&after=${after}&sort_type=score&sort=desc&subreddit=${subreddit}&filter=author,score,id,created_utc,title,subreddit&limit=100`
+    }&after=${after}&sort_type=score&sort=desc&subreddit=${subreddit}&filter=author,full_link,num_comments,score,id,created_utc,title,subreddit&limit=100`
   );
 
   const result: { data: Array<RedditPost> } = await response.json();
