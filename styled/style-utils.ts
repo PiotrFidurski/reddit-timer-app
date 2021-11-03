@@ -57,7 +57,7 @@ export const LineOnHover = css`
     color: ${({ theme: { color } }) => color.highlight};
   }
 
-  &:focus {
+  &:focus-visible {
     outline: none;
     background-color: ${({ theme: { color } }) => color.accent};
     border-radius: 999px;

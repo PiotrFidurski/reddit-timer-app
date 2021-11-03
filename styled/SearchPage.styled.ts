@@ -12,6 +12,7 @@ export const Main = styled.main`
     'form form form form'
     'heading heading heading heading'
     'heatmap heatmap heatmap heatmap'
+    'posts posts posts posts'
     'footer footer footer footer';
   max-width: 1260px;
   padding: 0 1rem;
