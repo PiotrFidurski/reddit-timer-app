@@ -1,13 +1,17 @@
-import { RedditPost } from '@pages/api/posts';
+import { RedditPost, Time } from '@types';
 import * as React from 'react';
 import { colorPallette, days, hours } from 'utils/heatmap';
 import * as S from './styles';
 
 interface Props {
   data: RedditPost[][][];
+  onClick: React.Dispatch<React.SetStateAction<Time>>;
 }
 
-function HeatmapComponent({ data }: Props) {
+function HeatmapComponent({ data, onClick }: Props) {
+  const handleClick = ({ day, hour }: Time) => {
+    onClick({ day, hour });
+  };
   return (
     <S.Section data-testid="heatmap">
       {data.map((day, dayIndex) => {
@@ -27,7 +31,12 @@ function HeatmapComponent({ data }: Props) {
                 const squareKey = `${squareIndex}_day-${days[dayIndex]}`;
                 const bg = colorPallette[square.length] ?? '#001056';
                 return (
-                  <S.Square data-testid={squareKey} bg={bg} key={squareKey}>
+                  <S.Square
+                    onClick={() => handleClick({ day: dayIndex, hour: squareIndex })}
+                    data-testid={squareKey}
+                    bg={bg}
+                    key={squareKey}
+                  >
                     {square.length}
                   </S.Square>
                 );

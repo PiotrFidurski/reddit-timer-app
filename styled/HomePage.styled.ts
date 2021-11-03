@@ -115,7 +115,7 @@ export const Button = styled.button`
     opacity: 0.5;
   }
 
-  &:focus {
+  &:focus-visible {
     border-color: ${({ theme: { color } }) => color.highlight};
     box-shadow: 0px 0px 8px ${({ theme: { color } }) => color.accent};
     outline: none;

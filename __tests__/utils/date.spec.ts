@@ -21,6 +21,7 @@ test('it returns array of dates in epoch time', () => {
   const yearAgo = (new Date(date).setUTCFullYear(new Date(date).getUTCFullYear() - 1) / 1000).toFixed();
 
   const result = mockGetDateInEpoch();
+
   expect(result).toEqual([threeMonthsAgo, sixMonthsAgo, yearAgo]);
 });
 

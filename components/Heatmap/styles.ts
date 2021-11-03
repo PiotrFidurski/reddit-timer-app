@@ -1,14 +1,6 @@
-import styled, { keyframes } from 'styled-components';
-
-const fade = keyframes`
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-`;
+import { Button } from '@styled/HomePage.styled';
+import { fade } from '@styled/style-utils';
+import styled from 'styled-components';
 
 export const Section = styled.section`
   max-width: 1000px;
@@ -39,10 +31,10 @@ export const TimeWrapper = styled.section`
   justify-content: space-between;
 
   @media (min-width: 768px) {
-    max-width: 890px;
+    max-width: 960px;
     flex-direction: row;
     justify-content: flex-start;
-    margin-left: 70px;
+    margin-left: 33px;
   }
 `;
 
@@ -61,7 +53,7 @@ export const Time = styled.div`
   align-items: center;
 
   @media (min-width: 768px) {
-    min-height: 40px;
+    min-height: 35px;
     max-width: 80px;
   }
 `;
@@ -92,11 +84,15 @@ export const Day = styled.div`
   }
 `;
 
-export const Square = styled.div<{ bg: string }>`
+export const Square = styled(Button)<{ bg: string }>`
   height: 35px;
-  width: 35px;
+  min-width: 35px;
+  padding: 0;
+  border-color: transparent;
+  border-radius: 0;
   background: ${({ bg }) => bg};
   display: flex;
+  font-size: 1.2rem;
   align-items: center;
   justify-content: center;
   will-change: contents;

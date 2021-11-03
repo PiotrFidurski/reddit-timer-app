@@ -10,13 +10,25 @@ export const handlers = [
         subreddit,
         data: [
           {
-            author: 'dulajkavinda',
-            created_utc: 1614335585,
-            id: 'lsv023',
-            score: 820,
-            subreddit: 'reactjs',
-            title:
-              'Built an app to solve the media bias in our country towards politicians. you can view every side of the story just by sliding a toggle!',
+            author: 'midgitsuu',
+            created_utc: 1620604930,
+            full_link: 'https://www.reddit.com/r/javascript/comments/n8r1fy/mothers_day_css_card/',
+            id: 'n8r1fy',
+            num_comments: 1,
+            score: 1,
+            subreddit: 'javascript',
+            title: 'Mothers Day CSS Card',
+          },
+          {
+            author: 'frankneuro',
+            created_utc: 1614380730,
+            full_link:
+              'https://www.reddit.com/r/javascript/comments/ltacm0/the_amazing_mechanical_plumbus_react_howlerjs/',
+            id: 'ltacm0',
+            num_comments: 19,
+            score: 59,
+            subreddit: 'javascript',
+            title: 'The Amazing Mechanical Plumbus (React, Howler.js)',
           },
         ],
       })

@@ -1,4 +1,4 @@
-import { RedditPost } from '@pages/api/posts';
+import { RedditPost } from '@types';
 
 const url =
   process.env.NODE_ENV === 'production' ? 'https://reddit-timer-app.vercel.app/api' : 'http://localhost:3000/api';
