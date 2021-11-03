@@ -10,7 +10,7 @@ heatmapData[0][0].push(1, 2);
 heatmapData[6][23].push(1, 2, 3);
 
 test('it renders correct numbers for squares', () => {
-  render(<Heatmap data={heatmapData} />);
+  render(<Heatmap data={heatmapData} onClick={() => {}} />);
 
   const firstSquare = screen.getByTestId(/^0_day-Sunday$/);
   const secondSquare = screen.getByTestId(/^23_day-Saturday$/);

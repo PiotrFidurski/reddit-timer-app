@@ -1,3 +1,4 @@
+import { Button } from '@styled/HomePage.styled';
 import styled, { keyframes } from 'styled-components';
 
 const fade = keyframes`
@@ -92,11 +93,15 @@ export const Day = styled.div`
   }
 `;
 
-export const Square = styled.div<{ bg: string }>`
+export const Square = styled(Button)<{ bg: string }>`
   height: 35px;
-  width: 35px;
+  min-width: 35px;
+  padding: 0;
+  border-color: transparent;
+  border-radius: 0;
   background: ${({ bg }) => bg};
   display: flex;
+  font-size: 1.2rem;
   align-items: center;
   justify-content: center;
   will-change: contents;
