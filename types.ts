@@ -18,3 +18,12 @@ export interface PageProps {
   after: string;
   before?: string;
 }
+
+export type SortType = 'score' | 'created_utc' | 'num_comments';
+
+export type OrderType = 'ASC' | 'DESC';
+
+export interface Sort {
+  type: SortType;
+  order: OrderType;
+}
