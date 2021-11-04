@@ -6,9 +6,10 @@ import * as S from './styles';
 interface Props {
   data: RedditPost[][][];
   onClick: React.Dispatch<React.SetStateAction<Time>>;
+  time: Time;
 }
 
-function HeatmapComponent({ data, onClick }: Props) {
+function HeatmapComponent({ data, onClick, time }: Props) {
   const handleClick = ({ day, hour }: Time) => {
     onClick({ day, hour });
   };
@@ -25,13 +26,16 @@ function HeatmapComponent({ data, onClick }: Props) {
                 ))}
               </S.TimeWrapper>
             ) : null}
-            <S.DayWrapper tabIndex={0}>
+            <S.DayWrapper>
               <S.Day>{dayName.slice(0, 2)}</S.Day>
               {day.map((square, squareIndex) => {
                 const squareKey = `${squareIndex}_day-${days[dayIndex]}`;
                 const bg = colorPallette[square.length] ?? '#001056';
+                const isActive = time.day === dayIndex && time.hour === squareIndex;
+
                 return (
                   <S.Square
+                    isActive={isActive}
                     onClick={() => handleClick({ day: dayIndex, hour: squareIndex })}
                     data-testid={squareKey}
                     bg={bg}

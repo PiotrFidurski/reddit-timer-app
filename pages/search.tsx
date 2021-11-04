@@ -70,7 +70,7 @@ function SearchPage() {
           <S.H2>r/{subreddit}</S.H2>
         </S.Heading>
       ) : null}
-      {isSuccess ? <Heatmap data={heatMap} onClick={setTime} /> : null}
+      {isSuccess ? <Heatmap data={heatMap} time={time} onClick={setTime} /> : null}
       {isSuccess ? <Submissions data={heatMap} time={time} /> : null}
       <Footer />
     </S.Main>
