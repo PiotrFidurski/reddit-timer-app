@@ -1,5 +1,8 @@
-import { RedditPost, Time } from '@types';
-import { format } from 'date-fns';
+import SortComponent from '@components/Sort/Sort';
+import { RedditPost, Sort, Time } from '@types';
+import { compare } from '@utils/heatmap';
+import { format, formatDistanceToNow } from 'date-fns';
+import { motion } from 'framer-motion';
 import * as React from 'react';
 import OpenInNewTab from '../../public/assets/svg/link.svg';
 import * as S from './styles';
@@ -9,13 +12,18 @@ interface Props {
   time: Time;
 }
 
-function Submissions({ data, time }: Props) {
+function SubmissionsComponent({ data, time }: Props) {
+  const [sort, setSort] = React.useState<Sort>({ type: 'score', order: 'DESC' });
+
+  const day = data[time.day][time.hour];
+
   return (
-    <S.Section>
-      {data[time.day][time.hour]
-        .sort((a, b) => b.score - a.score)
-        .map(({ id, title, author, score, created_utc, full_link, num_comments }) => (
-          <S.Article key={id}>
+    <S.Section aria-label="submissions">
+      {day.length > 1 ? <SortComponent onSort={setSort} sort={sort} /> : null}
+      {day
+        .sort((a, b) => compare({ a, b, ...sort }))
+        .map(({ id, title, full_link, created_utc, author, score, num_comments }) => (
+          <S.Article key={id} as={motion.article} layout>
             <S.TitleLinkWrapper>
               <S.Title>{title}</S.Title>
               <a tabIndex={-1} href={full_link} aria-label="submission-link" target="_blank" rel="noreferrer">
@@ -30,7 +38,7 @@ function Submissions({ data, time }: Props) {
               <S.Separator>comments</S.Separator>
             </S.Score>
             <S.Date>
-              {format(new Date(created_utc * 1000), 'M/dd/yyyy')}
+              {formatDistanceToNow(new Date(created_utc * 1000))} ago
               <S.Separator>·</S.Separator>
               {format(new Date(created_utc * 1000), 'p')}
             </S.Date>
@@ -39,5 +47,9 @@ function Submissions({ data, time }: Props) {
     </S.Section>
   );
 }
+
+const Submissions = React.memo(SubmissionsComponent);
+
+Submissions.displayName = 'Submissions';
 
 export default Submissions;
