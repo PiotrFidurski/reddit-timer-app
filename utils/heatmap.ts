@@ -1,4 +1,4 @@
-import { RedditPost } from '@types';
+import { OrderType, RedditPost, SortType } from '@types';
 
 const initialState = () => new Array(7).fill([]).map(() => new Array(24).fill([]));
 
@@ -8,6 +8,16 @@ function getDayAndHour(post: RedditPost) {
   const hour = date.getUTCHours();
 
   return [day, hour];
+}
+interface CompareProps {
+  a: RedditPost;
+  b: RedditPost;
+  type: SortType;
+  order: OrderType;
+}
+
+function compare({ a, b, type, order }: CompareProps) {
+  return order === 'DESC' ? b[type] - a[type] : a[type] - b[type];
 }
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -42,4 +52,4 @@ const colorPallette = [
   '#001056',
 ];
 
-export { days, hours, colorPallette, initialState, getDayAndHour };
+export { days, hours, colorPallette, initialState, getDayAndHour, compare };
