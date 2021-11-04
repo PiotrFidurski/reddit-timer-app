@@ -21,7 +21,7 @@ function SubmissionsComponent({ data, time }: Props) {
     <S.Section aria-label="submissions">
       {timeOfDay.length > 1 ? <Sort onSort={setSort} sort={sort} /> : null}
       {timeOfDay
-        .sort((a, b) => compare({ a, b, ...sort }))
+        .sort((postA, postB) => compare({ postA, postB, ...sort }))
         .map(({ id, title, full_link, created_utc, author, score, num_comments }) => (
           <S.Article key={id} as={motion.article} layout>
             <S.TitleLinkWrapper>

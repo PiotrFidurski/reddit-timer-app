@@ -10,14 +10,14 @@ function getDayAndHour(post: RedditPost) {
   return [day, hour];
 }
 interface CompareProps {
-  a: RedditPost;
-  b: RedditPost;
+  postA: RedditPost;
+  postB: RedditPost;
   type: SortType;
   order: OrderType;
 }
 
-function compare({ a, b, type, order }: CompareProps) {
-  return order === 'DESC' ? b[type] - a[type] : a[type] - b[type];
+function compare({ postA, postB, type, order }: CompareProps) {
+  return order === 'DESC' ? postB[type] - postA[type] : postA[type] - postB[type];
 }
 
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
