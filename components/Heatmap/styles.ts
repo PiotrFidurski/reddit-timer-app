@@ -84,13 +84,13 @@ export const Day = styled.div`
   }
 `;
 
-export const Square = styled(Button)<{ bg: string }>`
+export const Square = styled(Button)<{ bg: string; isActive: boolean }>`
   height: 35px;
   min-width: 35px;
   padding: 0;
   border-color: transparent;
   border-radius: 0;
-  background: ${({ bg }) => bg};
+  background: ${({ bg, isActive }) => (isActive ? '#f44336' : bg)};
   display: flex;
   font-size: 1.2rem;
   align-items: center;
@@ -98,10 +98,14 @@ export const Square = styled(Button)<{ bg: string }>`
   will-change: contents;
   transition: transform 0.25s ease;
 
+  &:focus-visible {
+    border-color: #f44336;
+  }
+
   &:hover {
     cursor: pointer;
-    background: ${({ theme: { background } }) => background.secondary};
-    transform: scale(1.4, 1.4);
+    border: 0;
+    background: ${({ theme: { color } }) => color.accent};
   }
 
   @media (min-width: 768px) {
