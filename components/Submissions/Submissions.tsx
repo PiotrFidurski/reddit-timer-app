@@ -15,12 +15,12 @@ interface Props {
 function SubmissionsComponent({ data, time }: Props) {
   const [sort, setSort] = React.useState<SortType>({ type: 'score', order: 'DESC' });
 
-  const day = data[time.day][time.hour];
+  const timeOfDay = data[time.day][time.hour];
 
   return (
     <S.Section aria-label="submissions">
-      {day.length > 1 ? <Sort onSort={setSort} sort={sort} /> : null}
-      {day
+      {timeOfDay.length > 1 ? <Sort onSort={setSort} sort={sort} /> : null}
+      {timeOfDay
         .sort((a, b) => compare({ a, b, ...sort }))
         .map(({ id, title, full_link, created_utc, author, score, num_comments }) => (
           <S.Article key={id} as={motion.article} layout>
