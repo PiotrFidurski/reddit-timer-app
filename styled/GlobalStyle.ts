@@ -1,9 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    scroll-behavior: smooth;
+  }
+  
   * {
     box-sizing: border-box;
-    scroll-behavior: smooth;
   }
   
   ul {
