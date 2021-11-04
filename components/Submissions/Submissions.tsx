@@ -1,5 +1,5 @@
-import SortComponent from '@components/Sort/Sort';
-import { RedditPost, Sort, Time } from '@types';
+import Sort from '@components/Sort/Sort';
+import { RedditPost, Sort as SortType, Time } from '@types';
 import { compare } from '@utils/heatmap';
 import { format, formatDistanceToNow } from 'date-fns';
 import { motion } from 'framer-motion';
@@ -13,13 +13,13 @@ interface Props {
 }
 
 function SubmissionsComponent({ data, time }: Props) {
-  const [sort, setSort] = React.useState<Sort>({ type: 'score', order: 'DESC' });
+  const [sort, setSort] = React.useState<SortType>({ type: 'score', order: 'DESC' });
 
   const day = data[time.day][time.hour];
 
   return (
     <S.Section aria-label="submissions">
-      {day.length > 1 ? <SortComponent onSort={setSort} sort={sort} /> : null}
+      {day.length > 1 ? <Sort onSort={setSort} sort={sort} /> : null}
       {day
         .sort((a, b) => compare({ a, b, ...sort }))
         .map(({ id, title, full_link, created_utc, author, score, num_comments }) => (

@@ -11,7 +11,7 @@ interface Props {
   sort: SortType;
 }
 
-function SortComponent({ onSort, sort }: Props) {
+function Sort({ onSort, sort }: Props) {
   return (
     <S.Nav>
       <S.SortOrderButton
@@ -54,7 +54,5 @@ function SortComponent({ onSort, sort }: Props) {
     </S.Nav>
   );
 }
-
-const Sort = React.memo(SortComponent);
 
 export default Sort;
