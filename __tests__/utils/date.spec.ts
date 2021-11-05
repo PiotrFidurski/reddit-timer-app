@@ -1,4 +1,4 @@
-import { getDateInEpoch as mockGetDateInEpoch } from '@utils/date';
+import { getDateInEpoch as mockGetDateInEpoch } from '@utils/fns/date';
 
 const date = new Date(Date.UTC(2021, 11, 10, 13, 0, 0));
 
@@ -11,7 +11,7 @@ afterEach(() => {
   jest.useRealTimers();
 });
 
-jest.mock('@utils/date', () => ({
+jest.mock('@utils/fns/date', () => ({
   getDateInEpoch: jest.fn(() => ['1631278800', '1623330000', '1607605200']),
 }));
 

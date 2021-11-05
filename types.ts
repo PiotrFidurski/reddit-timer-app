@@ -3,6 +3,13 @@ export interface Time {
   hour: number;
 }
 
+export interface CompareProps {
+  postA: RedditPost;
+  postB: RedditPost;
+  type: SortType;
+  order: OrderType;
+}
+
 export interface RedditPost {
   created_utc: number;
   id: string;
@@ -27,3 +34,25 @@ export interface Sort {
   type: SortType;
   order: OrderType;
 }
+
+export interface InitialQueryState<T> {
+  shouldRun: boolean;
+  status: 'idle' | 'error' | 'success' | 'loading';
+  data: T;
+  errorMessage: string;
+  inFlight: boolean;
+}
+
+export type LazyQueryProps<T> = [
+  () => void,
+  {
+    isLoading: boolean;
+    isError: boolean;
+    isSuccess: boolean;
+    isIdle: boolean;
+    status: 'idle' | 'error' | 'success' | 'loading';
+    data: T;
+    inFlight: boolean;
+    errorMessage: string;
+  }
+];

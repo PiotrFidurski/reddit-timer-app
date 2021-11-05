@@ -1,4 +1,4 @@
-import { initialState } from '@utils/heatmap';
+import { initialState } from '@utils/heatmap-utils';
 
 test('"initialState" returns correct array that resembles weekdays and hours', () => {
   const result = initialState();
