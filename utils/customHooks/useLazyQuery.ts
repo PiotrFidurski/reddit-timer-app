@@ -1,12 +1,5 @@
+import { InitialQueryState, LazyQueryProps } from '@types';
 import * as React from 'react';
-
-interface InitialState<T> {
-  shouldRun: boolean;
-  status: 'idle' | 'error' | 'success' | 'loading';
-  data: T;
-  errorMessage: string;
-  inFlight: boolean;
-}
 
 const initialState = {
   data: undefined,
@@ -16,21 +9,9 @@ const initialState = {
   inFlight: false,
 };
 
-function useLazyQuery<T>(callback: () => Promise<T>): [
-  () => void,
-  {
-    isLoading: boolean;
-    isError: boolean;
-    isSuccess: boolean;
-    isIdle: boolean;
-    status: 'idle' | 'error' | 'success' | 'loading';
-    data: T;
-    inFlight: boolean;
-    errorMessage: string;
-  }
-] {
-  const [{ status, data, shouldRun, inFlight, errorMessage }, setQueryState] = React.useState<InitialState<T>>(
-    initialState as InitialState<T>
+function useLazyQuery<T>(callback: () => Promise<T>): LazyQueryProps<T> {
+  const [{ status, data, shouldRun, inFlight, errorMessage }, setQueryState] = React.useState<InitialQueryState<T>>(
+    initialState as InitialQueryState<T>
   );
 
   const callbackRef = React.useRef<() => Promise<T> | null>(null);
