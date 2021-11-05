@@ -21,14 +21,14 @@ function SearchPage() {
   const {
     queryProps: { isError, inFlight, isSuccess, errorMessage, isLoading },
     triggerQuery,
-    setheatMap,
+    setHeatMap,
     heatMap,
   } = useHeatmap({ subreddit });
 
   const handleSubmit = (e: React.BaseSyntheticEvent) => {
     e.preventDefault();
 
-    setheatMap(initialState());
+    setHeatMap(initialState());
 
     return triggerQuery();
   };
