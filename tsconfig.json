@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "types": ["cypress", "@testing-library/cypress"],
+    "types": ["jest", "@testing-library/cypress"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -14,7 +14,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    // absolute imports
     "baseUrl": ".",
     "outDir": "dist",
     "paths": {
