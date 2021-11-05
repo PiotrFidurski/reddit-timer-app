@@ -11,6 +11,7 @@ export const ArticleStyles = css`
 
 export const ImageWrapperStyles = css`
   width: 100%;
+
   img {
     filter: brightness(0.825) drop-shadow(0px 0px 0.4px ${({ theme: { color } }) => color.highlight});
   }
@@ -35,6 +36,7 @@ export const SectionStyles = css`
 
 export const LineOnHover = css`
   padding: 0.5rem 1rem;
+
   &:after {
     transition: transform 0.25s ease;
     position: absolute;

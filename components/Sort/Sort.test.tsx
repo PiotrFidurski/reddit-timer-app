@@ -1,6 +1,6 @@
 import Submissions from '@components/Submissions/Submissions';
 import { fireEvent, screen } from '@testing-library/react';
-import { initialState } from '@utils/heatmap';
+import { initialState } from '@utils/heatmap-utils';
 import { render } from '@utils/test-utils';
 
 const data = initialState();

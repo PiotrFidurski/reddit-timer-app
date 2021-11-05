@@ -1,6 +1,6 @@
 import { PageProps, RedditPost } from '@types';
+import { getDateInEpoch } from '@utils/fns/date';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getDateInEpoch } from 'utils/date';
 
 async function fetchPosts({ subreddit, after, before }: PageProps) {
   const response = await fetch(
@@ -16,13 +16,13 @@ async function fetchPosts({ subreddit, after, before }: PageProps) {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<{ data: Array<RedditPost> | null }>) {
   try {
-    const [threeMonthsAgo, sixMonthsAgo, yearAgo] = getDateInEpoch();
+    const [dateThreeMonthsAgo, dateSixMonthsAgo, dateYearAgo] = getDateInEpoch();
 
     const { subreddit } = req.query as { subreddit: string };
 
-    const yearOld = fetchPosts({ subreddit, before: sixMonthsAgo, after: yearAgo });
-    const sixMonthsOld = fetchPosts({ subreddit, after: sixMonthsAgo, before: threeMonthsAgo });
-    const threeMonthsOld = fetchPosts({ subreddit, after: threeMonthsAgo });
+    const yearOld = fetchPosts({ subreddit, before: dateSixMonthsAgo, after: dateYearAgo });
+    const sixMonthsOld = fetchPosts({ subreddit, after: dateSixMonthsAgo, before: dateThreeMonthsAgo });
+    const threeMonthsOld = fetchPosts({ subreddit, after: dateThreeMonthsAgo });
 
     const promise = await Promise.all([yearOld, sixMonthsOld, threeMonthsOld]);
 
