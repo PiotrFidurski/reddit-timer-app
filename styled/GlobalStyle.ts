@@ -27,15 +27,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-   font-family: "Ubuntu", sans-serif;
-   background: ${({ theme: { background } }) => background.primary};
-   color:  ${({ theme: { color } }) => color.default};
-   line-height: 1.75rem;
-   letter-spacing: 0.125rem;
-   margin: 0 auto;
-   height: 100vh;
-   font-size: 1rem;
-   overflow-x: hidden;
+    font-family: "Ubuntu", sans-serif;
+    background: ${({ theme: { background } }) => background.primary};
+    color:  ${({ theme: { color } }) => color.default};
+    line-height: 1.75rem;
+    letter-spacing: 0.125rem;
+    margin: 0 auto;
+    height: 100vh;
+    font-size: 1rem;
+    overflow-x: hidden;
   }
 
   a {

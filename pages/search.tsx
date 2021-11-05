@@ -5,10 +5,10 @@ import Submissions from '@components/Submissions/Submissions';
 import * as S from '@styled/SearchPage.styled';
 import { Time } from '@types';
 import { useHeatmap } from '@utils/customHooks/useHeatmap';
+import { initialState } from '@utils/heatmap-utils';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import * as React from 'react';
-import { initialState } from 'utils/heatmap';
 import Arrow from '../public/assets/svg/arrow.svg';
 
 function SearchPage() {

@@ -1,8 +1,8 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 import { useLazyQuery } from '../../../utils/customHooks/useLazyQuery';
-import { getData as mockGetData } from '../../../utils/getData';
+import { getData as mockGetData } from '../../../utils/fns/getData';
 
-jest.mock('@utils/getData');
+jest.mock('@utils/fns/getData');
 
 test('toggles "isLoading" state and "isError" state if theres an error', async () => {
   (mockGetData as jest.MockedFunction<jest.Mock>).mockRejectedValueOnce({ result: { data: [] } });

@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
+import { initialState } from '@utils/heatmap-utils';
 import { render } from '@utils/test-utils';
-import { initialState } from 'utils/heatmap';
 import Heatmap from './Heatmap';
 
 const heatmapData = initialState();

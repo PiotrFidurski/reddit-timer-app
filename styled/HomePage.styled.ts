@@ -119,6 +119,7 @@ export const Button = styled.button`
     border-color: ${({ theme: { color } }) => color.highlight};
     box-shadow: 0px 0px 8px ${({ theme: { color } }) => color.accent};
     outline: none;
+
     svg {
       fill: ${({ theme: { color } }) => color.highlight};
     }
@@ -130,6 +131,7 @@ export const Button = styled.button`
 
   &:hover {
     border-color: ${({ theme: { color } }) => color.highlight};
+
     svg {
       fill: ${({ theme: { color } }) => color.highlight};
     }

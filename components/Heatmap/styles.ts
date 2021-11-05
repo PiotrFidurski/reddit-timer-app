@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   max-width: 1000px;
+  position: relative;
   animation: ${fade} 0.7s ease;
   grid-area: heatmap;
   display: flex;

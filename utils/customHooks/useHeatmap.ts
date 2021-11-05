@@ -1,6 +1,7 @@
 import { RedditPost } from '@types';
-import { getData } from '@utils/getData';
-import { getDayAndHour, initialState } from '@utils/heatmap';
+import { getDayAndHour } from '@utils/fns/date';
+import { getData } from '@utils/fns/getData';
+import { initialState } from '@utils/heatmap-utils';
 import * as React from 'react';
 import { useLazyQuery } from './useLazyQuery';
 
