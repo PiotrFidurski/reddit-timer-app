@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { ArticleStyles, ImageWrapperStyles, LineOnHover, SectionStyles } from './style-utils';
+import { ArticleStyles, ImageWrapperStyles, LineOnHover, SectionStyles } from '../style-utils';
 
 export const Main = styled.main`
   position: relative;

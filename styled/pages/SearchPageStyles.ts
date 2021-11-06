@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { Button } from './HomePage.styled';
+import { Button } from './HomePageStyles';
 
 export const Main = styled.main`
   margin: 0 auto;
