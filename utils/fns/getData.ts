@@ -1,10 +1,7 @@
 import { RedditPost } from '@types';
 
-const url =
-  process.env.NODE_ENV === 'production' ? 'https://reddit-timer-app.vercel.app/api' : 'http://localhost:3000/api';
-
 export async function getData(subreddit: string): Promise<{ data: Array<RedditPost> }> {
-  const response = await fetch(`${url}/posts?subreddit=${subreddit}`);
+  const response = await fetch(`${process.env.BASE_URL}/api/posts?subreddit=${subreddit}`);
 
   const result: { data: Array<RedditPost> } = await response.json();
 

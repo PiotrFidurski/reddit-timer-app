@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 
 export const handlers = [
-  rest.get(`http://localhost:3000/api/posts`, (req, res, ctx) => {
+  rest.get(`${process.env.BASE_URL}/api/posts`, (req, res, ctx) => {
     const subreddit = req.url.searchParams.get('subreddit');
 
     return res(
