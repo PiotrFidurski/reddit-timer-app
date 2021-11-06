@@ -85,13 +85,13 @@ export const Day = styled.div`
   }
 `;
 
-export const Square = styled(Button)<{ bg: string; isActive: boolean }>`
+export const Square = styled(Button)<{ background: string; isSelected: boolean }>`
   height: 35px;
   min-width: 35px;
   padding: 0;
   border-color: transparent;
   border-radius: 0;
-  background: ${({ bg, isActive }) => (isActive ? '#f44336' : bg)};
+  background: ${({ background, isSelected }) => (isSelected ? '#f44336' : background)};
   display: flex;
   font-size: 1.2rem;
   align-items: center;

@@ -12,9 +12,9 @@ interface Props {
 export function useHeatmap({ subreddit }: Props) {
   const [triggerQuery, props] = useLazyQuery(() => getData(subreddit));
 
-  const [heatMap, setheatMap] = React.useState<Array<Array<RedditPost[]>>>(initialState);
+  const [heatMap, setHeatMap] = React.useState<Array<Array<RedditPost[]>>>(initialState);
 
-  const heatmapData = React.useRef(null);
+  const heatmapData = React.useRef<RedditPost[][][] | null>(null);
 
   heatmapData.current = heatMap;
 
@@ -27,9 +27,9 @@ export function useHeatmap({ subreddit }: Props) {
         heatmapCopy[day][hour] = [...heatmapCopy[day][hour], post];
       });
 
-      setheatMap(heatmapCopy);
+      setHeatMap(heatmapCopy);
     }
   }, [props.data]);
 
-  return { queryProps: { ...props }, triggerQuery, heatMap, setheatMap };
+  return { queryProps: { ...props }, triggerQuery, heatMap, setHeatMap };
 }

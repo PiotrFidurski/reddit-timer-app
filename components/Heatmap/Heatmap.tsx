@@ -21,17 +21,17 @@ function HeatmapComponent({ data, onClick, time }: Props) {
             <S.DayWrapper>
               <S.Day>{dayName.slice(0, 2)}</S.Day>
               {day.map((square, squareIndex) => {
-                const squareKey = `${squareIndex}_day-${days[dayIndex]}`;
-                const bg = colorPallette[square.length] ?? '#001056';
-                const isActive = time.day === dayIndex && time.hour === squareIndex;
+                const key = `${squareIndex}_day-${days[dayIndex]}`;
+                const background = colorPallette[square.length] ?? '#001056';
+                const isSelected = time.day === dayIndex && time.hour === squareIndex;
 
                 return (
                   <S.Square
-                    isActive={isActive}
+                    isSelected={isSelected}
                     onClick={() => onClick({ day: dayIndex, hour: squareIndex })}
-                    data-testid={squareKey}
-                    bg={bg}
-                    key={squareKey}
+                    data-testid={key}
+                    background={background}
+                    key={key}
                   >
                     {square.length}
                   </S.Square>

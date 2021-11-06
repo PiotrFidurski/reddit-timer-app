@@ -21,7 +21,7 @@ export default function HomePage() {
         <Image
           src="/assets/images/monitor-illustration.png"
           layout="intrinsic"
-          alt="computer_notes"
+          alt="computer with few notes next to it."
           width="550"
           height="400"
           quality={100}
@@ -62,7 +62,7 @@ export default function HomePage() {
         <S.AboutIllustrationWrapper>
           <Image
             src="/assets/images/test_tubes.png"
-            alt="tubes_illustration"
+            alt="Scientific tubes with liquid inside of them."
             layout="responsive"
             width="746"
             height="495"
@@ -82,7 +82,7 @@ export default function HomePage() {
         <S.HowItWorksIllustrationWrapper>
           <Image
             src="/assets/images/tools_illustration.png"
-            alt="wrench_tool"
+            alt="A wrench tool on top of computer screen"
             layout="responsive"
             width="662"
             height="387"
