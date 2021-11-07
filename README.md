@@ -75,3 +75,8 @@ it contains 300 submissions from last year to now, sorted by the score (Reddit's
 - [inspired by](https://profy.dev/project/reddit-timer)
 - [pushshift](https://pushshift.io/)
 - [vector art](https://iconmonstr.com/)
+
+## Known issues
+
+There might be a scenario where one heatmap square has 20+ submissions (for example when searching for "web") and as you'll notice alot of these will have the same title, however they aren't duplicate submissions,
+the list uses `submission.id` as key and these are all unique submissions, apparently Reddit had a bug last year where it would post one submission more than once, it is only the case for lesser known subreddits.
