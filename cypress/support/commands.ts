@@ -32,8 +32,8 @@ export interface InterceptAndSearchProps {
 
 Cypress.Commands.add(
   'interceptAndSearch',
-  ({ subreddit, fixture = 'pushshiftapi-response.json', delay = 1000 }: InterceptAndSearchProps) => {
-    cy.intercept(`/api/posts?subreddit=${subreddit}`, { fixture, delay }).as('getPosts');
+  ({ subreddit = 'javascript', fixture = 'pushshiftapi-response.json', delay = 1000 }: InterceptAndSearchProps) => {
+    cy.intercept('/api/posts?subreddit=javascript', { fixture, delay }).as('getPosts');
 
     cy.visit('/search');
 
