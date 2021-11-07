@@ -22,10 +22,15 @@ it contains 300 submissions from last year to now, sorted by the score (Reddit's
 <table>
   <tr>
     <td align="left">
-<img src="https://user-images.githubusercontent.com/32775962/140656002-e3f8a400-74f3-41b2-9a7b-976fe8fccb1d.jpg" align="center" />
+        <img src="https://user-images.githubusercontent.com/32775962/140656002-e3f8a400-74f3-41b2-9a7b-976fe8fccb1d.jpg" align="center" />
     </td>
     <td align="right">
-<img src="https://user-images.githubusercontent.com/32775962/140656017-f68d0022-add7-4edc-921b-d098a66fa05c.jpg" align="center" />
+        <img src="https://user-images.githubusercontent.com/32775962/140656017-f68d0022-add7-4edc-921b-d098a66fa05c.jpg" align="center" />
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+        <img src="https://user-images.githubusercontent.com/32775962/140656064-2203ee0b-5890-4db2-9b5d-355482fc1db4.jpg" align="center" />
     </td>
   </tr>
 </table>
