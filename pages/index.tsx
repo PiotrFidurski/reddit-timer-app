@@ -1,7 +1,7 @@
 import Footer from '@components/Footer/Footer';
 import NavComponent from '@components/Header/NavComponent';
-import * as S from '@styled/HomePage.styled';
-import { Hr } from '@styled/SearchPage.styled';
+import * as S from '@styled/pages/HomePageStyles';
+import { Hr } from '@styled/pages/SearchPageStyles';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';

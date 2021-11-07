@@ -2,6 +2,7 @@ describe('Menu tests', () => {
   beforeEach(() => {
     cy.viewport(600, 900);
   });
+
   it('opens and closes menu on ToggleMenuButton click', () => {
     cy.visit('/');
 

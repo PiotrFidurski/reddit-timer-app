@@ -2,13 +2,13 @@ import response from '../../fixtures/pushshiftapi-response.json';
 
 describe('/api/posts tests', () => {
   it('returns 200 status code on when requested subreddit exists', () => {
-    cy.interceptAndSearch({ subreddit: 'webdev' });
+    cy.interceptAndSearch({ subreddit: 'javascript' });
 
     cy.wait('@getPosts').its('response.statusCode').should('equal', 200);
   });
 
   it('returns data that deep-equals pushshift-response.json fixture', () => {
-    cy.interceptAndSearch({ subreddit: 'reactjs' });
+    cy.interceptAndSearch({ subreddit: 'javascript' });
 
     cy.wait('@getPosts').its('response.body').should('deep.equal', response);
   });
@@ -30,7 +30,7 @@ describe('/api/posts tests', () => {
       ],
     };
 
-    cy.interceptAndSearch({ subreddit: 'reactjs', fixture: 'redditpost-response.json' });
+    cy.interceptAndSearch({ subreddit: 'javascript', fixture: 'redditpost-response.json' });
 
     cy.wait('@getPosts').its('response.body').should('deep.equal', post);
   });

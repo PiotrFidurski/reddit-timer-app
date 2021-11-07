@@ -1,4 +1,4 @@
-import { Button } from '@styled/HomePage.styled';
+import { Button } from '@styled/pages/HomePageStyles';
 import * as React from 'react';
 import { Form as StyledForm, Input, Label } from './styles';
 

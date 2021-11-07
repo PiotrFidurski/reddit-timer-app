@@ -50,7 +50,7 @@ describe('SearchPage tests', () => {
   });
 
   it('displays reddit submissions when heatmap square is clicked', () => {
-    cy.interceptAndSearch({ subreddit: 'reactjs', delay: 2000 });
+    cy.interceptAndSearch({ subreddit: 'javascript', delay: 2000 });
 
     cy.wait('@getPosts');
 
@@ -60,7 +60,7 @@ describe('SearchPage tests', () => {
   });
 
   it('each reddit submission has a reddit full_link', () => {
-    cy.interceptAndSearch({ subreddit: 'reactjs', delay: 2000 });
+    cy.interceptAndSearch({ subreddit: 'javascript', delay: 2000 });
 
     cy.wait('@getPosts');
 
@@ -75,7 +75,7 @@ describe('SearchPage tests', () => {
   });
 
   it('sorts posts by ascending and descending order', () => {
-    cy.interceptAndSearch({ subreddit: 'reactjs', delay: 2000 });
+    cy.interceptAndSearch({ subreddit: 'javascript', delay: 2000 });
 
     cy.wait('@getPosts');
 
@@ -95,7 +95,7 @@ describe('SearchPage tests', () => {
   });
 
   it('sorts posts by specified type', () => {
-    cy.interceptAndSearch({ subreddit: 'reactjs', delay: 2000 });
+    cy.interceptAndSearch({ subreddit: 'javascript', delay: 2000 });
 
     cy.wait('@getPosts');
 

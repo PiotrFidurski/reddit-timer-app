@@ -2,7 +2,7 @@ import Footer from '@components/Footer/Footer';
 import Form from '@components/Form/Form';
 import Heatmap from '@components/Heatmap/Heatmap';
 import Submissions from '@components/Submissions/Submissions';
-import * as S from '@styled/SearchPage.styled';
+import * as S from '@styled/pages/SearchPageStyles';
 import { Time } from '@types';
 import { useHeatmap } from '@utils/customHooks/useHeatmap';
 import { initialState } from '@utils/heatmap-utils';

@@ -1,4 +1,4 @@
-import { Button } from '@styled/HomePage.styled';
+import { Button } from '@styled/pages/HomePageStyles';
 import { fade } from '@styled/style-utils';
 import styled from 'styled-components';
 
