@@ -1,34 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Reddit Timer App
 
-## Getting Started
+## Table of Contents
 
-First, run the development server:
+<details>
+<summary>Click to expand</summary>
+  
+- [Introduction](#introduction)  
+  
+- [Environment Variables](#environment-variables)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- [Credits](#credits)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+</details>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Introduction
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Welcome to [Reddit Timer App](https://reddit-timer-app.vercel.app/) where you can
+search for any existing [Reddit](https://www.reddit.com/) subreddit and it will generate heatmap based on the results. The data comes from [Pushshift api](https://pushshift.io/api-parameters/) and
+it contains 300 submissions from last year to now, sorted by the score (Reddit's upvote system). It is possible to click on each square in the heatmap and view some information about submissions, you can also sort them by comments, date and score. This project was heavily inspired by free plan of [profy.dev](https://profy.dev/project/reddit-timer), where you can learn professional dev workflow and more. It's built with [next.js](https://nextjs.org/) and features libraries like [framer-motion](https://www.framer.com/docs/) for sorting animations, [styled-components](https://styled-components.com/) for styling.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<table>
+  <tr>
+    <td align="left">
+        <img src="https://user-images.githubusercontent.com/32775962/140656002-e3f8a400-74f3-41b2-9a7b-976fe8fccb1d.jpg" align="center" />
+    </td>
+    <td align="right">
+        <img src="https://user-images.githubusercontent.com/32775962/140656017-f68d0022-add7-4edc-921b-d098a66fa05c.jpg" align="center" />
+    </td>
+  </tr>
+  <tr>
+    <td align="left">
+        <img src="https://user-images.githubusercontent.com/32775962/140656064-2203ee0b-5890-4db2-9b5d-355482fc1db4.jpg" align="center" />
+    </td>
+  </tr>
+</table>
 
-## Learn More
+## Environment variables
 
-To learn more about Next.js, take a look at the following resources:
+| Name          | Description       | Example                                              |
+| ------------- | ----------------- | ---------------------------------------------------- |
+| PUSHSHIFT_URL | pushshift API uri | `https://api.pushshift.io/reddit/search/submission/` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy this yourself
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Clone to your computer.
 
-## Deploy on Vercel
+  - `clone this repo`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  - `cd reddit-timer-app`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  - `npm install`
+
+- Create .env.local in the root directory of your project, add env variables required.
+
+- Start a dev server
+
+  - `npm run dev`
+
+- Run integration tests
+
+  - `npm run test`
+
+- Run e2e tests
+
+  - `npx cypress run`
+  - `npx cypress open`
+
+## Credits
+
+- Homepage Illustrations
+
+  - [lukaszadam](https://lukaszadam.com/illustrations)
+
+- [inspired by](https://profy.dev/project/reddit-timer)
+- [pushshift](https://pushshift.io/)
+- [vector art](https://iconmonstr.com/)
