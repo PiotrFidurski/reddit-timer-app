@@ -1,5 +1,4 @@
 import { getUnixTimestamps as mockGetUnixTimestamps } from '@utils/fns/date';
-import { getUnixTime, subMonths, subYears } from 'date-fns';
 
 const date = Date.UTC(2021, 11, 10, 13, 0, 0);
 
@@ -13,13 +12,13 @@ afterEach(() => {
 });
 
 jest.mock('@utils/fns/date', () => ({
-  getUnixTimestamps: jest.fn(() => [1631275200, 1623326400, 1607605200]),
+  getUnixTimestamps: jest.fn(() => ['1631278800', '1623330000', '1607605200']),
 }));
 
 test('it returns array of dates in epoch time', () => {
-  const threeMonthsAgo = getUnixTime(subMonths(date, 3));
-  const sixMonthsAgo = getUnixTime(subMonths(date, 6));
-  const yearAgo = getUnixTime(subYears(date, 1));
+  const sixMonthsAgo = (new Date(date).setUTCMonth(new Date(date).getUTCMonth() - 6) / 1000).toFixed();
+  const threeMonthsAgo = (new Date(date).setUTCMonth(new Date(date).getUTCMonth() - 3) / 1000).toFixed();
+  const yearAgo = (new Date(date).setUTCFullYear(new Date(date).getUTCFullYear() - 1) / 1000).toFixed();
 
   const result = mockGetUnixTimestamps();
 
