@@ -1,6 +1,6 @@
 import { getDateInEpoch as mockGetDateInEpoch } from '@utils/fns/date';
 
-const date = new Date(Date.UTC(2021, 11, 10, 13, 0, 0));
+const date = Date.UTC(2021, 11, 10, 13, 0, 0);
 
 beforeEach(() => {
   jest.useFakeTimers('modern');
