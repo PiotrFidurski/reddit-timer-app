@@ -1,5 +1,5 @@
 import { PageProps, RedditPost } from '@types';
-import { getDateInEpoch } from '@utils/fns/date';
+import { getUnixTimestamps } from '@utils/fns/date';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 async function fetchPosts({ subreddit, after, before }: PageProps) {
@@ -16,7 +16,7 @@ async function fetchPosts({ subreddit, after, before }: PageProps) {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<{ data: Array<RedditPost> | null }>) {
   try {
-    const [dateThreeMonthsAgo, dateSixMonthsAgo, dateYearAgo] = getDateInEpoch();
+    const [dateThreeMonthsAgo, dateSixMonthsAgo, dateYearAgo] = getUnixTimestamps();
 
     const { subreddit } = req.query as { subreddit: string };
 
