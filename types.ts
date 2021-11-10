@@ -22,8 +22,8 @@ export interface RedditPost {
 
 export interface PageProps {
   subreddit: string;
-  after: string;
-  before?: string;
+  after: number;
+  before?: number;
 }
 
 export type SortType = 'score' | 'created_utc' | 'num_comments';

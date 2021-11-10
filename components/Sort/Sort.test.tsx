@@ -3,6 +3,17 @@ import { fireEvent, screen } from '@testing-library/react';
 import { initialState } from '@utils/heatmap-utils';
 import { render } from '@utils/test-utils';
 
+const date = new Date('November 1, 2021 13:00:00');
+
+beforeEach(() => {
+  jest.useFakeTimers('modern');
+  jest.setSystemTime(date);
+});
+
+afterEach(() => {
+  jest.useRealTimers();
+});
+
 const data = initialState();
 
 data[0][0].push(
@@ -29,6 +40,7 @@ data[0][0].push(
 );
 
 test('it sorts posts in descending and ascending order', async () => {
+  jest.useFakeTimers();
   render(<Submissions time={{ day: 0, hour: 0 }} data={data} />);
 
   const orderBtn = screen.getByRole('button', { name: /sort-order/i });

@@ -1,9 +1,10 @@
 import { RedditPost } from '@types';
+import { getUnixTime, subMonths, subYears } from 'date-fns';
 
-function getDateInEpoch() {
-  const dateThreeMonthsAgo = (new Date(Date.now()).setMonth(new Date().getMonth() - 3) / 1000).toFixed();
-  const dateSixMonthsAgo = (new Date(Date.now()).setMonth(new Date().getMonth() - 6) / 1000).toFixed();
-  const dateYearAgo = (new Date(Date.now()).setFullYear(new Date().getFullYear() - 1) / 1000).toFixed();
+function getUnixTimestamps() {
+  const dateThreeMonthsAgo = getUnixTime(subMonths(Date.now(), 3));
+  const dateSixMonthsAgo = getUnixTime(subMonths(Date.now(), 6));
+  const dateYearAgo = getUnixTime(subYears(Date.now(), 1));
 
   return [dateThreeMonthsAgo, dateSixMonthsAgo, dateYearAgo];
 }
@@ -16,4 +17,4 @@ function getDayAndHour(post: RedditPost) {
   return [day, hour];
 }
 
-export { getDateInEpoch, getDayAndHour };
+export { getUnixTimestamps, getDayAndHour };
